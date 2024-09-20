@@ -1,0 +1,6 @@
+@bezoni_shoes_store.Server_HostAddress = http://localhost:5010
+
+GET {{bezoni_shoes_store.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
