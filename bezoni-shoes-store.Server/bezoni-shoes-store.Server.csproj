@@ -11,17 +11,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy">
       <Version>8.*-*</Version>
     </PackageReference>
-    <PackageReference Include="MongoDB.Driver" Version="2.29.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\bezoni-shoes-store.Application\bezoni-shoes-store.Application.csproj" />
     <ProjectReference Include="..\bezoni-shoes-store.client\bezoni-shoes-store.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\bezoni-shoes-store.Contracts\bezoni-shoes-store.Contracts.csproj" />
+    <ProjectReference Include="..\bezoni-shoes-store.Infrastucture\bezoni-shoes-store.Infrastucture.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Common\Errors\" />
   </ItemGroup>
 
 </Project>

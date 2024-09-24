@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bezoni-shoes-store.Server", "bezoni-shoes-store.Server\bezoni-shoes-store.Server.csproj", "{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bezoni-shoes-store.Server", "bezoni-shoes-store.Server\bezoni-shoes-store.Server.csproj", "{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "bezoni-shoes-store.client", "bezoni-shoes-store.client\bezoni-shoes-store.client.esproj", "{F0355D2B-07E3-40A1-B099-9140C6DB32E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bezoni-shoes-store.Application", "bezoni-shoes-store.Application\bezoni-shoes-store.Application.csproj", "{030A54C3-816D-417D-8706-F43E61A3B602}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bezoni-shoes-store.Contracts", "bezoni-shoes-store.Contracts\bezoni-shoes-store.Contracts.csproj", "{A17664D8-9749-4AC7-B3A9-F89673C3F0F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bezoni-shoes-store.Domain", "bezoni-shoes-store.Domain\bezoni-shoes-store.Domain.csproj", "{664A3D63-3521-44ED-8209-A8294236D98B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bezoni-shoes-store.Infrastucture", "bezoni-shoes-store.Infrastucture\bezoni-shoes-store.Infrastucture.csproj", "{A7B3EBBF-DE7E-40FE-A630-7FC2E98813DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +31,22 @@ Global
 		{F0355D2B-07E3-40A1-B099-9140C6DB32E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0355D2B-07E3-40A1-B099-9140C6DB32E3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F0355D2B-07E3-40A1-B099-9140C6DB32E3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{030A54C3-816D-417D-8706-F43E61A3B602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{030A54C3-816D-417D-8706-F43E61A3B602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{030A54C3-816D-417D-8706-F43E61A3B602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{030A54C3-816D-417D-8706-F43E61A3B602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A17664D8-9749-4AC7-B3A9-F89673C3F0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17664D8-9749-4AC7-B3A9-F89673C3F0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17664D8-9749-4AC7-B3A9-F89673C3F0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17664D8-9749-4AC7-B3A9-F89673C3F0F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{664A3D63-3521-44ED-8209-A8294236D98B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{664A3D63-3521-44ED-8209-A8294236D98B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{664A3D63-3521-44ED-8209-A8294236D98B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{664A3D63-3521-44ED-8209-A8294236D98B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B3EBBF-DE7E-40FE-A630-7FC2E98813DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B3EBBF-DE7E-40FE-A630-7FC2E98813DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B3EBBF-DE7E-40FE-A630-7FC2E98813DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B3EBBF-DE7E-40FE-A630-7FC2E98813DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

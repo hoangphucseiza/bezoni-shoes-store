@@ -1,22 +1,24 @@
-using bezoni_shoes_store.Server.Interfaces;
-using bezoni_shoes_store.Server.Models;
-using bezoni_shoes_store.Server.Repositories;
+
+
+using bezoni_shoes_store.Application;
+using bezoni_shoes_store.Infrastucture;
+using bezoni_shoes_store.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddApplication();
+builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddPresentation();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Connect MongoDB
-builder.Services.Configure<MongoDBSettings>(builder.Configuration.GetSection("MongoDB"));
 
 
-// Add services to the container.
-builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 
 var app = builder.Build();
