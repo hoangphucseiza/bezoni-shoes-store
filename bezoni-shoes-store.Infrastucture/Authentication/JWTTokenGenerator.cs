@@ -2,6 +2,7 @@
 using bezoni_shoes_store.Application.Common.Interfaces.Services;
 using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.Services;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -18,9 +19,9 @@ namespace bezoni_shoes_store.Infrastucture.Authentication
         private readonly JwtSettings _jwtSettings;
         private readonly IDateTimeProvider _dateTimeProvider;
 
-        public JWTTokenGenerator(JwtSettings jwtSettings, IDateTimeProvider dateTimeProvider)
+        public JWTTokenGenerator(IOptions<JwtSettings> jwtSettings, IDateTimeProvider dateTimeProvider)
         {
-            _jwtSettings = jwtSettings;
+            _jwtSettings = jwtSettings.Value;
             _dateTimeProvider = dateTimeProvider;
         }
         public string GenerateToken(User user)

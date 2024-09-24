@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bezoni_shoes_store.Server.Controllers
-{
-    [Route("api/[controller]")]
+{     
     [ApiController]
+    [Route("api/[controller]")]
     public class AuthenticationController : ControllerBase
     {
         private readonly ISender _mediator;

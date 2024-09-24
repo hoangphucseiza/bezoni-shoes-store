@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Contracts.Authentication
 {
-    public class LoginRequest(string Email, string Password);
+    public record LoginRequest(string Email, string Password);
     
 }
