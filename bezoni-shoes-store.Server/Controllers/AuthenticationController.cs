@@ -1,5 +1,6 @@
 ﻿
 using bezoni_shoes_store.Application.Authentication.Commands.Register;
+using bezoni_shoes_store.Application.Authentication.Queries.Login;
 using bezoni_shoes_store.Contracts.Authentication;
 using MapsterMapper;
 using MediatR;
@@ -30,6 +31,15 @@ namespace bezoni_shoes_store.Server.Controllers
             var result = await _mediator.Send(command);
                 return Ok(result);
 
+        }
+
+        [HttpPost]
+        [Route("Login")]
+        public async Task<IActionResult> Login(LoginRequest request)
+        {
+            var query = _mapper.Map<LoginQuery>(request);
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
 
     }
