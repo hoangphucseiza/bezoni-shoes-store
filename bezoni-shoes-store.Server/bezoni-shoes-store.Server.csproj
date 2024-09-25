@@ -28,8 +28,4 @@
     <ProjectReference Include="..\bezoni-shoes-store.Infrastucture\bezoni-shoes-store.Infrastucture.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Common\Errors\" />
-  </ItemGroup>
-
 </Project>

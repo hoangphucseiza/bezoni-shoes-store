@@ -1,4 +1,5 @@
 ﻿using bezoni_shoes_store.Application.Authentication.Common;
+using bezoni_shoes_store.Application.Common.Errors;
 using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using MediatR;
@@ -28,12 +29,12 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.Login
             var user = await _userRepository.GetUserByEmail(request.Email);
             if (user is null)
             {
-                throw new Exception("User with given email does not exist");
+                throw new UserWithEmailNotExist();
             }
             //2. Validate the password
             if (user.Password != request.Password)
             {
-                throw new Exception("Invalid password");
+                throw new InvalidPassword();
             }
 
             //3. Create JWT token

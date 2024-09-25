@@ -42,6 +42,7 @@ if (app.Environment.IsDevelopment())
 }
 
 // Some code here
+app.UseExceptionHandler("/error");
 
 
 

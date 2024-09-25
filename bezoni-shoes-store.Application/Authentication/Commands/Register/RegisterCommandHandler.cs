@@ -1,4 +1,5 @@
 ﻿using bezoni_shoes_store.Application.Authentication.Common;
+using bezoni_shoes_store.Application.Common.Errors;
 using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Domain.Entities;
@@ -28,7 +29,7 @@ namespace bezoni_shoes_store.Application.Authentication.Commands.Register
            var existingUser = await _userRepository.GetUserByEmail(request.Email);
             if (existingUser != null)
             {
-                throw new Exception("User with this email already exists");
+                throw new DuplicateEmailException();
             }
             //2. Create the user (generate unique Id)
             var user = new User
