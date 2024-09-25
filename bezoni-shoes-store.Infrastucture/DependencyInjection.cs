@@ -24,15 +24,23 @@ namespace bezoni_shoes_store.Infrastucture
            ConfigurationManager configuration)
         {
             services.AddAuth(configuration);
+
+            // Add configuration MongoDB by section
             services.Configure<MongoDBSettings>(configuration.GetSection(MongoDBSettings.SectionName));
+
+            // Add life time of services
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
             services.AddScoped<IUserRepository, UserRepository>();
+
+
             return services;
         }
         public static IServiceCollection AddAuth(this IServiceCollection services,
            ConfigurationManager configuration)
         {
             var JwtSettings = new JwtSettings();
+
+            // Add configuration JWT by section
             configuration.Bind(JwtSettings.SectionName, JwtSettings);
 
             services.AddSingleton(Options.Create(JwtSettings));

@@ -14,8 +14,9 @@ namespace bezoni_shoes_store.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            // Validate (Doing ...)
+            //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(ctg =>
             {
                 ctg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
