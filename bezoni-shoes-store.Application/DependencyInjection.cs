@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using bezoni_shoes_store.Application.Common.Behaviors;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -14,9 +15,8 @@ namespace bezoni_shoes_store.Application
     {
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
-            // Validate (Doing ...)
-            //services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddMediatR(ctg =>
             {
                 ctg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());

@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using bezoni_shoes_store.Application.Common.Errors;
+using FluentValidation;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,25 +9,40 @@ using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Application.Common.Behaviors
 {
-    //public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
-    //{
-    //    private readonly IValidator<TRequest> _validator;
+    public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
+    {
+        private readonly IValidator<TRequest>? _validator;
 
-    //    public ValidationBehavior(IValidator<TRequest> validator)
-    //    {
-    //        _validator = validator;
-    //    }
+        public ValidationBehavior(IValidator<TRequest>? validator)
+        {
+            _validator = validator;
+        }
+        public async Task<TResponse> Handle(
+            TRequest request,
+           RequestHandlerDelegate<TResponse> next,
+            CancellationToken cancellationToken)
+        {
+            if (_validator is null)
+            {
+                return await next();
+            }
 
-    //    public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
-    //    {
-    //        var validationResult = await _validator.ValidateAsync(request, cancellationToken);
+            var validationResult = await _validator.ValidateAsync(request, cancellationToken);
 
-    //        if (!validationResult.IsValid)
-    //        {
-    //            throw new ValidationException(validationResult.Errors);
-    //        }
+            if (validationResult.IsValid)
+            {
+                return await next();
 
-    //        return await next();
-    //    }
-    //}
+            }
+
+            var errors = validationResult.Errors
+                     .Select(validationFailure => validationFailure.ErrorMessage)
+                      .ToList()[0];
+
+
+            throw new ValidateException(errors);
+
+
+        }
+    }
 }
