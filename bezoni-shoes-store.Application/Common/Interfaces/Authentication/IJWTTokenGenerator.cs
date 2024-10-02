@@ -10,5 +10,9 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Authentication
     public interface IJWTTokenGenerator
     {
         string GenerateToken(User user);
+
+        string GenerateRefreshToken(User user);
+
+        string RefreshToken(string refreshToken);
     }
 }

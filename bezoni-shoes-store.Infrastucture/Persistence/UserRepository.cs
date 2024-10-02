@@ -1,6 +1,7 @@
 ﻿using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.MongoDB;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
@@ -11,27 +12,44 @@ using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Infrastucture.Persistence
 {
+
     public class UserRepository : IUserRepository
     {
-        private readonly IMongoCollection<User> _userCollection;
+        private readonly UserManager<User> _userCollection;
 
-        public UserRepository(IOptions<MongoDBSettings> settings)
+        public UserRepository(UserManager<User> userCollecion)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
-            var database = client.GetDatabase(settings.Value.DatabaseName);
-
-            _userCollection = database.GetCollection<User>(settings.Value.UserCollectionName);
+            _userCollection = userCollecion;
         }
-        public async Task AddUser(User user)
+        public async Task<IdentityResult> AddUser(User user, string password)
         {
-             await _userCollection.InsertOneAsync(user);
+            // create user
+            var result = await _userCollection.CreateAsync(user, password);
+            if (result.Succeeded)
+            {
+                // add user to role
+                await _userCollection.AddToRoleAsync(user, "User");
+            }
+            return result;
         }
 
-        public async Task<User?> GetUserByEmail(string email)
+        public async Task<bool> checkPassWord(User user ,string password)
         {
+            // Kiểm tra xem mật khẩu có đúng hay không
+            var result = await _userCollection.CheckPasswordAsync(user, password);
+            return result; // Trả về true nếu mật khẩu đúng, ngược lại false
+        }
 
-           return  await _userCollection.Find(u => u.Email == email).FirstOrDefaultAsync();
+        public async Task<User> GetUserByEmail(string email)
+        {
+           var user = await _userCollection.FindByEmailAsync(email);
+            return user;
+        }
 
+        public async Task<User> GetUserById(string id)
+        {
+          var user = await _userCollection.FindByIdAsync(id);
+            return user;
         }
     }
 }

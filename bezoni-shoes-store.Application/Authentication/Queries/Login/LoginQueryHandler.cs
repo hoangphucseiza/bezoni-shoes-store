@@ -3,11 +3,7 @@ using bezoni_shoes_store.Application.Common.Errors;
 using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace bezoni_shoes_store.Application.Authentication.Queries.Login
 {
@@ -31,16 +27,19 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.Login
             {
                 throw new UserWithEmailNotExist();
             }
-            //2. Validate the password
-            if (user.Password != request.Password)
-            {
-                throw new InvalidPassword();
-            }
+            //2. compare password from user 
 
+            var checkPassword = await _userRepository.checkPassWord(user, request.Password);
+            if (!checkPassword)
+            {
+                throw new PasswordNotMatchException();
+            }
             //3. Create JWT token
             var token = _jwtTokenGenerator.GenerateToken(user);
 
-            return await Task.FromResult(new AuthenticationResult(user, token));
+            var refrehToken = _jwtTokenGenerator.GenerateRefreshToken(user);
+
+            return await Task.FromResult(new AuthenticationResult(user, token, refrehToken));
 
         }
     }

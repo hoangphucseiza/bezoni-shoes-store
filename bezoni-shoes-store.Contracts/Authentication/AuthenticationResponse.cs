@@ -8,9 +8,11 @@ namespace bezoni_shoes_store.Contracts.Authentication
 {
     public record AuthenticationResponse(
         string Id,
-        string Name,
+        string FullName,
+        string UserName,
         string Email,
-        string Token
+        string Token,
+        string RefreshToken
         );
     
 }
