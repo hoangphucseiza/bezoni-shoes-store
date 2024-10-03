@@ -12,5 +12,7 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
 
         Task<List<Product>> GetProductsBySearch(string search);
 
+        Task<List<Product>> GetProductsByDesciptionTextSearch(string search);
+
     }
 }

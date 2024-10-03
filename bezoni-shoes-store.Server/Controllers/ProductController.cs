@@ -2,6 +2,8 @@
 using bezoni_shoes_store.Application.ProductCQRS.Queries;
 using bezoni_shoes_store.Application.ProductCQRS.Queries.GetAllProducts;
 using bezoni_shoes_store.Application.ProductCQRS.Queries.GetProductByID;
+using bezoni_shoes_store.Application.ProductCQRS.Queries.GetProductBySearch;
+using bezoni_shoes_store.Application.ProductCQRS.Queries.GetProductsByDesciptionTextSearch;
 using bezoni_shoes_store.Contracts.Product;
 using MapsterMapper;
 using MediatR;
@@ -52,6 +54,24 @@ namespace bezoni_shoes_store.Server.Controllers
         public async Task<IActionResult> GetAllProducts()
         {
             var query = new GetAllProductsQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("GetProductsBySearch")]
+        public async Task<IActionResult> GetProductsBySearch([FromQuery] string search)
+        {
+            var query = new GetProductsBySearchQuery(search);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetProductsByDescription_Text-Search")]
+        public async Task<IActionResult> GetProductsByDescriptionTextSearch([FromQuery] string search)
+        {
+
+            var query = new GetProductsByDesciptionTextSearchQuery(search);
             var result = await _mediator.Send(query);
             return Ok(result);
         }

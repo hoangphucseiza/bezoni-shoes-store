@@ -44,9 +44,23 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
             return products;
         }
 
-        public Task<List<Product>> GetProductsBySearch(string search)
+        public async Task<List<Product>> GetProductsByDesciptionTextSearch(string search)
         {
-            throw new NotImplementedException();
+            var indexKeys = Builders<Product>.IndexKeys.Text(x => x.Description);
+            await _productCollection.Indexes.CreateOneAsync(new CreateIndexModel<Product>(indexKeys));
+            var filter = Builders<Product>.Filter.Text(search);
+            // Tìm cụm từ chính xác
+            // var filter = Builders<Product>.Filter.Text("\"specific phrase\"");
+            // Loại trừ từ không mong muốn
+            //var filter = Builders<Product>.Filter.Text("shoes -sandals");
+            var products = await _productCollection.Find(filter).ToListAsync();
+            return products;
+        }
+
+        public async Task<List<Product>> GetProductsBySearch(string search)
+        {
+            var products = await _productCollection.Find(p => p.Name.ToLower().Contains(search.ToLower())).ToListAsync();
+            return products;
         }
     }
 }
