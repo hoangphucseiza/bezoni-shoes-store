@@ -41,7 +41,7 @@ namespace bezoni_shoes_store.Infrastucture
 
             // Add services cache
             //services.AddMemoryCache();
-            //services.AddScoped<ICacheService, CacheService>();
+            services.AddScoped<ICacheService, CacheService>();
 
 
             return services;

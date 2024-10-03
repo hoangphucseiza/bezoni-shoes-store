@@ -11,13 +11,7 @@ namespace bezoni_shoes_store.Infrastucture.Cache
 {
     public class CacheService : ICacheService
     {
-        private readonly ObjectCache _memoryCache = MemoryCache.Default;
-
-        // Constructor
-        public CacheService(IOptions<ObjectCache> memoryCache)
-        {
-            _memoryCache = memoryCache.Value;
-        }
+        private ObjectCache _memoryCache = MemoryCache.Default;
 
         public T GetData<T>(string key)
         {

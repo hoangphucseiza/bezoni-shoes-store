@@ -1,4 +1,5 @@
-﻿using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
+﻿using bezoni_shoes_store.Application.Common.Interfaces.Cache;
+using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.MongoDB;
 using Microsoft.Extensions.Options;
@@ -38,7 +39,7 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
 
         public async Task<List<Product>> GetAllProducts()
         {
-           var products = await _productCollection.Find(p => true).ToListAsync();
+            var products = await _productCollection.Find(p => true).ToListAsync();
             return products;
         }
 
