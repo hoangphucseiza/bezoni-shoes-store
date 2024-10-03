@@ -51,6 +51,7 @@ namespace bezoni_shoes_store.Application.Authentication.Commands.Register
             var token = _jwtTokenGenerator.GenerateToken(userResult);
 
             var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(userResult);
+
             return await Task.FromResult(new AuthenticationResult(userResult, token, refreshToken));
 
 

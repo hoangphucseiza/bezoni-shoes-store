@@ -13,6 +13,6 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Authentication
 
         string GenerateRefreshToken(User user);
 
-        string RefreshToken(string refreshToken);
+        string GetIDByRefreshToken(string refreshToken);
     }
 }

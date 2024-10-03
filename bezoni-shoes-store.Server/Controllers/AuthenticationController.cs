@@ -19,13 +19,12 @@ namespace bezoni_shoes_store.Server.Controllers
     {
         private readonly ISender _mediator;
         private readonly IMapper _mapper;
-        private readonly IUserRepository _userRepository;
 
-        public AuthenticationController(ISender mediator, IMapper mapper, IUserRepository userRepository)
+        public AuthenticationController(ISender mediator, IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;
-            _userRepository = userRepository;
+        
         }
 
 
@@ -61,20 +60,20 @@ namespace bezoni_shoes_store.Server.Controllers
 
         [HttpPost]
         [Route("RefreshToken")]
-        public async Task<IActionResult> RefreshToken(RefreshTokenQuery request)
+        public async Task<IActionResult> RefreshToken(RefreshTokenRequest request)
         {
-            //var query = _mapper.Map<RefreshTokenQuery>(request);
-            var result = await _mediator.Send(request);
+            var query = _mapper.Map<RefreshTokenQuery>(request);
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
 
         // test get user by id
-        [HttpGet]
-        [Route("GetUserById")]
-        public async Task<IActionResult> GetUserById(string id)
-        {
-            var user = await _userRepository.GetUserById(id);
-            return Ok(user);
-        }
+        //[HttpGet]
+        //[Route("GetUserById")]
+        //public async Task<IActionResult> GetUserById(string id)
+        //{
+        //    var user = await _userRepository.GetUserById(id);
+        //    return Ok(user);
+        //}
     }
 }

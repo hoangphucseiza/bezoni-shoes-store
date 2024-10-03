@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Application.Authentication.Queries.RefreshToken
 {
-    public record RefreshTokenQuery(string refreshtoken) : IRequest<RefreshTokenResult>;
+    public record RefreshTokenQuery(string RefreshToken) : IRequest<RefreshTokenResult>;
 
 }

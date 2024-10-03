@@ -44,14 +44,14 @@ namespace bezoni_shoes_store.Infrastucture
            ConfigurationManager configuration)
         {
             var JwtSettings = new JwtSettings();
-            var MongoDbSettings = new MongoDBSettings();  
+            var mongoDbSettings = new MongoDBSettings();  
 
             // Add configuration JWT by section
             configuration.Bind(JwtSettings.SectionName, JwtSettings);
-            configuration.Bind(MongoDBSettings.SectionName, MongoDbSettings);
+            configuration.Bind(MongoDBSettings.SectionName, mongoDbSettings);
 
             services.AddSingleton(Options.Create(JwtSettings));
-            services.AddSingleton(Options.Create(MongoDbSettings));
+            services.AddSingleton(Options.Create(mongoDbSettings));
 
             services.AddSingleton<IJWTTokenGenerator, JWTTokenGenerator>();
 
@@ -60,8 +60,8 @@ namespace bezoni_shoes_store.Infrastucture
                 {
                     MongoDbSettings = new MongoDbSettings
                     {
-                        ConnectionString = MongoDbSettings.ConnectionString,
-                        DatabaseName = MongoDbSettings.DatabaseName,
+                        ConnectionString = mongoDbSettings.ConnectionString,
+                        DatabaseName = mongoDbSettings.DatabaseName,
                     },
                     IdentityOptionsAction = options =>
                     {

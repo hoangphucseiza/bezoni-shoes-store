@@ -1,7 +1,11 @@
-﻿using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
+﻿using AspNetCore.Identity.MongoDbCore.Models;
+using bezoni_shoes_store.Application.Common.Errors;
+using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
+using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Application.Common.Interfaces.Services;
 using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.Services;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -19,13 +23,13 @@ namespace bezoni_shoes_store.Infrastucture.Authentication
     {
         private readonly JwtSettings _jwtSettings;
         private readonly IDateTimeProvider _dateTimeProvider;
-        private readonly UserManager<User> _userManager;
+       
 
         public JWTTokenGenerator(IOptions<JwtSettings> jwtSettings, IDateTimeProvider dateTimeProvider)
         {
             _jwtSettings = jwtSettings.Value;
             _dateTimeProvider = dateTimeProvider;
-           
+
         }
 
         public string GenerateRefreshToken(User user)
@@ -75,34 +79,52 @@ namespace bezoni_shoes_store.Infrastucture.Authentication
 
         }
 
-        public string RefreshToken(string refreshToken)
+        public string GetIDByRefreshToken(string refreshToken)
         {
-            // Check token is valid
+            //1. Validate the token
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenValidationParameters = new TokenValidationParameters
             {
-                ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
                 ValidateIssuer = true,
                 ValidateAudience = true,
-                ValidateLifetime = false,
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
                 ValidIssuer = _jwtSettings.Issuer,
-                ValidAudience = _jwtSettings.Audience
+                ValidAudience = _jwtSettings.Audience,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret))
             };
 
             SecurityToken securityToken;
             var principal = tokenHandler.ValidateToken(refreshToken, tokenValidationParameters, out securityToken);
 
-            if (securityToken is not JwtSecurityToken jwtSecurityToken || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            //2. Check the token is valid
+
+            var jwtToken = securityToken as JwtSecurityToken;
+            if (jwtToken == null || !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
             {
-                throw new SecurityTokenException("Invalid token");
+                throw new InvalidToken();
             }
 
-            var userId = principal.FindFirstValue(JwtRegisteredClaimNames.Sub);
-            var user = _userManager.FindByIdAsync(userId).Result;
+            //3. Check token còn hạn sử dụng không
+            var utcNow = _dateTimeProvider.UtcNow;
+            var expiryDateUnix = long.Parse(principal.Claims.Single(x => x.Type == JwtRegisteredClaimNames.Exp).Value);
+
+            var expiryDateTimeUtc = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
+                .AddSeconds(expiryDateUnix);
+
+            if (expiryDateTimeUtc < utcNow)
+            {
+                throw new Exception("This token has expired");
+            }
+
+            //4. Get user ID from token
+            //var userId = jwtToken.Claims[0].Value;
+            // get userID from claims subs
+            var userId = jwtToken.Claims.Single(x => x.Type == "sub").Value;
 
 
-            return GenerateToken(user);
+            return userId;
+
 
         }
     }

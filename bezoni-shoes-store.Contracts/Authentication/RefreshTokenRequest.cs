@@ -6,6 +6,5 @@ using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Contracts.Authentication
 {
-    public record RefreshTokenRequest (string refreshtoken);
-  
+    public record RefreshTokenRequest (string? RefreshToken);
 }

@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="OrderDetail\" />
+    <Folder Include="Order\" />
+  </ItemGroup>
+
 </Project>
