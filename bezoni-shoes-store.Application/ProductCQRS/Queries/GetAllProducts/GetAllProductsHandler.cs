@@ -5,6 +5,7 @@ using bezoni_shoes_store.Application.ProductCQRS.Common;
 using bezoni_shoes_store.Application.ProductCQRS.Queries.GetProductByID;
 using bezoni_shoes_store.Domain.Entities;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace bezoni_shoes_store.Application.ProductCQRS.Queries.GetAllProducts
                 return new GetAllProductsResult(cacheProducts);
             }
             var products = await _productRepository.GetAllProducts();
+           
             var expriryTime = DateTime.Now.AddMinutes(2);
             _cacheService.SetData<List<Product>>("products", products, expriryTime);
             return new GetAllProductsResult(products);

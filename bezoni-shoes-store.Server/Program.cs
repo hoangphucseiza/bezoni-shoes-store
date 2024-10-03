@@ -1,8 +1,9 @@
-
+﻿
 
 using bezoni_shoes_store.Application;
 using bezoni_shoes_store.Infrastucture;
 using bezoni_shoes_store.Server;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,7 +13,9 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddPresentation();
 
 
-
+// Cấu hình Serilog
+builder.Host.UseSerilog((context, configuration) =>
+    configuration.ReadFrom.Configuration(context.Configuration));
 
 // -----END builder code-----
 
@@ -44,6 +47,7 @@ if (app.Environment.IsDevelopment())
 // Some code here
 //app.UseExceptionHandler("/error");
 app.UseAuthentication();
+app.UseSerilogRequestLogging();
 
 
 

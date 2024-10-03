@@ -4,6 +4,7 @@ using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.MongoDB;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
