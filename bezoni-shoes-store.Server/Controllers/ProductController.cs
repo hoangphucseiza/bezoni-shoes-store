@@ -1,11 +1,8 @@
-﻿using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
-using bezoni_shoes_store.Application.Product.Commands.AddProduct;
+﻿using bezoni_shoes_store.Application.ProductCQRS.Command.AddProduct;
+using bezoni_shoes_store.Application.ProductCQRS.Queries;
 using bezoni_shoes_store.Contracts.Product;
-using bezoni_shoes_store.Domain.Entities;
 using MapsterMapper;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bezoni_shoes_store.Server.Controllers
@@ -18,24 +15,33 @@ namespace bezoni_shoes_store.Server.Controllers
        
         private readonly ISender _mediator;
         private readonly IMapper _mapper;
-
         public ProductController(ISender mediator, IMapper mapper)
         {
             _mediator = mediator;
             _mapper = mapper;
         }
 
+        
+        //[Authorize]
+
+        // For admin
         [HttpPost]
         [Route("AddProduct")]
-        //[Authorize]
-        [Authorize]
-        public async Task<IActionResult> AddProduct()
+        public async Task<IActionResult> AddProduct(AddProductRequest request)
         {
+            var command = _mapper.Map<AddProductCommand>(request);
+            var result = await _mediator.Send(command);
+            return Ok(result);
 
-           // return empty arrary
-           int[] arr = new int[0];
-            return Ok(arr);
+        }
 
+        [HttpGet]
+        [Route("GetProductByID")]
+        public async Task<IActionResult> GetProductByID([FromQuery] string id)
+        {
+            var query = new GetProductByIDQuery(id);
+            var result = await _mediator.Send(query);
+            return Ok(result);
         }
     }
 }

@@ -22,28 +22,26 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
 
             _productCollection = database.GetCollection<Product>(settings.Value.ProductCollectionName);
         }
+
         public async Task AddProduct(Product product)
         {
 
-            await _productCollection.InsertOneAsync(product);
+             await _productCollection.InsertOneAsync(product);
         }
 
-        public Task<Product?> GetProduct(string name)
+        public async Task<Product> FindProductByID(string id)
+        {
+            var product = await _productCollection.Find(p => p.Id == id).FirstOrDefaultAsync();
+            return product;
+
+        }
+
+        public Task<List<Product>> GetAllProducts()
         {
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Product>> GetProducts()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task RemoveProduct(string name)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task UpdateProduct(Product product)
+        public Task<List<Product>> GetProductsBySearch(string search)
         {
             throw new NotImplementedException();
         }

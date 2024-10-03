@@ -6,5 +6,6 @@ using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Contracts.Product
 {
-    public record AddProductRequest( string Name, string Description, decimal Price, string Image);
+    public record AddProductResponse (string Message);
+   
 }
