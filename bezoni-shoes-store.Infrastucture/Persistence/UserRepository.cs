@@ -53,6 +53,12 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
             return result; // Trả về true nếu mật khẩu đúng, ngược lại false
         }
 
+        public async Task<string> GetRoleByUser(User user)
+        {
+            var roles = await _userCollection.GetRolesAsync(user);
+            return roles.FirstOrDefault();
+        }
+
         public async Task<User> GetUserByEmail(string email)
         {
            var user = await _userCollection.FindByEmailAsync(email);

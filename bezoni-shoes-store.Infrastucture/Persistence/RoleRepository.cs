@@ -28,6 +28,12 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
             await _roleCollection.CreateAsync(new Role { Name = name.ToLower().Trim() });
         }
 
+        public async Task<string> GetNameRoleByID(string id)
+        {
+            var role = await _roleCollection.FindByIdAsync(id);
+            return role.Name;
+        }
+
         public Task RemoveRole(string name)
         {
             throw new NotImplementedException();

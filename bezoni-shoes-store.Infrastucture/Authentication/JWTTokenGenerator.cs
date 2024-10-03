@@ -12,6 +12,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -24,13 +25,14 @@ namespace bezoni_shoes_store.Infrastucture.Authentication
     {
         private readonly JwtSettings _jwtSettings;
         private readonly IDateTimeProvider _dateTimeProvider;
-       
+     
+
 
         public JWTTokenGenerator(IOptions<JwtSettings> jwtSettings, IDateTimeProvider dateTimeProvider)
         {
             _jwtSettings = jwtSettings.Value;
             _dateTimeProvider = dateTimeProvider;
-
+          
         }
 
         public string GenerateRefreshToken(User user)
@@ -56,15 +58,16 @@ namespace bezoni_shoes_store.Infrastucture.Authentication
             return new JwtSecurityTokenHandler().WriteToken(securityToken);
         }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(User user, string role)
         {
             var signiningCredentials = new SigningCredentials(
                                new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret)),
                                               SecurityAlgorithms.HmacSha256);
+           
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Name, user.FullName),
+                new Claim(ClaimTypes.Role, role),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             };
 

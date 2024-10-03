@@ -20,5 +20,7 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
 
 
         Task<User> GetUserById(string id);
+
+        Task<string> GetRoleByUser(User user);
     }
 }

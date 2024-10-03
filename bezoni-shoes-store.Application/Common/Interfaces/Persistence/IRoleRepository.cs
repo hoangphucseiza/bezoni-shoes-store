@@ -13,5 +13,7 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
         Task RemoveRole(string name);
 
         Task<bool> RoleExits(string name);
+
+        Task<string> GetNameRoleByID(string id);
     }
 }

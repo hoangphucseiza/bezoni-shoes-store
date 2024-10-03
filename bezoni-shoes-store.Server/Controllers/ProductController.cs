@@ -25,13 +25,10 @@ namespace bezoni_shoes_store.Server.Controllers
             _mediator = mediator;
             _mapper = mapper;
         }
-
-
-        // For admin
         
         [HttpPost]
         [Route("AddProduct")]
-        [Authorize]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> AddProduct(AddProductRequest request)
         {
             var command = _mapper.Map<AddProductCommand>(request);
@@ -52,6 +49,7 @@ namespace bezoni_shoes_store.Server.Controllers
 
         [HttpGet]
         [Route("GetAllProducts")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllProducts()
         {
             var query = new GetAllProductsQuery();

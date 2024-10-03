@@ -9,6 +9,7 @@ using bezoni_shoes_store.Contracts.Authentication;
 using bezoni_shoes_store.Domain.Entities;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -49,6 +50,7 @@ namespace bezoni_shoes_store.Server.Controllers
 
         [HttpPost]
         [Route("CreateAdminAccount")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateAdminAccount(RegisterRequest request)
         {
             var query = _mapper.Map<CreateAdminAccountCommand>(request);
@@ -64,14 +66,5 @@ namespace bezoni_shoes_store.Server.Controllers
             var result = await _mediator.Send(query);
             return Ok(result);
         }
-
-        // test get user by id
-        //[HttpGet]
-        //[Route("GetUserById")]
-        //public async Task<IActionResult> GetUserById(string id)
-        //{
-        //    var user = await _userRepository.GetUserById(id);
-        //    return Ok(user);
-        //}
     }
 }

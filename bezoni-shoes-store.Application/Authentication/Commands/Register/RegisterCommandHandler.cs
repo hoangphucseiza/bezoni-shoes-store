@@ -17,12 +17,13 @@ namespace bezoni_shoes_store.Application.Authentication.Commands.Register
     {
         private readonly IUserRepository _userRepository;
         private readonly IJWTTokenGenerator _jwtTokenGenerator;
+        private readonly IRoleRepository _roleRepository;
 
-        public RegisterCommandHandler(IUserRepository userRepository, IJWTTokenGenerator jWTTokenGenerator)
+        public RegisterCommandHandler(IUserRepository userRepository, IJWTTokenGenerator jWTTokenGenerator, IRoleRepository roleRepository)
         {
             _userRepository = userRepository;
             _jwtTokenGenerator = jWTTokenGenerator;
-
+            _roleRepository = roleRepository;
         }
         public async Task<AuthenticationResult> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
@@ -48,8 +49,9 @@ namespace bezoni_shoes_store.Application.Authentication.Commands.Register
 
             var userResult = await _userRepository.GetUserByEmail(request.Email);
 
+            var role = await _roleRepository.GetNameRoleByID(userResult.Roles.FirstOrDefault().ToString());
             //3. Generate the token
-            var token = _jwtTokenGenerator.GenerateToken(userResult);
+            var token =  _jwtTokenGenerator.GenerateToken(userResult, role);
 
             var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(userResult);
 

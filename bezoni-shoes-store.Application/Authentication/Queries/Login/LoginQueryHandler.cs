@@ -15,12 +15,14 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.Login
         private readonly IJWTTokenGenerator _jwtTokenGenerator;
         private readonly IUserRepository _userRepository;
         private readonly ILogService _logging;
+        private readonly IRoleRepository _roleRepository;
 
-        public LoginQueryHandler(IJWTTokenGenerator jwtTokenGenerator, IUserRepository userRepository, ILogService logging)
+        public LoginQueryHandler(IJWTTokenGenerator jwtTokenGenerator, IUserRepository userRepository, ILogService logging, IRoleRepository roleRepository)
         {
             _jwtTokenGenerator = jwtTokenGenerator;
             _userRepository = userRepository;
             _logging = logging;
+            _roleRepository = roleRepository;
         }
 
         public async Task<AuthenticationResult> Handle(LoginQuery request, CancellationToken cancellationToken)
@@ -40,8 +42,10 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.Login
             {
                 throw new PasswordNotMatchException();
             }
+            var role = await _roleRepository.GetNameRoleByID(user.Roles.FirstOrDefault().ToString());
+
             //3. Create JWT token
-            var token = _jwtTokenGenerator.GenerateToken(user);
+            var token =  _jwtTokenGenerator.GenerateToken(user, role);
 
             var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user);
 

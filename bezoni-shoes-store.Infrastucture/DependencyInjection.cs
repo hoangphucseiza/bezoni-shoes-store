@@ -18,6 +18,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.Serializers;
 using System.Text;
 
 namespace bezoni_shoes_store.Infrastucture
@@ -62,6 +65,10 @@ namespace bezoni_shoes_store.Infrastucture
 
             services.AddSingleton(Options.Create(JwtSettings));
             services.AddSingleton(Options.Create(mongoDbSettings));
+
+            // UUID to string
+            BsonSerializer.RegisterSerializer(new GuidSerializer(BsonType.String));
+
 
             services.AddSingleton<IJWTTokenGenerator, JWTTokenGenerator>();
 
