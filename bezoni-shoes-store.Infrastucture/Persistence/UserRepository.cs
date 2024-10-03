@@ -21,6 +21,19 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
         {
             _userCollection = userCollecion;
         }
+
+        public async Task<IdentityResult> AddAdmin(User user, string password)
+        {
+            // create user
+            var result = await _userCollection.CreateAsync(user, password);
+            if (result.Succeeded)
+            {
+                // add user to role
+                await _userCollection.AddToRoleAsync(user, "Admin");
+            }
+            return result;
+        }
+
         public async Task<IdentityResult> AddUser(User user, string password)
         {
             // create user

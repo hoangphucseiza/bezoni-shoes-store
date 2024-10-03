@@ -1,5 +1,6 @@
 ﻿
-using bezoni_shoes_store.Application.Authentication.Commands.AddRole;
+
+using bezoni_shoes_store.Application.Authentication.Commands.CreateAdminAccount;
 using bezoni_shoes_store.Application.Authentication.Commands.Register;
 using bezoni_shoes_store.Application.Authentication.Queries.Login;
 using bezoni_shoes_store.Application.Authentication.Queries.RefreshToken;
@@ -34,7 +35,6 @@ namespace bezoni_shoes_store.Server.Controllers
         {
             var command = _mapper.Map<RegisterCommand>(request);
             var result = await _mediator.Send(command);
-            var response = _mapper.Map<AuthenticationResponse>(result);
             return Ok(result);
         }
 
@@ -44,17 +44,15 @@ namespace bezoni_shoes_store.Server.Controllers
         {
             var query = _mapper.Map<LoginQuery>(request);
             var result = await _mediator.Send(query);
-            var response = _mapper.Map<AuthenticationResponse>(result);
             return Ok(result);
         }
 
         [HttpPost]
-        [Route("AddRole")]
-        public async Task<IActionResult> AddRole(AddRoleRequest request)
+        [Route("CreateAdminAccount")]
+        public async Task<IActionResult> CreateAdminAccount(RegisterRequest request)
         {
-
-            var command =_mapper.Map<AddRoleCommand>(request);
-            var result = await _mediator.Send(command);
+            var query = _mapper.Map<CreateAdminAccountCommand>(request);
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
 

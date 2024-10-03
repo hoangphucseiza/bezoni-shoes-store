@@ -43,9 +43,10 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.Login
             //3. Create JWT token
             var token = _jwtTokenGenerator.GenerateToken(user);
 
-            var refrehToken = _jwtTokenGenerator.GenerateRefreshToken(user);
+            var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user);
 
-            return await Task.FromResult(new AuthenticationResult(user, token, refrehToken));
+            return await Task.FromResult(new AuthenticationResult(user.Id.ToString(), user.FullName, user.UserName, user.Email, token, refreshToken));
+        
 
         }
     }

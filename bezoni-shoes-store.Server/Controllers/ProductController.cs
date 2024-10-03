@@ -7,6 +7,7 @@ using bezoni_shoes_store.Application.ProductCQRS.Queries.GetProductsByDesciption
 using bezoni_shoes_store.Contracts.Product;
 using MapsterMapper;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bezoni_shoes_store.Server.Controllers
@@ -25,12 +26,12 @@ namespace bezoni_shoes_store.Server.Controllers
             _mapper = mapper;
         }
 
-        
-        //[Authorize]
 
         // For admin
+        
         [HttpPost]
         [Route("AddProduct")]
+        [Authorize]
         public async Task<IActionResult> AddProduct(AddProductRequest request)
         {
             var command = _mapper.Map<AddProductCommand>(request);

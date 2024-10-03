@@ -16,6 +16,9 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
         Task<bool> checkPassWord(User user,string password);
         Task<IdentityResult>  AddUser(User user, string password);
 
+        Task<IdentityResult> AddAdmin(User user, string password);
+
+
         Task<User> GetUserById(string id);
     }
 }

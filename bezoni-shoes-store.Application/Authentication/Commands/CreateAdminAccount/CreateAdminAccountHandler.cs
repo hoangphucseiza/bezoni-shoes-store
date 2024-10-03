@@ -1,5 +1,4 @@
 ﻿using bezoni_shoes_store.Application.Authentication.Common;
-using bezoni_shoes_store.Application.Common.Errors;
 using bezoni_shoes_store.Application.Common.Errors.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
@@ -11,36 +10,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bezoni_shoes_store.Application.Authentication.Commands.Register
+namespace bezoni_shoes_store.Application.Authentication.Commands.CreateAdminAccount
 {
-    public class RegisterCommandHandler : IRequestHandler<RegisterCommand, AuthenticationResult>
+    public class CreateAdminAccountHandler : IRequestHandler<CreateAdminAccountCommand, CreateAdminAccountResult>
     {
         private readonly IUserRepository _userRepository;
         private readonly IJWTTokenGenerator _jwtTokenGenerator;
 
-        public RegisterCommandHandler(IUserRepository userRepository, IJWTTokenGenerator jWTTokenGenerator)
+        public CreateAdminAccountHandler(IUserRepository userRepository, IJWTTokenGenerator jWTTokenGenerator)
         {
             _userRepository = userRepository;
             _jwtTokenGenerator = jWTTokenGenerator;
 
         }
-        public async Task<AuthenticationResult> Handle(RegisterCommand request, CancellationToken cancellationToken)
+        public async Task<CreateAdminAccountResult> Handle(CreateAdminAccountCommand request, CancellationToken cancellationToken)
         {
-           //1. Validate the user don't exist
-           var existingUser = await _userRepository.GetUserByEmail(request.Email);
+            //1. Validate the user don't exist
+            var existingUser = await _userRepository.GetUserByEmail(request.Email);
             if (existingUser != null)
             {
                 throw new DuplicateEmailException();
             }
             //2. Create the user (generate unique Id)
-             existingUser = new User
+            existingUser = new User
             {
                 Email = request.Email,
                 FullName = request.FullName,
-                 UserName = request.UserName
-             };
+                UserName = request.UserName
+            };
 
-            var result = await _userRepository.AddUser(existingUser, request.Password);
+            var result = await _userRepository.AddAdmin(existingUser, request.Password);
             if (!result.Succeeded)
             {
                 throw new RegisterFailedException(result.Errors.First().Description);
@@ -53,9 +52,7 @@ namespace bezoni_shoes_store.Application.Authentication.Commands.Register
 
             var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(userResult);
 
-            return await Task.FromResult(new AuthenticationResult(userResult.Id.ToString(), userResult.FullName, userResult.UserName, userResult.Email, token, refreshToken));
-
-
+            return await Task.FromResult(new CreateAdminAccountResult(userResult.Id.ToString(), userResult.FullName, userResult.UserName, userResult.Email, token, refreshToken));
         }
     }
 }

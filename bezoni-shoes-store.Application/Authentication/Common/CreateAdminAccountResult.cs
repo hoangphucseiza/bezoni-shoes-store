@@ -1,10 +1,12 @@
-﻿
-
-using bezoni_shoes_store.Domain.Entities;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Application.Authentication.Common
 {
-    public record AuthenticationResult(string Id,
+    public record CreateAdminAccountResult   ( string Id,
         string FullName,
         string UserName,
         string Email,
