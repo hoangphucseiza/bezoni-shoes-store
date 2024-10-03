@@ -5,12 +5,12 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bezoni_shoes_store.Application.Common.Errors
+namespace bezoni_shoes_store.Application.Common.Errors.Authentication
 {
-    public class RoleAlreadyExistsException : Exception, IServiceException
+    public class DuplicateEmailException : Exception, IServiceException
     {
         public HttpStatusCode StatusCode => HttpStatusCode.Conflict;
 
-        public string ErrorMessage => "Role already exists.";
+        public string ErrorMessage => "Email already exists.";
     }
 }

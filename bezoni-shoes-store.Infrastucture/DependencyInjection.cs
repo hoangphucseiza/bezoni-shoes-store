@@ -1,10 +1,12 @@
 ﻿using AspNetCore.Identity.MongoDbCore.Extensions;
 using AspNetCore.Identity.MongoDbCore.Infrastructure;
 using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
+using bezoni_shoes_store.Application.Common.Interfaces.Cache;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Application.Common.Interfaces.Services;
 using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.Authentication;
+using bezoni_shoes_store.Infrastucture.Cache;
 using bezoni_shoes_store.Infrastucture.MongoDB;
 using bezoni_shoes_store.Infrastucture.Persistence;
 using bezoni_shoes_store.Infrastucture.Services;
@@ -36,6 +38,10 @@ namespace bezoni_shoes_store.Infrastucture
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+
+            // Add services cache
+            //services.AddMemoryCache();
+            //services.AddScoped<ICacheService, CacheService>();
 
 
             return services;

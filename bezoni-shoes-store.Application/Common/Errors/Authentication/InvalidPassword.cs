@@ -5,12 +5,12 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bezoni_shoes_store.Application.Common.Errors
+namespace bezoni_shoes_store.Application.Common.Errors.Authentication
 {
-    public class InvalidToken : Exception, IServiceException
+    public class InvalidPassword : Exception, IServiceException
     {
         public HttpStatusCode StatusCode => HttpStatusCode.Conflict;
 
-        public string ErrorMessage => "Invalid Token";
+        public string ErrorMessage => "Invalid Password";
     }
 }

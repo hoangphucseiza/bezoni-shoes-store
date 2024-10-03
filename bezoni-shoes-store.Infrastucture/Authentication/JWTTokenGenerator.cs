@@ -1,5 +1,6 @@
 ﻿using AspNetCore.Identity.MongoDbCore.Models;
 using bezoni_shoes_store.Application.Common.Errors;
+using bezoni_shoes_store.Application.Common.Errors.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Application.Common.Interfaces.Services;

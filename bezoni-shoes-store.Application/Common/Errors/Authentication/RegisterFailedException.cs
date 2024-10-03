@@ -5,11 +5,11 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace bezoni_shoes_store.Application.Common.Errors
+namespace bezoni_shoes_store.Application.Common.Errors.Authentication
 {
     public class RegisterFailedException : Exception, IServiceException
     {
-        public HttpStatusCode StatusCode  { get; } = HttpStatusCode.BadRequest;
+        public HttpStatusCode StatusCode { get; } = HttpStatusCode.BadRequest;
         public string ErrorMessage { get; }
 
         public RegisterFailedException(string message)

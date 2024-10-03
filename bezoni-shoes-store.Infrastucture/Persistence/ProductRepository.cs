@@ -36,9 +36,10 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
 
         }
 
-        public Task<List<Product>> GetAllProducts()
+        public async Task<List<Product>> GetAllProducts()
         {
-            throw new NotImplementedException();
+           var products = await _productCollection.Find(p => true).ToListAsync();
+            return products;
         }
 
         public Task<List<Product>> GetProductsBySearch(string search)

@@ -1,5 +1,6 @@
 ﻿using bezoni_shoes_store.Application.Authentication.Common;
 using bezoni_shoes_store.Application.Common.Errors;
+using bezoni_shoes_store.Application.Common.Errors.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using MediatR;
 using System;

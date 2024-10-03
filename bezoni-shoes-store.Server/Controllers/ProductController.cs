@@ -1,5 +1,7 @@
 ﻿using bezoni_shoes_store.Application.ProductCQRS.Command.AddProduct;
 using bezoni_shoes_store.Application.ProductCQRS.Queries;
+using bezoni_shoes_store.Application.ProductCQRS.Queries.GetAllProducts;
+using bezoni_shoes_store.Application.ProductCQRS.Queries.GetProductByID;
 using bezoni_shoes_store.Contracts.Product;
 using MapsterMapper;
 using MediatR;
@@ -40,6 +42,16 @@ namespace bezoni_shoes_store.Server.Controllers
         public async Task<IActionResult> GetProductByID([FromQuery] string id)
         {
             var query = new GetProductByIDQuery(id);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+
+        [HttpGet]
+        [Route("GetAllProducts")]
+        public async Task<IActionResult> GetAllProducts()
+        {
+            var query = new GetAllProductsQuery();
             var result = await _mediator.Send(query);
             return Ok(result);
         }
