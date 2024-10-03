@@ -13,10 +13,12 @@ namespace bezoni_shoes_store.Application.ProductCQRS.Command.AddProduct
     public class AddProductCommandHandler : IRequestHandler<AddProductCommand, AddProductResult>
     {
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public AddProductCommandHandler(IProductRepository productRepository)
+        public AddProductCommandHandler(IProductRepository productRepository, ICategoryRepository categoryRepository)
         {
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
         }
         public async Task<AddProductResult> Handle(AddProductCommand request, CancellationToken cancellationToken)
         {
@@ -25,10 +27,16 @@ namespace bezoni_shoes_store.Application.ProductCQRS.Command.AddProduct
                Name = request.Name,
                 Description = request.Description,
                 Price = request.Price,
-                Image = request.Image
+                Image = request.Image,
+                CategoryID = request.CategoryID
             };
 
-            await _productRepository.AddProduct(product);
+             await _productRepository.AddProduct(product);
+
+            var KqProduct = await _productRepository.FindProductByName(request.Name);
+
+            await _categoryRepository.AddProductIDToVCategory(request.CategoryID, KqProduct.Id);
+
 
             return new AddProductResult("Add Product Success");
         }

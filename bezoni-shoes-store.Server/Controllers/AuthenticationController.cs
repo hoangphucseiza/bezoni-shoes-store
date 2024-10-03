@@ -50,7 +50,7 @@ namespace bezoni_shoes_store.Server.Controllers
 
         [HttpPost]
         [Route("CreateAdminAccount")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> CreateAdminAccount(RegisterRequest request)
         {
             var query = _mapper.Map<CreateAdminAccountCommand>(request);

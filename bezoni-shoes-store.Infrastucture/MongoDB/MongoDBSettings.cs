@@ -21,6 +21,8 @@ namespace bezoni_shoes_store.Infrastucture.MongoDB
 
         public string? RoleCollectionName { get; set; }
 
+        public string? CategoryCollectionName { get; set; }
+
 
     }
 }

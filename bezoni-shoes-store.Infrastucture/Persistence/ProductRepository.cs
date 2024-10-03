@@ -3,6 +3,7 @@ using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.MongoDB;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Serilog;
 using System;
@@ -29,6 +30,7 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
         {
 
              await _productCollection.InsertOneAsync(product);
+           
         }
 
         public async Task<Product> FindProductByID(string id)
@@ -38,10 +40,30 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
 
         }
 
+        public async Task<Product> FindProductByName(string name)
+        {
+            var product = await _productCollection.Find(p => p.Name == name).FirstOrDefaultAsync();
+            return product; 
+        }
+
         public async Task<List<Product>> GetAllProducts()
         {
             var products = await _productCollection.Find(p => true).ToListAsync();
             return products;
+        }
+
+        public async Task<object> AggregateGroupCategoryDetailProduct()
+        {
+            var aggregation = await _productCollection.Aggregate()
+            .Group(new BsonDocument
+            {
+                { "_id", "$CategoryID" },               // Nhóm theo trường Category
+                { "productCount", new BsonDocument("$sum", 1) }, // Đếm số sản phẩm trong mỗi loại
+                { "totalPrice", new BsonDocument("$sum", new BsonDocument("$toDecimal", "$Price")) } // Tính tổng giá
+            })
+            .Sort(new BsonDocument("totalPrice", -1)) // Sắp xếp theo tổng số tiền giảm dần
+            .ToListAsync();
+            return aggregation;
         }
 
         public async Task<List<Product>> GetProductsByDesciptionTextSearch(string search)

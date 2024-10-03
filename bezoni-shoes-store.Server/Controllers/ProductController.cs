@@ -1,5 +1,6 @@
 ﻿using bezoni_shoes_store.Application.ProductCQRS.Command.AddProduct;
 using bezoni_shoes_store.Application.ProductCQRS.Queries;
+using bezoni_shoes_store.Application.ProductCQRS.Queries.AggregateGroupCategoryDetailProduct;
 using bezoni_shoes_store.Application.ProductCQRS.Queries.GetAllProducts;
 using bezoni_shoes_store.Application.ProductCQRS.Queries.GetProductByID;
 using bezoni_shoes_store.Application.ProductCQRS.Queries.GetProductBySearch;
@@ -31,7 +32,8 @@ namespace bezoni_shoes_store.Server.Controllers
         [Authorize(Roles ="Admin")]
         public async Task<IActionResult> AddProduct(AddProductRequest request)
         {
-            var command = _mapper.Map<AddProductCommand>(request);
+            // var command = _mapper.Map<AddProductCommand>(request);
+            var command = new AddProductCommand(request.Name, request.Description, request.Price, request.Image, request.CategoryID);
             var result = await _mediator.Send(command);
             return Ok(result);
 
@@ -49,7 +51,6 @@ namespace bezoni_shoes_store.Server.Controllers
 
         [HttpGet]
         [Route("GetAllProducts")]
-        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetAllProducts()
         {
             var query = new GetAllProductsQuery();
@@ -71,6 +72,15 @@ namespace bezoni_shoes_store.Server.Controllers
         {
 
             var query = new GetProductsByDesciptionTextSearchQuery(search);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("Aggregate_GroupCategory_DetailProduct")]
+        public async Task<IActionResult> AggregateGroupCategoryDetailProduct()
+        {
+            var query = new AggregateGroupCategoryDetailProductQuery();
             var result = await _mediator.Send(query);
             return Ok(result);
         }

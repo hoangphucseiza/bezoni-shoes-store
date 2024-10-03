@@ -43,6 +43,7 @@ namespace bezoni_shoes_store.Infrastucture
             services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
 
             // Add services cache
             services.AddScoped<ICacheService, CacheService>();

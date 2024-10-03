@@ -20,8 +20,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="CategoryCQRS\" />
+    <Folder Include="OrderCQRS\Queries\" />
     <Folder Include="OrderDetailCQRS\" />
-    <Folder Include="OrderCQRS\" />
   </ItemGroup>
 
 </Project>
