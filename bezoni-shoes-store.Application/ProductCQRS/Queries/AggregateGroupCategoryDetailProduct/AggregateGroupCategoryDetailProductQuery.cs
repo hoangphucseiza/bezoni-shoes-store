@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Application.ProductCQRS.Queries.AggregateGroupCategoryDetailProduct
 {
-    public record AggregateGroupCategoryDetailProductQuery : IRequest<AggregateGroupCategoryDetailProductResult>;
+    public record AggregateGroupCategoryDetailProductQuery : IRequest<List<AggregateGroupCategoryDetailProductResult>>;
     
 }

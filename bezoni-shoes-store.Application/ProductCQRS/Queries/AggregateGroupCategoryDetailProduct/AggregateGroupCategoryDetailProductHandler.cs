@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Application.ProductCQRS.Queries.AggregateGroupCategoryDetailProduct
 {
-    public class AggregateGroupCategoryDetailProductHandler : IRequestHandler<AggregateGroupCategoryDetailProductQuery, AggregateGroupCategoryDetailProductResult>
+    public class AggregateGroupCategoryDetailProductHandler : IRequestHandler<AggregateGroupCategoryDetailProductQuery, List<AggregateGroupCategoryDetailProductResult>>
     {
         private readonly IProductRepository _productRepository;
 
@@ -17,10 +17,11 @@ namespace bezoni_shoes_store.Application.ProductCQRS.Queries.AggregateGroupCateg
         {
             _productRepository = productRepository;
         }
-        public Task<AggregateGroupCategoryDetailProductResult> Handle(AggregateGroupCategoryDetailProductQuery request, CancellationToken cancellationToken)
+        public Task<List<AggregateGroupCategoryDetailProductResult>> Handle(AggregateGroupCategoryDetailProductQuery request, CancellationToken cancellationToken)
         {
            
             var result = _productRepository.AggregateGroupCategoryDetailProduct();
+            return result;
 
         }
     }

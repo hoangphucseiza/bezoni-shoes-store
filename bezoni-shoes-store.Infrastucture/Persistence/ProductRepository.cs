@@ -1,5 +1,6 @@
 ﻿using bezoni_shoes_store.Application.Common.Interfaces.Cache;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
+using bezoni_shoes_store.Application.ProductCQRS.Common;
 using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.MongoDB;
 using Microsoft.Extensions.Options;
@@ -52,18 +53,35 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
             return products;
         }
 
-        public async Task<object> AggregateGroupCategoryDetailProduct()
+        public async Task<List<AggregateGroupCategoryDetailProductResult>> AggregateGroupCategoryDetailProduct()
         {
             var aggregation = await _productCollection.Aggregate()
             .Group(new BsonDocument
             {
-                { "_id", "$CategoryID" },               // Nhóm theo trường Category
+                { "_id", "$CategoryID" },               // Nhóm theo id Category
                 { "productCount", new BsonDocument("$sum", 1) }, // Đếm số sản phẩm trong mỗi loại
                 { "totalPrice", new BsonDocument("$sum", new BsonDocument("$toDecimal", "$Price")) } // Tính tổng giá
             })
             .Sort(new BsonDocument("totalPrice", -1)) // Sắp xếp theo tổng số tiền giảm dần
             .ToListAsync();
-            return aggregation;
+
+            var result = new List<AggregateGroupCategoryDetailProductResult>();
+
+            foreach (var item in aggregation)
+            {
+                var category = item["_id"].IsObjectId ? item["_id"].AsObjectId.ToString() : item["_id"].AsString;
+                var productCount = item["productCount"].AsInt32;
+                var totalPrice = item["totalPrice"].AsDecimal;
+
+                result.Add(new AggregateGroupCategoryDetailProductResult
+                {
+                    IdCategory = category,
+                    TotalProduct = productCount,
+                    TotalPrice = totalPrice
+                });
+            }
+            return result;
+
         }
 
         public async Task<List<Product>> GetProductsByDesciptionTextSearch(string search)

@@ -1,4 +1,5 @@
 ﻿
+using bezoni_shoes_store.Application.ProductCQRS.Common;
 using bezoni_shoes_store.Domain.Entities;
 
 namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
@@ -16,7 +17,7 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
 
         Task<List<Product>> GetProductsByDesciptionTextSearch(string search);
 
-        Task<object> AggregateGroupCategoryDetailProduct();
+        Task<List<AggregateGroupCategoryDetailProductResult>> AggregateGroupCategoryDetailProduct();
 
 
     }

@@ -9,12 +9,8 @@ namespace bezoni_shoes_store.Application.ProductCQRS.Common
 {
     public class AggregateGroupCategoryDetailProductResult
     {
-        public List<ResultDTO> result;
+        public string? IdCategory { get; set; }
+        public int TotalProduct { get; set; }
+        public decimal TotalPrice { get; set; }
     };
-    public class ResultDTO
-    {
-       public string NameCategory;
-        public int TotalProduct;
-        public  decimal TotalPric;
-    }
 }
