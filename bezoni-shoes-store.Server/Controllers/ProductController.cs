@@ -29,7 +29,7 @@ namespace bezoni_shoes_store.Server.Controllers
         
         [HttpPost]
         [Route("AddProduct")]
-        [Authorize(Roles ="Admin")]
+        //[Authorize(Roles ="Admin")]
         public async Task<IActionResult> AddProduct(AddProductRequest request)
         {
             // var command = _mapper.Map<AddProductCommand>(request);
