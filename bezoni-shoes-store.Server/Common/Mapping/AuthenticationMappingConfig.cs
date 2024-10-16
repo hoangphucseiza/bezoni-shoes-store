@@ -18,12 +18,6 @@ namespace bezoni_shoes_store.Server.Common.Mapping
             config.NewConfig<RefreshTokenRequest, RefreshTokenQuery>();
 
 
-          
-
-
-
-
-
         }
     }
 }
