@@ -1,13 +1,11 @@
 <template>
-    <div>
-        This is register page
+    <div class="h-screen">
+        <slot />
     </div>
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-    layout: 'auth',
-})
+
 </script>
 
 <style scoped>

@@ -61,11 +61,16 @@
             />
           </div>
         </NuxtLink>
-        <Icon
-          class="cursor-pointer text-[30px]"
-          name="material-symbols:account-circle"
-          style="color: black"
-        />
+        <div
+          class="flex items-center justify-center cursor-pointer"
+          @click="handleClickUser"
+        >
+          <Icon
+            class="text-[30px]"
+            name="material-symbols:account-circle"
+            style="color: black"
+          />
+        </div>
       </div>
     </div>
     <div class="default_layout_content px-[100px] my-4 h-screen">
@@ -76,7 +81,12 @@
 </template>
 
 <script setup lang="ts">
+const router = useRouter();
 const isSearch = ref(false);
+const handleClickUser = () => {
+  console.log("click user");
+    router.push('/login');
+};
 const listNagivation = ref([
   {
     name: "Home",
