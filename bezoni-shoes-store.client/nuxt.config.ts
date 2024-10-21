@@ -5,7 +5,6 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@vee-validate/nuxt"],
   css: ["~/assets/scss/main.scss"],
   veeValidate: {
-    // disable or enable auto imports
     autoImports: true,
   },
 });

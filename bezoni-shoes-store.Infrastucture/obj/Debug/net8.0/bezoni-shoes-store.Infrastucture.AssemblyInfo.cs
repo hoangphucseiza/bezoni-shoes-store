@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("bezoni-shoes-store.Infrastucture")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a98f436d5f12cd1b2e0d610598667d38003d33d8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b39e7a25e69611432c9c711d8410a667ac3abda9")]
 [assembly: System.Reflection.AssemblyProductAttribute("bezoni-shoes-store.Infrastucture")]
 [assembly: System.Reflection.AssemblyTitleAttribute("bezoni-shoes-store.Infrastucture")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

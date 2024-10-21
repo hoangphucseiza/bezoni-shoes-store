@@ -16,7 +16,8 @@
     "@vee-validate/nuxt": "^4.14.3",
     "nuxt": "^3.13.0",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "sass": "^1.80.3"
