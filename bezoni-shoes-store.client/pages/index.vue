@@ -8,6 +8,8 @@
 import LoadingPage from '~/components/loadingPage.vue';
 
 
+
+
 </script>
 
 <style scoped>
