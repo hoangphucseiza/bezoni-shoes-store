@@ -51,7 +51,7 @@
           <input
             type="text"
             class="w-[250px] h-[40px] px-2 focus:outline-none"
-            placeholder="full name"
+            placeholder="fullname"
             v-model="fullName"
           />
           <div class="text-red-500 absolute bottom-0 left-0 translate-y-[30px]">

@@ -13,20 +13,22 @@
         <div class="font-thin">{{ message }}</div>
       </div>
     </div>
-    <div @click="isShow = false">
+    <div @click="closeToast">
       <Icon name="carbon:close" class="text-[30px] cursor-pointer" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-const isShow = ref(true);
-interface Props {
-  message: string;
-}
-const props = withDefaults(defineProps<Props>(), {
-  message: "Error",
+const { isShow, message } = defineProps({
+  isShow: Boolean,
+  message: String,
 });
+const emit = defineEmits(["update:isShow"]);
+
+const closeToast = () => {
+  emit("update:isShow", false);
+};
 </script>
 
 <style scoped></style>

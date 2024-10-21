@@ -8,6 +8,10 @@ namespace bezoni_shoes_store.Application.Authentication.Common
         string FullName,
         string UserName,
         string Email,
+        string Avatar,
+        string Role,
+        string Phone,
+        string Address,
         string Token,
         string RefreshToken
         );

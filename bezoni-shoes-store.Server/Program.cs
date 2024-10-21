@@ -17,6 +17,19 @@ builder.Services.AddPresentation();
 builder.Host.UseSerilog((context, configuration) =>
     configuration.ReadFrom.Configuration(context.Configuration));
 
+// Alow CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins",
+        builder =>
+        {
+            builder
+                .AllowAnyOrigin()   // Cho phép mọi nguồn gốc (hoặc chỉ định miền cụ thể)
+                .AllowAnyMethod()   // Cho phép mọi phương thức (GET, POST, PUT, DELETE)
+                .AllowAnyHeader();  // Cho phép mọi header
+        });
+});
+
 // -----END builder code-----
 
 builder.Services.AddControllers();
@@ -48,6 +61,7 @@ if (app.Environment.IsDevelopment())
 app.UseExceptionHandler("/error");
 app.UseAuthentication();
 app.UseSerilogRequestLogging();
+app.UseCors("AllowAllOrigins");
 
 
 

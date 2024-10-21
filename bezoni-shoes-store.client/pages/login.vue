@@ -48,7 +48,8 @@
           >forgot password</Nuxtlink
         >
       </div>
-      <div @click="submitForm"
+      <div
+        @click="submitForm"
         class="w-[300px] h-[40px] bg-[#D74177] text-white rounded-lg flex items-center font-bold justify-center cursor-pointer hover:bg-[#db5382]"
       >
         LOGIN
@@ -64,23 +65,44 @@
         >create a account</NuxtLink
       >
     </div>
+    <successToast v-model:isShow="isShowSuccess" message="Login Success" />
+    <errorToast v-model:isShow="isShowError" :message="messageError" />
+    <div v-if="isLoadingPage">
+      <loadingPage/>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-definePageMeta({
-  layout: "auth",
-});
 
 import { string, object, ref as yupRef } from "yup";
 import { useField, useForm } from "vee-validate";
+import type { LoginBody } from "~/interface/RequestBody/LoginBody";
+import type { AuthenticationRespone } from "~/interface/Response/AuthenticationRespone";
+import { postDataAPI } from "~/ApiConfig/fetchData";
+import successToast from "~/components/toasts/successToast.vue";
+import errorToast from "~/components/toasts/errorToast.vue";
+import loadingPage from "~/components/loadingPage.vue";
+
+
+definePageMeta({
+  layout: "auth",
+});
+const isShowSuccess = ref(false);
+const isShowError = ref(false);
+const isLoadingPage = ref(false);
+
+const messageSuccess = ref("");
+const messageError = ref("");
+
+
+const router = useRouter();
 
 const schema = object({
   email: string().email("Invalid email").required("Email is required"),
   password: string()
     .min(6, "Password must be at least 6 characters")
     .required("Password is required"),
-
 });
 
 // Set up form with schema validation
@@ -93,9 +115,35 @@ const { value: email, errorMessage: emailError } = useField("email");
 const { value: password, errorMessage: passwordError } = useField("password");
 
 // Form submission
-const submitForm = handleSubmit((values: any) => {
-  console.log(values);
- 
+const submitForm = handleSubmit(async (values: any) => {
+  const body: LoginBody = {
+    email: values.email,
+    password: values.password,
+  };
+
+  // Loading page
+  isLoadingPage.value = true;
+  const { data, error } = await postDataAPI("Authentication/Login", body);
+  isLoadingPage.value = false;
+  if (data) {
+    isShowError.value = false;
+    isShowSuccess.value = true;
+    // Push data to pinia store
+
+
+    if(data.role  == "Admin"){
+      //Router to Admin Page
+      router.push("/admin");
+    } else {
+      //Router to User Page
+      router.push("/");
+    }
+
+  } else {
+    isShowSuccess.value = false;
+    isShowError.value = true;
+    messageError.value = error.title;
+  }
 });
 </script>
 

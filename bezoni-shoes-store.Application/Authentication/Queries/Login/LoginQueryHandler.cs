@@ -49,7 +49,7 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.Login
 
             var refreshToken = _jwtTokenGenerator.GenerateRefreshToken(user);
 
-            return await Task.FromResult(new AuthenticationResult(user.Id.ToString(), user.FullName, user.UserName, user.Email, token, refreshToken));
+            return await Task.FromResult(new AuthenticationResult(user.Id.ToString(), user.FullName, user.UserName, user.Email, user.Avatar, role, user.Phone, user.Address, token, refreshToken));
         
 
         }

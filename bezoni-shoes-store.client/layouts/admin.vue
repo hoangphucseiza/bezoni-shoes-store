@@ -1,14 +1,11 @@
 <template>
     <div>
-       This is home page 
+       <div>This is admin layout</div>
+         <slot />
     </div>
 </template>
 
 <script setup lang="ts">
-import LoadingPage from '~/components/loadingPage.vue';
-
-
-
 
 </script>
 
