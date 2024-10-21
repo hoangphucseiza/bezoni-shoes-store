@@ -15,11 +15,15 @@
     "@pinia/nuxt": "^0.5.5",
     "@vee-validate/nuxt": "^4.14.3",
     "nuxt": "^3.13.0",
+    "pinia": "^2.2.4",
     "vue": "latest",
     "vue-router": "latest",
     "yup": "^1.4.0"
   },
   "devDependencies": {
     "sass": "^1.80.3"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }

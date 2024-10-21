@@ -65,38 +65,31 @@
         >create a account</NuxtLink
       >
     </div>
-    <successToast v-model:isShow="isShowSuccess" message="Login Success" />
-    <errorToast v-model:isShow="isShowError" :message="messageError" />
-    <div v-if="isLoadingPage">
-      <loadingPage/>
+    <errorToast />
+    <successToast />
+    <div v-if="store.isLoadingPage">
+      <loadingPage />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
 import { string, object, ref as yupRef } from "yup";
 import { useField, useForm } from "vee-validate";
 import type { LoginBody } from "~/interface/RequestBody/LoginBody";
-import type { AuthenticationRespone } from "~/interface/Response/AuthenticationRespone";
-import { postDataAPI } from "~/ApiConfig/fetchData";
+import type { IAuthenticationRespone } from "~/interface/Response/AuthenticationRespone";
 import successToast from "~/components/toasts/successToast.vue";
 import errorToast from "~/components/toasts/errorToast.vue";
 import loadingPage from "~/components/loadingPage.vue";
+import { useMyStore } from "~/store/myStore";
+import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 
+const router = useRouter();
+const store = useMyStore();
 
 definePageMeta({
   layout: "auth",
 });
-const isShowSuccess = ref(false);
-const isShowError = ref(false);
-const isLoadingPage = ref(false);
-
-const messageSuccess = ref("");
-const messageError = ref("");
-
-
-const router = useRouter();
 
 const schema = object({
   email: string().email("Invalid email").required("Email is required"),
@@ -121,30 +114,28 @@ const submitForm = handleSubmit(async (values: any) => {
     password: values.password,
   };
 
-  // Loading page
-  isLoadingPage.value = true;
-  const { data, error } = await postDataAPI("Authentication/Login", body);
-  isLoadingPage.value = false;
-  if (data) {
-    isShowError.value = false;
-    isShowSuccess.value = true;
-    // Push data to pinia store
-
-
-    if(data.role  == "Admin"){
-      //Router to Admin Page
+  try {
+    // const data  = await postDataAPI("Authentication/Login", body) as IAuthenticationRespone;
+    store.isLoadingPage = true;
+    const data = (await callApi(
+      "Authentication/Login",
+      HttpMethods.POST,
+      body
+    )) as IAuthenticationRespone;
+    store.isLoadingPage = false;
+    store.ErrorToastInfo.isShow = false;
+    store.SuccesToastInfo.isShow = true;
+    store.SuccesToastInfo.message = "Login Success";
+    if (data.role === "Admin") {
       router.push("/admin");
     } else {
-      //Router to User Page
       router.push("/");
     }
-
-  } else {
-    isShowSuccess.value = false;
-    isShowError.value = true;
-    messageError.value = error.title;
+  } catch (error: any) {
+    store.isLoadingPage = false;
+    store.SuccesToastInfo.isShow = false;
+    store.ErrorToastInfo.isShow = true;
+    store.ErrorToastInfo.message = error.response._data.title;
   }
 });
 </script>
-
-<style scoped></style>
