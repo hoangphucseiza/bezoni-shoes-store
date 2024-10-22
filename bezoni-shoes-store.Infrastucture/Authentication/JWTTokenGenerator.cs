@@ -50,7 +50,7 @@ namespace bezoni_shoes_store.Infrastucture.Authentication
             var securityToken = new JwtSecurityToken(
              issuer: _jwtSettings.Issuer,
               audience: _jwtSettings.Audience,
-                expires: _dateTimeProvider.UtcNow.AddDays(30),
+                expires: _dateTimeProvider.UtcNow.AddDays(30), // 30 days for refresh token
                 claims: claims,
                signingCredentials: signiningCredentials
                                                                                                           );

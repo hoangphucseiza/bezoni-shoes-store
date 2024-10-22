@@ -99,16 +99,29 @@
         >you have an account?</NuxtLink
       >
     </div>
+    <ErrorToast />
+    <SuccessToast />
+    <LoadingPage/>
   </div>
 </template>
 
 <script setup lang="ts">
+import { string, object, ref as yupRef } from "yup";
+import { useField, useForm } from "vee-validate";
+import type { IRegisterBody } from "~/interface/RequestBody/IRegisterBody";
+import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
+import type { IAuthenticationRespone } from "~/interface/Response/IAuthenticationRespone";
+import {useMyStore} from "~/store/myStore";
+import ErrorToast from "~/components/toasts/ErrorToast.vue";
+import SuccessToast from "~/components/toasts/SuccessToast.vue";
+
+
+const store = useMyStore();
 definePageMeta({
   layout: "auth",
 });
 
-import { string, object, ref as yupRef } from "yup";
-import { useField, useForm } from "vee-validate";
+const router = useRouter();
 
 const schema = object({
   email: string().email("Invalid email").required("Email is required"),
@@ -136,21 +149,38 @@ const { value: fullName, errorMessage: fullNameError } = useField("fullName");
 const { value: password, errorMessage: passwordError } = useField("password");
 const { value: confirmPassword, errorMessage: confirmPasswordError } =
   useField("confirmPassword");
-interface RegisterBody {
-  email: string;
-  username: string;
-  fullName: string;
-  password: string;
-}
+
 // Form submission
-const submitForm = handleSubmit((values: any) => {
-  const body: RegisterBody = {
+const submitForm = handleSubmit(async (values: any) => {
+  const body: IRegisterBody = {
     email: values.email,
     username: values.username,
     fullName: values.fullName,
     password: values.password,
   };
- 
+
+try {
+  store.isLoadingPage = true;
+  const user = await (callApi("Authentication/Register",HttpMethods.POST, body)) as IAuthenticationRespone; 
+  store.isLoadingPage = false;
+  store.ErrorToastInfo.isShow = false;
+  store.SuccesToastInfo.isShow = true;
+  store.SuccesToastInfo.message = "Register Success";
+
+  localStorage.setItem("token", user.token);
+  localStorage.setItem("refreshToken", user.refreshToken);
+  if (user.role === "Admin") {
+    router.push("/admin");
+  } else {
+    router.push("/");
+  }
+} catch (error: any) {
+  store.isLoadingPage = false;
+  store.SuccesToastInfo.isShow = false;
+  store.ErrorToastInfo.isShow = true;
+  store.ErrorToastInfo.message = error.response._data.title;
+}  
+
 });
 </script>
 

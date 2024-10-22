@@ -13,7 +13,7 @@
         <div class="font-thin">{{ store.ErrorToastInfo.message }}</div>
       </div>
     </div>
-    <div @click="store.ErrorToastInfo.isShow = false">
+    <div @click="store.handleCloseErrorToast">
       <Icon name="carbon:close" class="text-[30px] cursor-pointer" />
     </div>
   </div>

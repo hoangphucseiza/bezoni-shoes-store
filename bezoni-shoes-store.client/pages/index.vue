@@ -5,9 +5,6 @@
 </template>
 
 <script setup lang="ts">
-import LoadingPage from '~/components/loadingPage.vue';
-
-
 
 
 </script>

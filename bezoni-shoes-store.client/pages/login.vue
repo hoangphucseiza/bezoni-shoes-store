@@ -65,24 +65,22 @@
         >create a account</NuxtLink
       >
     </div>
-    <errorToast />
-    <successToast />
-    <div v-if="store.isLoadingPage">
-      <loadingPage />
-    </div>
+    <ErrorToast />
+    <SuccessToast />
+    <LoadingPage />
   </div>
 </template>
 
 <script setup lang="ts">
 import { string, object, ref as yupRef } from "yup";
 import { useField, useForm } from "vee-validate";
-import type { LoginBody } from "~/interface/RequestBody/LoginBody";
-import type { IAuthenticationRespone } from "~/interface/Response/AuthenticationRespone";
-import successToast from "~/components/toasts/successToast.vue";
-import errorToast from "~/components/toasts/errorToast.vue";
-import loadingPage from "~/components/loadingPage.vue";
+import type { ILoginBody } from "~/interface/RequestBody/ILoginBody";
+import type { IAuthenticationRespone } from "~/interface/Response/IAuthenticationRespone";
 import { useMyStore } from "~/store/myStore";
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
+import ErrorToast from "~/components/toasts/ErrorToast.vue";
+import SuccessToast from "~/components/toasts/SuccessToast.vue";
+
 
 const router = useRouter();
 const store = useMyStore();
@@ -109,15 +107,14 @@ const { value: password, errorMessage: passwordError } = useField("password");
 
 // Form submission
 const submitForm = handleSubmit(async (values: any) => {
-  const body: LoginBody = {
+  const body: ILoginBody = {
     email: values.email,
     password: values.password,
   };
 
   try {
-    // const data  = await postDataAPI("Authentication/Login", body) as IAuthenticationRespone;
     store.isLoadingPage = true;
-    const data = (await callApi(
+    const user = (await callApi(
       "Authentication/Login",
       HttpMethods.POST,
       body
@@ -126,7 +123,13 @@ const submitForm = handleSubmit(async (values: any) => {
     store.ErrorToastInfo.isShow = false;
     store.SuccesToastInfo.isShow = true;
     store.SuccesToastInfo.message = "Login Success";
-    if (data.role === "Admin") {
+
+    // Save access token to local storage
+    localStorage.setItem("accessToken", user.token);
+    // Save refresh token to local storage
+    localStorage.setItem("refreshToken", user.refreshToken);
+
+    if (user.role === "Admin") {
       router.push("/admin");
     } else {
       router.push("/");

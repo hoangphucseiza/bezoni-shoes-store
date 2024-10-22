@@ -13,7 +13,7 @@
         <div class="font-thin">{{ store.SuccesToastInfo.message }}</div>
       </div>
     </div>
-    <div @click="store.SuccesToastInfo.isShow = false">
+    <div @click="store.handleCloseSucessToast">
       <Icon name="carbon:close" class="text-[30px] cursor-pointer" />
     </div>
   </div>
