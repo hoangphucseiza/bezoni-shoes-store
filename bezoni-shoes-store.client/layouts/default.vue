@@ -84,7 +84,6 @@
 const router = useRouter();
 const isSearch = ref(false);
 const handleClickUser = () => {
-  console.log("click user");
     router.push('/login');
 };
 const listNagivation = ref([

@@ -2,6 +2,7 @@
 
 using bezoni_shoes_store.Application.Authentication.Commands.CreateAdminAccount;
 using bezoni_shoes_store.Application.Authentication.Commands.Register;
+using bezoni_shoes_store.Application.Authentication.Queries.CheckToken;
 using bezoni_shoes_store.Application.Authentication.Queries.Login;
 using bezoni_shoes_store.Application.Authentication.Queries.RefreshToken;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
@@ -63,6 +64,15 @@ namespace bezoni_shoes_store.Server.Controllers
         public async Task<IActionResult> RefreshToken(RefreshTokenRequest request)
         {
             var query = _mapper.Map<RefreshTokenQuery>(request);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("CheckToken")]
+        public async Task<IActionResult> CheckToken([FromQuery]string Token)
+        {
+            var query = new CheckTokenQuery(Token);
             var result = await _mediator.Send(query);
             return Ok(result);
         }

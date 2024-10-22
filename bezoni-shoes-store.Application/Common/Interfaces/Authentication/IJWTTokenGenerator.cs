@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,8 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Authentication
 
         string GenerateRefreshToken(User user);
 
-        string GetIDByRefreshToken(string refreshToken);
+        string GetIDByToken(string Token);
+
+        Task<string> CheckAccessToken(string accessToken);
     }
 }

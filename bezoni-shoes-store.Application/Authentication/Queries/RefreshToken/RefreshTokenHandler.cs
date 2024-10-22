@@ -25,7 +25,7 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.RefreshToken
         }
         public async Task<RefreshTokenResult> Handle(RefreshTokenQuery request, CancellationToken cancellationToken)
         {
-            var userId =  _jwtTokenGenerator.GetIDByRefreshToken(request.RefreshToken);
+            var userId =  _jwtTokenGenerator.GetIDByToken(request.RefreshToken);
 
             var user = await _userRepository.GetUserById(userId);
 
