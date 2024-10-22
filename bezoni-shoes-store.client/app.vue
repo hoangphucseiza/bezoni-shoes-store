@@ -8,8 +8,8 @@
 
 <script setup lang="ts">
 import { callApi, HttpMethods } from "./ApiConfig/fetchData";
-import type { ErrorSystem } from "./interface/Response/ErrorSystem";
-import type { RefreshToken } from "./interface/Response/RefreshToken";
+import type { IErrorSystem } from "./interface/ErrorResponse/IErrorSystem";
+import type { IRefreshToken } from "./interface/Response/IRefreshToken";
 import { ref, onMounted } from "vue";
 const router = useRouter();
 

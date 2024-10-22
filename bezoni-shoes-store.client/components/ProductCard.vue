@@ -1,6 +1,7 @@
 <template>
   <div
     class="flex flex-col min-h-[420px] min-w-[270px] border-[3px] border-[#a68660] rounded-2xl bg-[#F2F2F2] p-1 shadow-xl cursor-pointer hover:shadow-2xl"
+    @click="router.push(`/products/${products.product.id}`)"
   >
     <img
       :src="products.product.image"
@@ -11,7 +12,7 @@
       <div class="font-bold text-[19px]">{{ products.product.name }}</div>
       <div class="flex flex-col">
         <div class="line-through text-[18px] font-medium opacity-50">
-          {{ products.product.price }}đ
+          {{ formatPrice(products.product.price) }}đ
         </div>
         <div class="flex gap-2 items-center">
           <div class="text-[#F36123] text-[24px] font-bold">
@@ -19,7 +20,7 @@
               formatPrice(
                 products.product.price * (1 - products.product.vouncher / 100)
               )
-            }}
+            }}đ
           </div>
           <div class="bg-[#FBD0BD] rounded-lg border-[1px] border-[#F36123] flex items-center  ">
             <div class="text-[#F36123] font-[700] text-base px-3 ">
@@ -34,7 +35,7 @@
 
 <script setup lang="ts">
 import type { IProductHomeInfo } from "~/interface/Response/IProductShowHome";
-
+const router = useRouter();
 const products = defineProps<{
   product: IProductHomeInfo;
 }>();
