@@ -1,5 +1,5 @@
 <template>
-  <div class="default_layout">
+  <div class="default_layout flex flex-col">
     <div
       class="relative default_layout_header flex flex-row justify-between py-[30px] px-[100px] border-black rounded-md items-center shadow-sm"
     >
@@ -73,10 +73,10 @@
         </div>
       </div>
     </div>
-    <div class="default_layout_content px-[100px] my-4 h-screen">
+    <div class="default_layout_content px-[100px] my-2 h-screen">
       <slot />
     </div>
-    <div class="default_layout_footer">This is footer</div>
+    <div class="default_layout_footer"></div> 
   </div>
 </template>
 
