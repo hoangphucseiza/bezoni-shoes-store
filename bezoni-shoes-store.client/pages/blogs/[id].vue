@@ -34,6 +34,10 @@ const updateBlogContent = () => {
 onMounted(() => {
   updateBlogContent();
 });
+// watch
+watch(() => blog, () => {
+  updateBlogContent();
+});
 </script>
 
 <style scoped></style>

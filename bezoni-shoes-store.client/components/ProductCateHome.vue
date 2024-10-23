@@ -44,4 +44,3 @@ const { productCate } = defineProps<{
 
 // Export the component
 </script>
-
