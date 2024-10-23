@@ -57,7 +57,7 @@
           </div>
         </NuxtLink>
         <div
-          class="flex items-center justify-center cursor-pointer"
+          class="flex items-center justify-center cursor-pointer relative"
           @click="handleClickUser"
         >
           <Icon
@@ -65,6 +65,49 @@
             name="material-symbols:account-circle"
             style="color: black"
           />
+          <div v-if="dropDownUser" class="z-50">
+            <div
+              class="absolute top-[40px] right-0 w-[150px] bg-white border border-gray-300 rounded-lg shadow-lg flex flex-col text-[15px]"
+            >
+              <NuxtLink
+                to="/admin"
+                class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
+              >
+                <Icon
+                  name="icon-park-twotone:dashboard-one"
+                  class="text-[20px]"
+                />
+                <div>Dashboard</div>
+              </NuxtLink>
+              <NuxtLink
+                to="/profile"
+                class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
+              >
+                <Icon name="material-symbols:account-box" class="text-[20px]" />
+                <div>Profile</div>
+              </NuxtLink>
+              <NuxtLink
+                to="/login"
+                class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
+              >
+                <Icon
+                  name="material-symbols:key-rounded"
+                  class="text-[20px]"
+                />
+                <div>Login</div>
+              </NuxtLink>
+              <NuxtLink
+                to="/logout"
+                class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
+              >
+                <Icon
+                  name="lucide:log-out"
+                  class="text-[20px]"
+                />
+                <div>Logout</div>
+              </NuxtLink>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -221,9 +264,10 @@ const chooseNav = (index: number) => {
 const toggleSearch = () => {
   isSearch.value = !isSearch.value;
 };
-
+const dropDownUser = ref(false);
 const handleClickUser = () => {
-  router.push("/login");
+  // router.push("/login");
+  dropDownUser.value = !dropDownUser.value;
 };
 </script>
 

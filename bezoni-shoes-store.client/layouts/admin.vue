@@ -28,18 +28,30 @@
       </div>
     </div>
     <div class="col-span-6">
-      <div class="bg-[#d4b3953c] flex justify-between p-5 px-6 shadow-lg items-center">
-        <Icon
-          name="material-symbols:filter-list"
-          class="text-[25px] cursor-pointer"
-        />
+      <div
+        class="bg-[#d4b3953c] flex justify-between p-5 px-6 shadow-lg items-center"
+      >
+        <NuxtLink
+          class="flex items-center gap-1 justify-center text-black hover:text-[#F36123] hover:underline cursor-pointer"
+          to="/"
+        >
+          <Icon
+            name="material-symbols:home-rounded"
+            class="text-[25px] cursor-pointer"
+          />
+          <div class="text-[20px] font-medium">Go Home</div>
+        </NuxtLink>
         <div class="flex flex-row gap-6 items-center">
           <Icon
             name="material-symbols:notifications-unread"
             class="text-[25px] cursor-pointer text-[#F36123]"
           />
           <div class="flex gap-2 items-center cursor-pointer">
-           <img src="/assets/images/header/logouser.jpg" alt="avatar" class="w-[40px] h-[40px] rounded-full" />
+            <img
+              src="/assets/images/header/logouser.jpg"
+              alt="avatar"
+              class="w-[40px] h-[40px] rounded-full"
+            />
             <div class="">
               <div class="font-medium">Nguyễn Hoàng Phúc</div>
               <div class="">hoangphucseiza</div>
