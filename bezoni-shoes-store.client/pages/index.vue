@@ -25,42 +25,30 @@
         <ProductCateHome :productCate="ProCate" />
       </div>
     </div>
-    <div>Bài viết nổi bật</div>
+    <div class="flex flex-col items-center gap-10 pb-10 mt-[80px]">
+      <div class="flex gap-2 text-3xl font-[600]">
+        <div>TIN TỨC</div>
+        <div class="text-[#F36123]">NỔI BẬT</div>
+      </div>
+      <div>
+        <div class="grid grid-cols-4 gap-5">
+          <div v-for="blog in blogData" :key="blog.id">
+            <BlogCardPage :blog="blog" />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { ProductShowHome } from "../SeedData/HomeSeedData";
 const listProductCategory = reactive(ProductShowHome);
+const blogData = reactive(BlogSeedData);
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
+import { BlogSeedData } from "~/SeedData/BlogSeedData";
 </script>
-
-<style scoped>
-.swiper {
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-</style>

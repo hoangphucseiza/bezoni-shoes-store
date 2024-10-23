@@ -9,9 +9,9 @@
       >
       <div class="font-semibold">Giày</div>
     </div>
-    <div class="flex grid grid-cols-10 gap-5">
+    <div class=" grid grid-cols-10 gap-5">
       <div
-        class="flex flex-col gap-5 max-h-[400px] col-span-2 border rounded-xl"
+        class="flex flex-col gap-5 max-h-min pb-4 col-span-2 border rounded-xl "
       >
         <div
           class="flex justify-center items-center rounded-t-xl p-4 font-bold text-white cursor-pointer text-[20px] bg-[#F36123]"
