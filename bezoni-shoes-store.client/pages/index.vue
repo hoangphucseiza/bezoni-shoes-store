@@ -33,7 +33,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { ProductShowHome } from "../SeedData/HomeSeedData";
-const listProductCategory = ref(ProductShowHome);
+const listProductCategory = reactive(ProductShowHome);
 
 // Import Swiper styles
 import "swiper/css";

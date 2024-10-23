@@ -1,6 +1,6 @@
-import type { IProductShowHome } from "~/interface/Response/IProductShowHome";
+import type { IProductOfCategoryHome } from "~/interface/Response/IProductShowHome";
 
-export const ProductShowHome: IProductShowHome[] = [
+export const ProductShowHome: IProductOfCategoryHome[] = [
   {
     categoryName: "Giày",
     productList: [

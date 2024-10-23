@@ -1,12 +1,7 @@
-export interface IProductHomeInfo {
-    id: string;
-    name: string;
-    price: number;
-    vouncher: number;
-    image: string;
-}
+import type { IProductCard } from "./IProductCard";
 
-export interface IProductShowHome {
+
+export interface IProductOfCategoryHome {
   categoryName: string;
-  productList: IProductHomeInfo[];
+  productList: IProductCard [];
 }

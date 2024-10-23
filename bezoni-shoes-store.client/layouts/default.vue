@@ -1,7 +1,7 @@
 <template>
   <div class="default_layout flex flex-col">
     <div
-      class="relative default_layout_header flex flex-row justify-between py-[30px] px-[100px] border-black rounded-md items-center shadow-sm"
+      class="relative default_layout_header flex flex-row justify-between py-[30px] px-[100px] border-black rounded-md items-center shadow"
     >
       <div class="flex flex-row gap-5" @click="chooseNav(0)">
         <!-- <img src="/assets/images/header/logo.png" alt="logo" class="w-[100px] h-[100px]" /> -->
