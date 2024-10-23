@@ -112,8 +112,8 @@ import type { IRegisterBody } from "~/interface/RequestBody/IRegisterBody";
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 import type { IAuthenticationRespone } from "~/interface/Response/IAuthenticationRespone";
 import {useMyStore} from "~/store/myStore";
-import ErrorToast from "~/components/toasts/ErrorToast.vue";
-import SuccessToast from "~/components/toasts/SuccessToast.vue";
+// import ErrorToast from "~/components/toasts/ErrorToast.vue";
+// import SuccessToast from "~/components/toasts/SuccessToast.vue";
 
 
 const store = useMyStore();
