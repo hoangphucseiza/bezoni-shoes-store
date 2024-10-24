@@ -75,6 +75,7 @@
         <div>
           <div
             class="bg-[#F36123] text-white text-[15px] py-2 px-2 rounded-lg flex items-center font-bold justify-center cursor-pointer hover:shadow-xl"
+            @click="handlePayment"
           >
             Đặt hàng
           </div>
@@ -123,9 +124,21 @@
         </div>
       </div>
     </div>
+    <LoadingPage />
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useMyStore } from "~/store/myStore";
+
+const store = useMyStore();
+const handlePayment = () => {
+  // Set time out for 2s loading
+  store.isLoadingPage = true;
+  setTimeout(() => {
+    store.isLoadingPage = false;
+  }, 2000);
+};
+</script>
 
 <style scoped></style>

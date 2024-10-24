@@ -28,16 +28,27 @@
       </div>
       <div class="flex flex-row gap-5 justify-between items-center">
         <div class="flex items-center justify-center gap-2">
-          <input
-            v-if="isSearch"
-            type="text"
-            ref="searchInput"
-            class="h-[35px] w-[300px] border-[2px] border-[#F36123] rounded-lg px-4 focus:outline-none animate-search"
-            :class="isSearch ? 'animate-search-open' : ''"
-            placeholder="Tìm kiếm sản phẩm"
-            @keyup.enter="handleSearchProduct"
-            @focusout="isSearch = false"
-          />
+          <div class="flex flex-col relative">
+            <input
+              v-if="isSearch"
+              type="text"
+              ref="searchInput"
+              class="h-[35px] w-[300px] border-[2px] border-[#F36123] rounded-lg px-4 focus:outline-none animate-search"
+              :class="isSearch ? 'animate-search-open' : ''"
+              placeholder="Tìm kiếm sản phẩm"
+              @keyup.enter="handleSearchProduct"
+            />
+            <div
+              class="absolute right-0 top-10 z-50 w-full max-h-[200px] border rounded flex flex-col bg-white shadow-lg p-2 overflow-y-scroll gap-2 cursor-pointer"
+              v-if="isSearch && modalSearch"
+            >
+              <div v-for="(item, index) in productSearch" :key="index">
+                <div @click="handleClickProductSearch(item.id)">
+                  <ProductSearch :item="item" :key="item.id" />
+                </div>
+              </div>
+            </div>
+          </div>
           <Icon
             class="cursor-pointer text-[25px]"
             name="uil:search"
@@ -90,20 +101,14 @@
                 to="/login"
                 class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
               >
-                <Icon
-                  name="material-symbols:key-rounded"
-                  class="text-[20px]"
-                />
+                <Icon name="material-symbols:key-rounded" class="text-[20px]" />
                 <div>Login</div>
               </NuxtLink>
               <NuxtLink
                 to="/logout"
                 class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
               >
-                <Icon
-                  name="lucide:log-out"
-                  class="text-[20px]"
-                />
+                <Icon name="lucide:log-out" class="text-[20px]" />
                 <div>Logout</div>
               </NuxtLink>
             </div>
@@ -234,6 +239,8 @@
 </template>
 
 <script setup lang="ts">
+import { ProductSearchSeedData } from "~/SeedData/ProductSearchSeedData";
+
 const router = useRouter();
 const isSearch = ref(false);
 const listNagivation = ref([
@@ -243,9 +250,9 @@ const listNagivation = ref([
   { name: "Nịt", path: "/products/nit", isChoose: false },
   { name: "Bài viết", path: "/blogs", isChoose: false },
 ]);
-
+const modalSearch = ref(false);
 const handleSearchProduct = () => {
-  console.log("Search");
+  modalSearch.value = true;
 };
 
 const handleClickLocation = () => {
@@ -263,11 +270,22 @@ const chooseNav = (index: number) => {
 
 const toggleSearch = () => {
   isSearch.value = !isSearch.value;
+
+  if (modalSearch.value == true) {
+    modalSearch.value = false;
+  }
 };
 const dropDownUser = ref(false);
 const handleClickUser = () => {
-  // router.push("/login");
   dropDownUser.value = !dropDownUser.value;
+};
+
+const productSearch = reactive(ProductSearchSeedData);
+
+const handleClickProductSearch = (id: string) => {
+  router.push(`/products/${id}`);
+  isSearch.value = false;
+  modalSearch.value = false;
 };
 </script>
 

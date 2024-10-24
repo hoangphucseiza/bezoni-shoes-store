@@ -24,7 +24,7 @@ const checkToken = async (token: string | null) => {
   return (await callApi(
     `Authentication/CheckToken?Token=${token}`,
     HttpMethods.GET
-  )) as TokenSuccess | ErrorSystem;
+  )) as TokenSuccess | IErrorSystem;
 };
 
 // Function to refresh the access token using the refresh token
@@ -34,8 +34,8 @@ const refreshAccessToken = async (refreshToken: string | null) => {
     "Authentication/Authentication/RefreshTokenFromAccessToken",
     HttpMethods.POST,
     refreshToken
-  )) as ErrorSystem | RefreshToken;
-  return newToken as RefreshToken | ErrorSystem;
+  )) as IErrorSystem | IRefreshToken;
+  return newToken as IRefreshToken | IErrorSystem;
 };
 
 // Function to handle token logic
@@ -58,9 +58,9 @@ const handleTokenValidation = async () => {
       // Xóa cả access token và refresh token
     } else {
       const newToken = await refreshAccessToken(refreshToken);
-      if (newToken as RefreshToken) {
-        const newAccessTokenLocalStoge = (newToken as RefreshToken).token;
-        const newRefreshTokenLocalStoge = (newToken as RefreshToken)
+      if (newToken as IRefreshToken) {
+        const newAccessTokenLocalStoge = (newToken as IRefreshToken).token;
+        const newRefreshTokenLocalStoge = (newToken as IRefreshToken)
           .refreshToken;
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
