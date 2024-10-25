@@ -142,8 +142,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Server\\Controllers\\CategoryController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T08:22:59.919Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:22:59.919Z"
             },
             {
               "$type": "Document",
@@ -155,8 +154,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Server\\Controllers\\AuthenticationController.cs",
               "ViewState": "AQIAAEAAAAAAAAAAAAAlwEwAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T08:12:07.868Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:12:07.868Z"
             },
             {
               "$type": "Document",
@@ -168,8 +166,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenValidator.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T08:01:36.104Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:01:36.104Z"
             },
             {
               "$type": "Document",
@@ -181,8 +178,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenQuery.cs",
               "ViewState": "AQIAAAIAAAAAAAAAAAD4vwoAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T07:59:34.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T07:59:34.766Z"
             },
             {
               "$type": "Document",
@@ -194,8 +190,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Common\\AuthenticationResult.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T07:58:27.528Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T07:58:27.528Z"
             },
             {
               "$type": "Document",
@@ -219,8 +214,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Server\\Program.cs",
               "ViewState": "AQIAADMAAAAAAAAAAAAAAD8AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T08:11:23.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:11:23.803Z"
             },
             {
               "$type": "Document",
@@ -230,7 +224,7 @@
               "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenHandler.cs",
               "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenHandler.cs",
               "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenHandler.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAgwBsAAAAIAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAA3wBsAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-25T08:02:58.119Z",
               "EditorCaption": ""
@@ -245,8 +239,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Server\\Controllers\\ErrorController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T08:23:00.97Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:23:00.97Z"
             },
             {
               "$type": "Document",
@@ -258,8 +251,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Queries\\Login\\LoginQueryHandler.cs",
               "ViewState": "AQIAABEAAAAAAAAAAAAAwAwAAABWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T03:09:19.815Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T03:09:19.815Z"
             },
             {
               "$type": "Document",
@@ -271,8 +263,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Infrastucture\\Authentication\\JWTTokenGenerator.cs",
               "ViewState": "AQIAAHIAAAAAAAAAAAAtwIQAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T03:27:13.037Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-22T03:27:13.037Z"
             },
             {
               "$type": "Document",
@@ -284,8 +275,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Queries\\RefreshToken\\RefreshTokenQuery.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-25T08:17:52.149Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-25T08:17:52.149Z"
             },
             {
               "$type": "Document",

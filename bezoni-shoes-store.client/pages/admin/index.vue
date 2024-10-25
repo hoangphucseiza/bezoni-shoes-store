@@ -1,11 +1,11 @@
 <template>
   <div>
-    <LoadingPage />
-    <ErrorToast />
-    <SuccessToast />
     <div class="flex justify-center items-center h-screen">
       <div class="text-4xl font-bold">Admin Page</div>
     </div>
+    <LoadingPage />
+    <ErrorToast />
+    <SuccessToast />
   </div>
 </template>
 

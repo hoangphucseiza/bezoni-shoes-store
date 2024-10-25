@@ -241,9 +241,12 @@
 
 <script setup lang="ts">
 import { ProductSearchSeedData } from "~/SeedData/ProductSearchSeedData";
+import { useAuthStore } from "~/store/authStore";
 import { useDefaultLayoutStore } from "~/store/defaultLayoutStore";
 
 const defaultLayoutStore = useDefaultLayoutStore();
+const authStore = useAuthStore();
+
 const router = useRouter();
 const isSearch = ref(false);
 
@@ -255,8 +258,7 @@ const handleSearchProduct = () => {
 const handleLogout = () => {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("refreshToken");
-  defaultLayoutStore.chooseNav(0);
-  router.push("/");
+  window.location.href = "/";
 };
 const handleClickLocation = () => {
   window.location.href =

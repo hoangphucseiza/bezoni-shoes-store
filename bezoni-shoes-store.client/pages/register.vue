@@ -112,6 +112,7 @@ import type { IRegisterBody } from "~/interface/RequestBody/IRegisterBody";
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 import type { IAuthenticationRespone } from "~/interface/Response/IAuthenticationRespone";
 import { useAlertStore } from "~/store/alertStore";
+import type { IErrorSystem } from "~/interface/ErrorResponse/IErrorSystem";
 
 const alertStore = useAlertStore();
 definePageMeta({
@@ -157,29 +158,32 @@ const submitForm = handleSubmit(async (values: any) => {
   };
 
   try {
-    alertStore.isLoadingPage = true;
+    alertStore.handleLoadingPage(true);
     const user = (await callApi(
       "Authentication/Register",
       HttpMethods.POST,
       body
     )) as IAuthenticationRespone;
-    alertStore.isLoadingPage = false;
-    alertStore.ErrorToastInfo.isShow = false;
-    alertStore.SuccesToastInfo.isShow = true;
-    alertStore.SuccesToastInfo.message = "Register Success";
+    alertStore.handleLoadingPage(false);
+    alertStore.handleCloseErrorToast();
+    alertStore.handleOpenSucessToast("Login Success");
 
-    localStorage.setItem("token", user.token);
+    // Save access token / refresh token to local storage
+    localStorage.setItem("accessToken", user.token);
     localStorage.setItem("refreshToken", user.refreshToken);
     if (user.role === "Admin") {
-      router.push("/admin");
+      // router.push("/admin");
+      window.location.href = "/admin";
     } else {
-      router.push("/");
+      // router.push("/");
+      window.location.href = "/";
     }
   } catch (error: any) {
-    alertStore.isLoadingPage = false;
-    alertStore.SuccesToastInfo.isShow = false;
-    alertStore.ErrorToastInfo.isShow = true;
-    alertStore.ErrorToastInfo.message = error.response._data.title;
+    alertStore.handleLoadingPage(false);
+    alertStore.handleCloseSucessToast();
+    if (error.response._data as IErrorSystem) {
+      alertStore.handleOpenErrorToast(error.response._data.title);
+    }
   }
 });
 </script>

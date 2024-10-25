@@ -78,6 +78,7 @@ import type { ILoginBody } from "~/interface/RequestBody/ILoginBody";
 import type { IAuthenticationRespone } from "~/interface/Response/IAuthenticationRespone";
 import { useAlertStore } from "~/store/alertStore";
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
+import type { IErrorSystem } from "~/interface/ErrorResponse/IErrorSystem";
 
 const router = useRouter();
 const alertStore = useAlertStore();
@@ -125,14 +126,18 @@ const submitForm = handleSubmit(async (values: any) => {
     localStorage.setItem("refreshToken", user.refreshToken);
 
     if (user.role === "Admin") {
-      router.push("/admin");
+      // router.push("/admin");
+      window.location.href = "/admin";
     } else {
-      router.push("/");
+      // router.push("/");
+      window.location.href = "/";
     }
   } catch (error: any) {
     alertStore.handleLoadingPage(false);
     alertStore.handleCloseSucessToast();
-    alertStore.handleOpenErrorToast(error.response._data.title);
+    if(error.response._data as IErrorSystem){
+      alertStore.handleOpenErrorToast(error.response._data.title);
+    }
   }
 });
 </script>
