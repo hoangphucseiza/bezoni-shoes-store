@@ -10,69 +10,58 @@
 import { callApi, HttpMethods } from "./ApiConfig/fetchData";
 import type { IErrorSystem } from "./interface/ErrorResponse/IErrorSystem";
 import type { IRefreshToken } from "./interface/Response/IRefreshToken";
-import { ref, onMounted } from "vue";
-const router = useRouter();
 
-// Interface for a successful token validation
-interface TokenSuccess {
-  message: string;
-}
+// Validate Token
+const validateToken = (token: string | null) => {
+  if (!token) return false;
+  // Kiểm tra định dạng JWT
+  const tokenParts = token.split(".");
+  if (tokenParts.length !== 3) {
+    return false;
+  }
 
-// Helper function to check token validity
-const checkToken = async (token: string | null) => {
-  if (!token) return null;
-  return (await callApi(
-    `Authentication/CheckToken?Token=${token}`,
-    HttpMethods.GET
-  )) as TokenSuccess | IErrorSystem;
+  // Giải mã payload
+  const payload = JSON.parse(atob(tokenParts[1]));
+
+  // Kiểm tra thời gian hết hạn
+  const currentTime = Math.floor(Date.now() / 1000);
+  if (payload.exp && payload.exp < currentTime) {
+    return false;
+  }
+
+  return true;
 };
 
-// Function to refresh the access token using the refresh token
-const refreshAccessToken = async (refreshToken: string | null) => {
-  if (!refreshToken) return null;
-  const newToken = (await callApi(
-    "Authentication/Authentication/RefreshTokenFromAccessToken",
-    HttpMethods.POST,
-    refreshToken
-  )) as IErrorSystem | IRefreshToken;
-  return newToken as IRefreshToken | IErrorSystem;
-};
-
-// Function to handle token logic
-const handleTokenValidation = async () => {
-  // Lấy access token từ localStorage
+const checkToken = async () => {
   const accessToken = localStorage.getItem("accessToken");
   const refreshToken = localStorage.getItem("refreshToken");
-  // Nếu không có access token thì chuyển hướng về trang login
-  if (!accessToken || !refreshToken) {
-    router.push("/");
-    // Xóa cả access token và refresh token
-  }
-  // Gọi API Kiểm tra access token
-  const checkAccesToken = await checkToken(accessToken);
-  // Nếu checkAccesToken khác loại TokenSuccess và không có message là "Valid Token" thì Gọi tới check refresh token
-  if (!((checkAccesToken as TokenSuccess).message == "Valid Token")) {
-    const checkRefreshToken = await checkToken(refreshToken);
-    if (!((checkRefreshToken as TokenSuccess).message == "Valid Token")) {
-      router.push("/");
-      // Xóa cả access token và refresh token
-    } else {
-      const newToken = await refreshAccessToken(refreshToken);
-      if (newToken as IRefreshToken) {
-        const newAccessTokenLocalStoge = (newToken as IRefreshToken).token;
-        const newRefreshTokenLocalStoge = (newToken as IRefreshToken)
-          .refreshToken;
+
+  if (validateToken(accessToken) && validateToken(refreshToken)) {
+    try {
+      const apiToken = (await callApi(
+        "Authentication/RefreshToken",
+        HttpMethods.POST,
+        { refreshToken: refreshToken }
+      )) as IRefreshToken;
+      if (apiToken) {
         localStorage.removeItem("accessToken");
         localStorage.removeItem("refreshToken");
-        localStorage.setItem("accessToken", newAccessTokenLocalStoge);
-        localStorage.setItem("refreshToken", newRefreshTokenLocalStoge);
+        localStorage.setItem("accessToken", apiToken.token);
+        localStorage.setItem("refreshToken", apiToken.refreshToken);
+        console.log("Token success");
       }
+    } catch (error: any) {
+      const err: IErrorSystem = error.response._data;
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("refreshToken");
+      console.log(err.title);
     }
+  } else {
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
   }
 };
-
-// Execute token validation when the component is mounted
 onMounted(() => {
-  handleTokenValidation();
+  checkToken();
 });
 </script>

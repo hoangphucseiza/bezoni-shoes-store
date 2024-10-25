@@ -1,4 +1,5 @@
 ﻿using bezoni_shoes_store.Application.Authentication.Common;
+using bezoni_shoes_store.Application.Common.Errors.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Authentication;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Domain.Entities;
@@ -26,6 +27,11 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.RefreshToken
         public async Task<RefreshTokenResult> Handle(RefreshTokenQuery request, CancellationToken cancellationToken)
         {
             var userId =  _jwtTokenGenerator.GetIDByToken(request.RefreshToken);
+
+            if (userId == null)
+            {
+                throw new UserByTokenNotFound();
+            }
 
             var user = await _userRepository.GetUserById(userId);
 

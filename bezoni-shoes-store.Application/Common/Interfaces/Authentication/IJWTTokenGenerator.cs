@@ -15,7 +15,5 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Authentication
         string GenerateRefreshToken(User user);
 
         string GetIDByToken(string Token);
-
-        Task<string> CheckAccessToken(string accessToken);
     }
 }

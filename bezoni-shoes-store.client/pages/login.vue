@@ -76,13 +76,11 @@ import { string, object, ref as yupRef } from "yup";
 import { useField, useForm } from "vee-validate";
 import type { ILoginBody } from "~/interface/RequestBody/ILoginBody";
 import type { IAuthenticationRespone } from "~/interface/Response/IAuthenticationRespone";
-import { useMyStore } from "~/store/myStore";
+import { useAlertStore } from "~/store/alertStore";
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 
-
-
 const router = useRouter();
-const store = useMyStore();
+const alertStore = useAlertStore();
 
 definePageMeta({
   layout: "auth",
@@ -112,20 +110,18 @@ const submitForm = handleSubmit(async (values: any) => {
   };
 
   try {
-    store.isLoadingPage = true;
+    alertStore.handleLoadingPage(true);
     const user = (await callApi(
       "Authentication/Login",
       HttpMethods.POST,
       body
     )) as IAuthenticationRespone;
-    store.isLoadingPage = false;
-    store.ErrorToastInfo.isShow = false;
-    store.SuccesToastInfo.isShow = true;
-    store.SuccesToastInfo.message = "Login Success";
+    alertStore.handleLoadingPage(false);
+    alertStore.handleCloseErrorToast();
+    alertStore.handleOpenSucessToast("Login Success");
 
-    // Save access token to local storage
+    // Save access token / refresh token to local storage
     localStorage.setItem("accessToken", user.token);
-    // Save refresh token to local storage
     localStorage.setItem("refreshToken", user.refreshToken);
 
     if (user.role === "Admin") {
@@ -134,10 +130,9 @@ const submitForm = handleSubmit(async (values: any) => {
       router.push("/");
     }
   } catch (error: any) {
-    store.isLoadingPage = false;
-    store.SuccesToastInfo.isShow = false;
-    store.ErrorToastInfo.isShow = true;
-    store.ErrorToastInfo.message = error.response._data.title;
+    alertStore.handleLoadingPage(false);
+    alertStore.handleCloseSucessToast();
+    alertStore.handleOpenErrorToast(error.response._data.title);
   }
 });
 </script>

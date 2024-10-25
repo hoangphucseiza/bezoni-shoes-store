@@ -1,12 +1,12 @@
 <template>
-  <div v-if="store.isLoadingPage" class="loader-overlay">
+  <div v-if="alertStore.isLoadingPage" class="loader-overlay">
     <div class="loader"></div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useMyStore } from "~/store/myStore";
-const store = useMyStore();
+import { useAlertStore } from "~/store/alertStore";
+const alertStore = useAlertStore();
 </script>
 
 <style scoped lang="scss">

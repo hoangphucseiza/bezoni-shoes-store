@@ -101,7 +101,7 @@
     </div>
     <ErrorToast />
     <SuccessToast />
-    <LoadingPage/>
+    <LoadingPage />
   </div>
 </template>
 
@@ -111,9 +111,7 @@ import { useField, useForm } from "vee-validate";
 import type { IRegisterBody } from "~/interface/RequestBody/IRegisterBody";
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 import type { IAuthenticationRespone } from "~/interface/Response/IAuthenticationRespone";
-import {useMyStore} from "~/store/myStore";
-
-
+import { useMyStore } from "~/store/alertStore";
 
 const store = useMyStore();
 definePageMeta({
@@ -158,28 +156,31 @@ const submitForm = handleSubmit(async (values: any) => {
     password: values.password,
   };
 
-try {
-  store.isLoadingPage = true;
-  const user = await (callApi("Authentication/Register",HttpMethods.POST, body)) as IAuthenticationRespone; 
-  store.isLoadingPage = false;
-  store.ErrorToastInfo.isShow = false;
-  store.SuccesToastInfo.isShow = true;
-  store.SuccesToastInfo.message = "Register Success";
+  try {
+    store.isLoadingPage = true;
+    const user = (await callApi(
+      "Authentication/Register",
+      HttpMethods.POST,
+      body
+    )) as IAuthenticationRespone;
+    store.isLoadingPage = false;
+    store.ErrorToastInfo.isShow = false;
+    store.SuccesToastInfo.isShow = true;
+    store.SuccesToastInfo.message = "Register Success";
 
-  localStorage.setItem("token", user.token);
-  localStorage.setItem("refreshToken", user.refreshToken);
-  if (user.role === "Admin") {
-    router.push("/admin");
-  } else {
-    router.push("/");
+    localStorage.setItem("token", user.token);
+    localStorage.setItem("refreshToken", user.refreshToken);
+    if (user.role === "Admin") {
+      router.push("/admin");
+    } else {
+      router.push("/");
+    }
+  } catch (error: any) {
+    store.isLoadingPage = false;
+    store.SuccesToastInfo.isShow = false;
+    store.ErrorToastInfo.isShow = true;
+    store.ErrorToastInfo.message = error.response._data.title;
   }
-} catch (error: any) {
-  store.isLoadingPage = false;
-  store.SuccesToastInfo.isShow = false;
-  store.ErrorToastInfo.isShow = true;
-  store.ErrorToastInfo.message = error.response._data.title;
-}  
-
 });
 </script>
 

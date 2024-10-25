@@ -20,21 +20,10 @@ namespace bezoni_shoes_store.Application.Authentication.Queries.CheckToken
             _jwtTokenGenerator = jwtTokenGenerator;
             _userRepository = userRepository;
         }
-        public async Task<CheckTokenResult> Handle(CheckTokenQuery request, CancellationToken cancellationToken)
+
+        public Task<CheckTokenResult> Handle(CheckTokenQuery request, CancellationToken cancellationToken)
         {
-            var message = await _jwtTokenGenerator.CheckAccessToken(request.Token);
-
-            if (message == "Valid token")
-            {
-                var userId = _jwtTokenGenerator.GetIDByToken(request.Token);
-                var user = await _userRepository.GetUserById(userId);
-                if (user == null)
-                {
-                    message = "User not found";
-                }
-
-            }
-            return new CheckTokenResult(message);
+            throw new NotImplementedException();
         }
     }
 }

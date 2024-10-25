@@ -130,6 +130,7 @@
 
 <script setup lang="ts">
 import { GiaySeedData } from "~/SeedData/GiaySeedData";
+import { useDefaultLayoutStore } from "~/store/defaultLayoutStore";
 
 const route = useRoute();
 const selectedVoucher = ref(0); // Default value is 0 (Mặc định)
@@ -186,6 +187,10 @@ watch(selectedSort, () => {
       // Default when giayProducts call first time
       break;
   }
+});
+const usedefaultLayout = useDefaultLayoutStore();
+onMounted(() => {
+  usedefaultLayout.chooseNav(3);
 });
 </script>
 

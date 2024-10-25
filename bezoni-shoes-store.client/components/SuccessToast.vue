@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex justify-between items-center fixed top-0 right-0 bg-[#b6eacd] p-5 text-black rounded-md min-h-[70px] min-w-[400px] mt-[10px] border-[#0ca95c] border-b-4"
-    v-if="store.SuccesToastInfo.isShow"
+    v-if="alertStore.SuccesToastInfo.isShow"
   >
     <div class="flex gap-4 justify-between items-center">
       <Icon
@@ -10,18 +10,18 @@
       />
       <div>
         <div class="font-bold">Success</div>
-        <div class="font-thin">{{ store.SuccesToastInfo.message }}</div>
+        <div class="font-thin">{{ alertStore.SuccesToastInfo.message }}</div>
       </div>
     </div>
-    <div @click="store.handleCloseSucessToast">
+    <div @click="alertStore.handleCloseSucessToast">
       <Icon name="carbon:close" class="text-[30px] cursor-pointer" />
     </div>
   </div>
 </template>
 
 <script setup>
-import { useMyStore} from "~/store/myStore";
-const store = useMyStore();
+import { useAlertStore } from "~/store/alertStore";
+const alertStore = useAlertStore();
 </script>
 
 <style scoped></style>

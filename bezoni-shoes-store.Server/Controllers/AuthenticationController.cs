@@ -68,13 +68,13 @@ namespace bezoni_shoes_store.Server.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
-        [Route("CheckToken")]
-        public async Task<IActionResult> CheckToken([FromQuery]string Token)
-        {
-            var query = new CheckTokenQuery(Token);
-            var result = await _mediator.Send(query);
-            return Ok(result);
-        }
+        //[HttpGet]
+        //[Route("CheckToken")]
+        //public async Task<IActionResult> CheckToken([FromQuery]string Token)
+        //{
+        //    var query = new CheckTokenQuery(Token);
+        //    var result = await _mediator.Send(query);
+        //    return Ok(result);
+        //}
     }
 }

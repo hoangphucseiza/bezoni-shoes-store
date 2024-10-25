@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-[50px]">
-    <div>
+    <div class="flex justify-center">
       <swiper
         :navigation="true"
         :autoplay="{ delay: 3000, disableOnInteraction: false }"
@@ -8,14 +8,17 @@
       >
         <swiper-slide
           ><img
+            class="w-full"
             src="/assets/images/home/5ca66baa-7326-4903-9033-68b40b200e93.jpg"
         /></swiper-slide>
         <swiper-slide
           ><img
+            class="w-full"
             src="/assets/images/home/404669806_122104941896128199_7921417367521277777_n.jpg"
         /></swiper-slide>
         <swiper-slide
           ><img
+            class="w-full"
             src="/assets/images/home/423223674_122126188964128199_5758388165388933959_n.jpg"
         /></swiper-slide>
       </swiper>
@@ -38,17 +41,23 @@
         </div>
       </div>
     </div>
+    <ErrorToast />
+    <SuccessToast />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ProductShowHome } from "../SeedData/HomeSeedData";
-const listProductCategory = reactive(ProductShowHome);
-const blogData = reactive(BlogSeedData);
-
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import { BlogSeedData } from "~/SeedData/BlogSeedData";
+import { useDefaultLayoutStore } from "~/store/defaultLayoutStore";
+const listProductCategory = reactive(ProductShowHome);
+const blogData = reactive(BlogSeedData);
+const usedefaultLayout = useDefaultLayoutStore();
+onMounted(() => {
+  usedefaultLayout.chooseNav(0);
+});
 </script>

@@ -38,8 +38,13 @@
 
 <script setup lang="ts">
 import { BlogSeedData } from "~/SeedData/BlogSeedData";
+import { useDefaultLayoutStore } from "~/store/defaultLayoutStore";
 
 const blogData = reactive(BlogSeedData);
+const usedefaultLayout = useDefaultLayoutStore();
+onMounted(() => {
+  usedefaultLayout.chooseNav(4);
+});
 </script>
 
 <style scoped></style>

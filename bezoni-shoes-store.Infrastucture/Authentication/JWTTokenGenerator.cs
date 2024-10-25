@@ -33,46 +33,7 @@ namespace bezoni_shoes_store.Infrastucture.Authentication
             //_userRepository = userRepository;
         }
 
-        public async Task<string> CheckAccessToken(string accessToken)
-        {
-            //1. Validate the token
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var tokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = _jwtSettings.Issuer,
-                ValidAudience = _jwtSettings.Audience,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Secret))
-            };
-
-            SecurityToken securityToken;
-            var principal = tokenHandler.ValidateToken(accessToken, tokenValidationParameters, out securityToken);
-
-            //2. Check the token is valid
-
-            var jwtToken = securityToken as JwtSecurityToken;
-            if (jwtToken == null || !jwtToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
-            {
-                return "Invalid token";
-            }
-
-            //3. Check token còn hạn sử dụng không
-            var utcNow = _dateTimeProvider.UtcNow;
-            var expiryDateUnix = long.Parse(principal.Claims.Single(x => x.Type == JwtRegisteredClaimNames.Exp).Value);
-
-            var expiryDateTimeUtc = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)
-                .AddSeconds(expiryDateUnix);
-
-            if (expiryDateTimeUtc < utcNow)
-            {
-                return "This token has expired";
-            }
-
-            return "Valid token";
-        }
+  
 
         public string GenerateRefreshToken(User user)
         {

@@ -3,7 +3,7 @@
     <div
       class="relative default_layout_header flex flex-row justify-between py-[30px] px-[100px] border-black rounded-md items-center shadow"
     >
-      <div class="flex flex-row gap-5" @click="chooseNav(0)">
+      <div class="flex flex-row gap-5" @click="defaultLayoutStore.chooseNav(0)">
         <!-- <img src="/assets/images/header/logo.png" alt="logo" class="w-[100px] h-[100px]" /> -->
         <NuxtLink
           to="/"
@@ -16,12 +16,12 @@
         class="flex flex-row gap-10 text-lg font-medium absolute left-1/2 transform -translate-x-1/2"
       >
         <NuxtLink
-          v-for="(item, index) in listNagivation"
+          v-for="(item, index) in defaultLayoutStore.listNagivation"
           :key="index"
           :to="item.path"
           class="cursor-pointer"
           :class="{ 'text-[#F36123]': item.isChoose }"
-          @click="chooseNav(index)"
+          @click="defaultLayoutStore.chooseNav(index)"
         >
           {{ item.name }}
         </NuxtLink>
@@ -240,16 +240,12 @@
 
 <script setup lang="ts">
 import { ProductSearchSeedData } from "~/SeedData/ProductSearchSeedData";
+import { useDefaultLayoutStore } from "~/store/defaultLayoutStore";
 
+const defaultLayoutStore = useDefaultLayoutStore();
 const router = useRouter();
 const isSearch = ref(false);
-const listNagivation = ref([
-  { name: "Home", path: "/", isChoose: true },
-  { name: "Giày", path: "/products/giay", isChoose: false },
-  { name: "Ví", path: "/products/vi", isChoose: false },
-  { name: "Nịt", path: "/products/nit", isChoose: false },
-  { name: "Bài viết", path: "/blogs", isChoose: false },
-]);
+
 const modalSearch = ref(false);
 const handleSearchProduct = () => {
   modalSearch.value = true;
@@ -260,12 +256,7 @@ const handleClickLocation = () => {
     "https://www.google.com/maps/place/Hi%E1%BB%87u+Gi%C3%A0y+T%C3%A2n+Ti%E1%BA%BFn/@15.293592,108.832612,4175m/data=!3m1!1e3!4m6!3m5!1s0x31684bdcef396c27:0x3836c7dd468ba4ca!8m2!3d15.2935919!4d108.832612!16s%2Fg%2F11gnt10lsw?hl=en&entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D";
 };
 const navigateToFacebook = () => {
-  console.log("Click");
   window.location.href = "https://www.facebook.com/bezonishoes";
-};
-const chooseNav = (index: number) => {
-  listNagivation.value.forEach((item) => (item.isChoose = false));
-  listNagivation.value[index].isChoose = true;
 };
 
 const toggleSearch = () => {
