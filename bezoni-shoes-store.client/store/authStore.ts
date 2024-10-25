@@ -5,8 +5,8 @@ export const useAuthStore = defineStore("authStore", () => {
   //Initial state
   const user = reactive<IAuthenticationRespone>({
     id: "",
-    username: "",
-    fullname: "",
+    userName: "",
+    fullName: "",
     email: "",
     phone: "",
     address: "",
@@ -18,8 +18,8 @@ export const useAuthStore = defineStore("authStore", () => {
   //Actions
   const setUser = (data: IAuthenticationRespone) => {
     user.id = data.id;
-    user.username = data.username;
-    user.fullname = data.fullname;
+    user.userName = data.userName;
+    user.fullName = data.fullName;
     user.email = data.email;
     user.phone = data.phone;
     user.address = data.address;

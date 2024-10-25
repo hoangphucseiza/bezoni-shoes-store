@@ -48,13 +48,13 @@
           />
           <div class="flex gap-2 items-center cursor-pointer">
             <img
-              src="/assets/images/header/logouser.jpg"
+              :src="authStore.user?.avatar"
               alt="avatar"
               class="w-[40px] h-[40px] rounded-full"
             />
             <div class="">
-              <div class="font-medium">Nguyễn Hoàng Phúc</div>
-              <div class="">hoangphucseiza</div>
+              <div class="font-medium">{{ authStore.user.fullName }}</div>
+              <div class="">{{ authStore.user.userName }}</div>
             </div>
           </div>
         </div>
@@ -65,6 +65,8 @@
 </template>
 
 <script setup lang="ts">
+import { useAuthStore } from '~/store/authStore';
+
 const listNagivate = ref([
   {
     name: "Dashboard",
@@ -106,7 +108,7 @@ const chooseNav = (index: number) => {
   listNagivate.value.forEach((item) => (item.isChoose = false));
   listNagivate.value[index].isChoose = true;
 };
-// animation for sidebar
+const authStore = useAuthStore();
 </script>
 
 <style scoped></style>

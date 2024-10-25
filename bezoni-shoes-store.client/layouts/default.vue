@@ -71,17 +71,27 @@
           class="flex items-center justify-center cursor-pointer relative"
           @click="handleClickUser"
         >
-          <Icon
-            class="text-[30px]"
-            name="material-symbols:account-circle"
-            style="color: black"
-          />
+          <div class="text-[30px]" v-if="authStore.user.id">
+            <img
+              :src="authStore.user.avatar"
+              alt="avatar"
+              class="w-[45px] h-[45px] rounded-full object-contain"
+            />
+          </div>
+          <div v-else class="flex items-center">
+            <Icon
+              class="text-[30px]"
+              name="material-symbols:account-circle"
+              style="color: black"
+            />
+          </div>
           <div v-if="dropDownUser" class="z-50">
             <div
-              class="absolute top-[40px] right-0 w-[150px] bg-white border border-gray-300 rounded-lg shadow-lg flex flex-col text-[15px]"
+              class="absolute top-[50px] right-0 w-[150px] bg-white border border-gray-300 rounded-lg shadow-lg flex flex-col text-[15px]"
             >
               <NuxtLink
                 to="/admin"
+                v-if="authStore.user?.role == 'Admin'"
                 class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
               >
                 <Icon
@@ -92,6 +102,7 @@
               </NuxtLink>
               <NuxtLink
                 to="/profile"
+                v-if="authStore.user.role == 'User'"
                 class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
               >
                 <Icon name="material-symbols:account-box" class="text-[20px]" />
@@ -99,13 +110,26 @@
               </NuxtLink>
               <NuxtLink
                 to="/login"
+                v-if="!authStore.user.id"
                 class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
               >
                 <Icon name="material-symbols:key-rounded" class="text-[20px]" />
                 <div>Login</div>
               </NuxtLink>
               <NuxtLink
+                to="/register"
+                v-if="!authStore.user.id"
+                class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
+              >
+                <Icon
+                  name="material-symbols:near-me-rounded"
+                  class="text-[20px]"
+                />
+                <div>Register</div>
+              </NuxtLink>
+              <NuxtLink
                 to="/"
+                v-if="authStore.user.id"
                 @click="handleLogout"
                 class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
               >

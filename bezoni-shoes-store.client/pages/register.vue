@@ -166,7 +166,7 @@ const submitForm = handleSubmit(async (values: any) => {
     )) as IAuthenticationRespone;
     alertStore.handleLoadingPage(false);
     alertStore.handleCloseErrorToast();
-    alertStore.handleOpenSucessToast("Login Success");
+    alertStore.handleOpenSucessToast("Register Success");
 
     // Save access token / refresh token to local storage
     localStorage.setItem("accessToken", user.token);

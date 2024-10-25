@@ -1,7 +1,7 @@
 export interface IAuthenticationRespone {
   id: string;
-  username: string;
-  fullname: string;
+  userName: string;
+  fullName: string;
   email: string;
   phone: string;
   address: string;
