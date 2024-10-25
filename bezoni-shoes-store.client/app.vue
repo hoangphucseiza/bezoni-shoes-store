@@ -9,8 +9,10 @@
 <script setup lang="ts">
 import { callApi, HttpMethods } from "./ApiConfig/fetchData";
 import type { IErrorSystem } from "./interface/ErrorResponse/IErrorSystem";
+import type { IAuthenticationRespone } from "./interface/Response/IAuthenticationRespone";
 import type { IRefreshToken } from "./interface/Response/IRefreshToken";
-
+import { useAuthStore } from "./store/authStore";
+const authStore = useAuthStore();
 // Validate Token
 const validateToken = (token: string | null) => {
   if (!token) return false;
@@ -49,6 +51,18 @@ const checkToken = async () => {
         localStorage.setItem("accessToken", apiToken.token);
         localStorage.setItem("refreshToken", apiToken.refreshToken);
         console.log("Token success");
+        try {
+          const user = (await callApi(
+            `Authentication/GetUserFromToken?token=${apiToken.token}`,
+            HttpMethods.GET
+          )) as IAuthenticationRespone;
+          user.token = apiToken.token;
+          user.refreshToken = apiToken.refreshToken;
+          authStore.setUser(user);
+        } catch (error: any) {
+          const err: IErrorSystem = error.response._data;
+          console.log(err.title);
+        }
       }
     } catch (error: any) {
       const err: IErrorSystem = error.response._data;

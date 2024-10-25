@@ -3,6 +3,7 @@
 using bezoni_shoes_store.Application.Authentication.Commands.CreateAdminAccount;
 using bezoni_shoes_store.Application.Authentication.Commands.Register;
 using bezoni_shoes_store.Application.Authentication.Queries.CheckToken;
+using bezoni_shoes_store.Application.Authentication.Queries.GetUserFromToken;
 using bezoni_shoes_store.Application.Authentication.Queries.Login;
 using bezoni_shoes_store.Application.Authentication.Queries.RefreshToken;
 using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
@@ -67,6 +68,17 @@ namespace bezoni_shoes_store.Server.Controllers
             var result = await _mediator.Send(query);
             return Ok(result);
         }
+
+        [HttpGet]
+        [Route("GetUserFromToken")]
+        public async Task<IActionResult> GetUserFromToken([FromQuery]string token)
+        {
+            var query = new GetUserFromTokenQuery(token);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+  
 
         //[HttpGet]
         //[Route("CheckToken")]

@@ -105,7 +105,8 @@
                 <div>Login</div>
               </NuxtLink>
               <NuxtLink
-                to="/logout"
+                to="/"
+                @click="handleLogout"
                 class="cursor-pointer p-2 hover:bg-[#F36123] hover:text-white rounded-lg flex gap-2 items-center"
               >
                 <Icon name="lucide:log-out" class="text-[20px]" />
@@ -251,6 +252,12 @@ const handleSearchProduct = () => {
   modalSearch.value = true;
 };
 
+const handleLogout = () => {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("refreshToken");
+  defaultLayoutStore.chooseNav(0);
+  router.push("/");
+};
 const handleClickLocation = () => {
   window.location.href =
     "https://www.google.com/maps/place/Hi%E1%BB%87u+Gi%C3%A0y+T%C3%A2n+Ti%E1%BA%BFn/@15.293592,108.832612,4175m/data=!3m1!1e3!4m6!3m5!1s0x31684bdcef396c27:0x3836c7dd468ba4ca!8m2!3d15.2935919!4d108.832612!16s%2Fg%2F11gnt10lsw?hl=en&entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D";
