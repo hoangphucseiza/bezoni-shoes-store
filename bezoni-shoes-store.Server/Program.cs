@@ -3,6 +3,8 @@
 using bezoni_shoes_store.Application;
 using bezoni_shoes_store.Infrastucture;
 using bezoni_shoes_store.Server;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.OpenApi.Models;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +30,36 @@ builder.Services.AddCors(options =>
                 .AllowAnyMethod()   // Cho phép mọi phương thức (GET, POST, PUT, DELETE)
                 .AllowAnyHeader();  // Cho phép mọi header
         });
+});
+
+// Add Swagger for Authorization
+builder.Services.AddSwaggerGen(options =>
+{
+    options.AddSecurityDefinition(
+        name: JwtBearerDefaults.AuthenticationScheme,
+        securityScheme: new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Description = "JWT Authorization header using the Bearer scheme.",
+            In = ParameterLocation.Header,
+            Type = SecuritySchemeType.ApiKey,
+            Scheme = "Bearer"
+        }
+    );
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = JwtBearerDefaults.AuthenticationScheme
+                }
+            },
+            new string[] { }
+        }
+    });
 });
 
 // -----END builder code-----

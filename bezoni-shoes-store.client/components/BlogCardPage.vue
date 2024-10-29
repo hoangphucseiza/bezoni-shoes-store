@@ -7,7 +7,7 @@
       <div
         class="float-right px-4 py-3 border rounded-2xl bg-[#F36123] text-white font-bold cursor-pointer hover:bg-[#f36123ed] transition-all duration-200"
         @click="() => $router.push(`/blogs/${blog.id}`)"
-        >
+      >
         XEM THÊM
       </div>
     </div>

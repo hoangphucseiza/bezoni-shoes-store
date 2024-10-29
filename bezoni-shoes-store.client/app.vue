@@ -14,7 +14,7 @@ import type { IRefreshToken } from "./interface/Response/IRefreshToken";
 import { useAuthStore } from "./store/authStore";
 const authStore = useAuthStore();
 // Validate Token
-const validateToken = (token: string | null) => {
+const validateToken = (token: string | null) : boolean => {
   if (!token) return false;
   // Kiểm tra định dạng JWT
   const tokenParts = token.split(".");
@@ -46,10 +46,8 @@ const checkToken = async () => {
         { refreshToken: refreshToken }
       )) as IRefreshToken;
       if (apiToken) {
-        localStorage.removeItem("accessToken");
-        localStorage.removeItem("refreshToken");
         localStorage.setItem("accessToken", apiToken.token);
-        localStorage.setItem("refreshToken", apiToken.refreshToken);
+        localStorage.setItem("refreshToken", apiToken.refreshToken); 
         console.log("Token success");
         try {
           const user = (await callApi(

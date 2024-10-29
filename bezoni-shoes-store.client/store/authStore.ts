@@ -28,5 +28,9 @@ export const useAuthStore = defineStore("authStore", () => {
     user.token = data.token;
     user.refreshToken = data.refreshToken;
   };
-  return { user, setUser };
+
+  const getAccesToken = () => {
+    return user.token;
+  };
+  return { user, setUser, getAccesToken };
 });

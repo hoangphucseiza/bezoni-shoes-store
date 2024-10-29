@@ -125,13 +125,8 @@ const submitForm = handleSubmit(async (values: any) => {
     localStorage.setItem("accessToken", user.token);
     localStorage.setItem("refreshToken", user.refreshToken);
 
-    if (user.role === "Admin") {
-      // router.push("/admin");
-      window.location.href = "/admin";
-    } else {
-      // router.push("/");
-      window.location.href = "/";
-    }
+    window.location.href = "/";
+
   } catch (error: any) {
     alertStore.handleLoadingPage(false);
     alertStore.handleCloseSucessToast();

@@ -1,9 +1,4 @@
 ﻿using bezoni_shoes_store.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
 {
@@ -13,6 +8,11 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
         Task<Category> GetCategoryById(string id);
         Task AddCategory(Category category);
         Task AddProductIDToVCategory(string categoryID, string productID);
+
+        Task<Category> GetCategoryByName(string name);
+
+        Task UpdateCategory(Category category);
+        Task DeleteCategory(string categoryID);
 
     }
 }

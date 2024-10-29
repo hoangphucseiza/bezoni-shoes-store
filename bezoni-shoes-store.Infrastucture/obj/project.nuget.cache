@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eVUZwa81kVM2uoYzOJeWrKTjuwSODT1r4Z9HFyEcgI1fSp1CloArRZvitEnXkcEwYqO8o5JrZPq4ZDB0bWV+MQ==",
+  "dgSpecHash": "LfGOq2Fw5rM=",
   "success": true,
   "projectFilePath": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Infrastucture\\bezoni-shoes-store.Infrastucture.csproj",
   "expectedPackageFiles": [
@@ -73,16 +73,5 @@
     "C:\\Users\\hoang\\.nuget\\packages\\system.text.json\\8.0.4\\system.text.json.8.0.4.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\zstdsharp.port\\0.7.3\\zstdsharp.port.0.7.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Runtime.Caching' 8.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-qj66-m88j-hmgj",
-      "libraryId": "System.Runtime.Caching",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  "logs": []
 }

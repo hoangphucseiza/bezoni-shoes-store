@@ -1,6 +1,4 @@
-﻿using bezoni_shoes_store.Application.OrderCQRS.Command.AddCategory;
-using bezoni_shoes_store.Contracts.Category;
-using MapsterMapper;
+﻿using MapsterMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,15 +17,6 @@ namespace bezoni_shoes_store.Server.Controllers
             _mediator = mediator;
             _mapper = mapper;
 
-        }
-
-        [HttpPost]
-        [Route("AddCategory")]
-        public async Task<IActionResult> AddCategory(AddCategoryRequest request)
-        {
-            var command = _mapper.Map<AddCategoryCommand>(request);
-            var result = await _mediator.Send(command);
-            return Ok(result);
         }
     }
 }

@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Admin\" />
     <Folder Include="OrderDetail\" />
     <Folder Include="Order\" />
   </ItemGroup>

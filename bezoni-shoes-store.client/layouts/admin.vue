@@ -10,9 +10,9 @@
 
       <div class="flex flex-col">
         <div
-          v-for="(nav, index) in listNagivate"
+          v-for="(nav, index) in adminLayoutStore.listNagivation"
           :key="index"
-          @click="chooseNav(index)"
+          @click="adminLayoutStore.chooseNav(index)"
         >
           <div
             class="cursor-pointer flex flex-col justify-center items-center h-[70px] text-[18px] font-medium"
@@ -61,54 +61,52 @@
       </div>
       <div class="p-5"><slot /></div>
     </div>
+    <LoadingPage />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useAuthStore } from '~/store/authStore';
+import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
+import { useAdminLayoutStore } from "~/store/adminLayoutStore";
+import { useAlertStore } from "~/store/alertStore";
+import { useAuthStore } from "~/store/authStore";
 
-const listNagivate = ref([
-  {
-    name: "Dashboard",
-    path: "/admin",
-    isChoose: true,
-  },
-  {
-    name: "Manage Products",
-    path: "/admin/products",
-    isChoose: false,
-  },
-  {
-    name: "Manage Users",
-    path: "/admin/users",
-    isChoose: false,
-  },
-  {
-    name: "Manage Orders",
-    path: "/admin/orders",
-    isChoose: false,
-  },
-  {
-    name: "Manage Vouchers",
-    path: "/admin/vouchers",
-    isChoose: false,
-  },
-  {
-    name: "Manage Blogs",
-    path: "/admin/blogs",
-    isChoose: false,
-  },
-  {
-    name: "Manage Settings",
-    path: "/admin/settings",
-    isChoose: false,
-  },
-]);
-const chooseNav = (index: number) => {
-  listNagivate.value.forEach((item) => (item.isChoose = false));
-  listNagivate.value[index].isChoose = true;
-};
+const router = useRouter();
+const alertStore = useAlertStore();
+const adminLayoutStore = useAdminLayoutStore();
 const authStore = useAuthStore();
+const checkRole = async () => {
+  alertStore.handleLoadingPage(true);
+  const accessToken = localStorage.getItem("accessToken");
+  try {
+    if (accessToken) {
+      const role = (await callApi(
+        `Admin/GetRoleByAccessToken?request=${accessToken}`,
+        HttpMethods.GET
+      )) as string;
+      if (role) {
+        if (role === "Admin") {
+          console.log("Admin");
+          alertStore.handleLoadingPage(false);
+        } else {
+          router.push("/");
+          alertStore.handleLoadingPage(false);
+        }
+      }
+    }
+  } catch (error: any) {
+    console.log(error);
+    alertStore.handleLoadingPage(false);
+  }
+};
+const checkNavigation = () => {
+  const path = router.currentRoute.value.path;
+  adminLayoutStore.checkPath(path);
+};
+onMounted(() => {
+  checkRole();
+  checkNavigation();
+});
 </script>
 
 <style scoped></style>

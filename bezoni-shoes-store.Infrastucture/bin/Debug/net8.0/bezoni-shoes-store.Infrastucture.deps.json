@@ -601,12 +601,6 @@
       "System.Text.Json/8.0.4": {
         "dependencies": {
           "System.Text.Encodings.Web": "8.0.0"
-        },
-        "runtime": {
-          "lib/net8.0/System.Text.Json.dll": {
-            "assemblyVersion": "8.0.0.0",
-            "fileVersion": "8.0.724.31311"
-          }
         }
       },
       "ZstdSharp.Port/0.7.3": {
@@ -627,7 +621,10 @@
           "bezoni-shoes-store.Domain": "1.0.0"
         },
         "runtime": {
-          "bezoni-shoes-store.Application.dll": {}
+          "bezoni-shoes-store.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "bezoni-shoes-store.Domain/1.0.0": {
@@ -636,7 +633,10 @@
           "MongoDB.Driver": "2.29.0"
         },
         "runtime": {
-          "bezoni-shoes-store.Domain.dll": {}
+          "bezoni-shoes-store.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

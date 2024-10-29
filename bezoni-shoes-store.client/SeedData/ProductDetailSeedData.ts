@@ -6,7 +6,7 @@ export const ProductDetailSeedData: IProductDetail = {
   price: 500000,
   voucher: 10,
   description:
-    "<div> <h2>Áo Sơ Mi Nam Cổ Trụ Tay Dài Thời Trang</h2> <p>Chiếc áo sơ mi nam này là sự kết hợp hoàn hảo giữa phong cách và sự thoải mái. Được may từ chất liệu cotton cao cấp, áo mang đến cảm giác mềm mại và thoáng mát, lý tưởng cho những ngày làm việc năng động hoặc dạo phố thoải mái.</p> <p>Thiết kế cổ trụ tinh tế và tay dài giúp bạn luôn gọn gàng, lịch sự. Kiểu dáng cơ bản, dễ phối với nhiều trang phục khác nhau, từ quần tây, quần kaki đến quần jean, mang lại vẻ ngoài thanh lịch và chỉn chu.</p> <p>Đường may tỉ mỉ, chắc chắn cùng các chi tiết như cúc áo, nút cài tạo nên sự tinh tế và bền bỉ cho sản phẩm. Bạn có thể yên tâm mặc áo trong nhiều năm mà không lo bị phai màu hay rách rưới.</p> <p>Với nhiều màu sắc như trắng, xanh navy, xám, đen... áo sơ mi nam này phù hợp với mọi phong cách thời trang, từ công sở đến dạo phố. Hãy nhanh tay sở hữu ngay một chiếc để tôn lên vẻ lịch lãm, nam tính của bản thân.</p> </div>",
+    "Chiếc áo sơ mi nam này là sự kết hợp hoàn hảo giữa phong cách và sự thoải mái. Được may từ chất liệu cotton cao cấp, áo mang đến cảm giác mềm mại và thoáng mát, lý tưởng cho những ngày làm việc năng động hoặc dạo phố thoải mái.",
   categoryName: "Giày",
   listItem: [
     {

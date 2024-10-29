@@ -3,11 +3,6 @@ using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.MongoDB;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Infrastucture.Persistence
 {
@@ -24,28 +19,44 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
         }
         public async Task AddCategory(Category category)
         {
-           await _categoryCollection.InsertOneAsync(category);
+            await _categoryCollection.InsertOneAsync(category);
         }
 
         public async Task AddProductIDToVCategory(string categoryID, string productID)
         {
-           var category = await _categoryCollection.Find(p => p.Id == categoryID).FirstOrDefaultAsync();
-            category.ProductIDs.Add(productID);
+            var category = await _categoryCollection.Find(p => p.Id == categoryID).FirstOrDefaultAsync();
 
             // Cập nhật category trong cơ sở dữ liệu
             await _categoryCollection.ReplaceOneAsync(p => p.Id == categoryID, category);
 
         }
 
+        public async Task DeleteCategory(string categoryID)
+        {
+            await _categoryCollection.DeleteOneAsync(p => p.Id == categoryID);
+        }
+
         public async Task<List<Category>> GetAllCategories()
         {
-           var categories = await _categoryCollection.Find(p => true).ToListAsync();
+            var categories = await _categoryCollection.Find(p => true).ToListAsync();
             return categories;
         }
 
-        public Task<Category> GetCategoryById(string id)
+        public async Task<Category> GetCategoryById(string id)
         {
-            throw new NotImplementedException();
+            var category = await _categoryCollection.Find(c => c.Id == id).FirstOrDefaultAsync();
+            return category;
+        }
+
+        public async Task<Category> GetCategoryByName(string name)
+        {
+            var category = await _categoryCollection.Find(c => c.Name.ToLower().Trim() == name.ToLower().Trim()).FirstOrDefaultAsync();
+            return category;
+        }
+
+        public async Task UpdateCategory(Category category)
+        {
+            await _categoryCollection.ReplaceOneAsync(p => p.Id == category.Id, category);
         }
     }
 }
