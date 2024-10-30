@@ -1,8 +1,10 @@
 ﻿using bezoni_shoes_store.Application.AdminCQRS.Commands.AddCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.AddProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.DeleteCategory;
+using bezoni_shoes_store.Application.AdminCQRS.Commands.DeleteProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllCategory;
+using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetCategoryByName;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetRoleByAccessToken;
 using bezoni_shoes_store.Contracts.Category;
@@ -89,6 +91,23 @@ namespace bezoni_shoes_store.Server.Controllers
         public async Task<IActionResult> AddProduct([FromBody] Product product)
         {
             var command = new AddProductCommand(product);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetAllProduct")]
+        public async Task<IActionResult> GetAllProduct()
+        {
+            var query = new GetAllProductQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        [HttpDelete]
+        [Route("DeleteProduct")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteProduct([FromQuery] string id)
+        {
+            var command = new DeleteProductCommand(id);
             var result = await _mediator.Send(command);
             return Ok(result);
         }

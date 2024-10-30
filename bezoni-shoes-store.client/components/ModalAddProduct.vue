@@ -76,54 +76,62 @@
         >
           Thêm sản phẩm
         </div>
-        <!-- Danh sách Category -->
-        <div v-if="listCategory" class="flex flex-col gap-2">
+        <!-- Danh sách Product -->
+        <div class="flex flex-col gap-2">
           <div class="font-semibold text-[20px]">Danh sách sản phẩm:</div>
-          <div class="flex flex-col gap-2 border p-3 rounded-xl">
+          <div
+            class="flex flex-col gap-2 border p-3 rounded-xl overflow-y-scroll max-h-[200px]"
+          >
+            <!-- Bảng sản phẩm -->
+            <div class="flex flex-row gap-2">
+              <div class="w-[100px] font-semibold">STT</div>
+              <div class="w-[200px] font-semibold">Tên sản phẩm</div>
+              <div class="w-[100px] font-semibold">Giá</div>
+              <div class="w-[100px] font-semibold">Voucher(%)</div>
+              <div class="w-[200px] font-semibold">Mô tả</div>
+              <div class="w-[200px] font-semibold">Danh mục</div>
+              <div class="w-[200px] font-semibold">Chức năng</div>
+            </div>
             <div
-              v-for="(category, index) in listCategory"
+              v-for="(product, index) in listProduct"
               :key="index"
-              class="flex justify-between items-center border-b pb-2 text-[18px]"
+              class="flex flex-row gap-2"
             >
-              <!-- input for category name -->
-              <input
-                type="text"
-                class="border border-gray-300 rounded-md p-2"
-                :value="
-                  editingCategory?.id === category.id
-                    ? editingCategory.name
-                    : category.name
-                "
-                @input="handleInputChange($event, category.id)"
-              />
-              <div class="flex gap-4">
-                <Icon
-                  name="material-symbols:delete"
-                  class="text-[#f36123df] text-[30px] cursor-pointer"
-                  @click="
-                    categoryStore.handleDeleteCategory(
-                      category.id,
-                      category.name
-                    )
-                  "
-                />
-                <Icon
-                  name="material-symbols:edit"
-                  class="text-[#f36123df] text-[30px] cursor-pointer"
-                  @click="handleEditCategory(category.id)"
-                />
+              <div class="w-[100px]">{{ index + 1 }}</div>
+              <div class="w-[200px]">{{ product.name }}</div>
+              <div class="w-[100px]">
+                {{ commonStore.formatPrice(product.price) }}đ
+              </div>
+              <div class="w-[100px]">{{ product.voucher }}</div>
+              <div class="w-[200px]">{{ product.description }}</div>
+              <div class="w-[200px]">{{ product.categoryName }}</div>
+              <div class="w-[200px] flex gap-4">
+                <div
+                  class="text-white bg-[#F36123] p-1 rounded-md cursor-pointer"
+                  @click="handleUpdateProduct(product.id)"
+                >
+                  Sửa
+                </div>
+                <div
+                  class="text-white bg-[#F36123] p-1 rounded-md cursor-pointer"
+                  @click="handleDeleteProduct(product.id, product.name)"
+                >
+                  Xóa
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div v-else class="text-[20px] font-semibold">
-          Không có danh mục nào
         </div>
       </div>
     </div>
     <ErrorToast />
     <SuccessToast />
     <LoadingPage />
+    <modal-warning />
+    <ModalUpdateProduct
+      :isModalUpdateProduct="isModalUpdateProduct"
+      :handleCloseModalUpdateProduct="handleCloseModalUpdateProduct"
+    />
   </div>
 </template>
     
@@ -138,18 +146,21 @@ import { useAlertStore } from "~/store/alertStore";
 import { useCategoryStore } from "~/store/categoryStore";
 import type { IAddProductBody } from "~/interface/RequestBody/IAddProductBody";
 import { useProductStore } from "~/store/productStore";
+import { useCommonStore } from "~/store/commonStore";
 
 // Định nghĩa các props của component
 const props = defineProps<{
   IsModalAddProduct: boolean;
   handleCloseModalAddProduct: () => void;
 }>();
-
+const categoryStore = useCategoryStore();
+const adminStore = useAuthStore();
 const listCategory = computed(() => categoryStore.categories);
+const listProduct = computed(() => productStore.products);
 onMounted(async () => {
+  await productStore.handleGetProducts();
   await categoryStore.getAllCategory();
 });
-const categoryStore = useCategoryStore();
 
 const schema = reactive({
   productName: string().required("Tên sản phẩm không được bỏ trống"),
@@ -162,14 +173,30 @@ const schema = reactive({
     .max(100, "Voucher sản phẩm phải nhỏ hơn 100"),
   description: string().required("Mô tả sản phẩm không được bỏ trống"),
 });
-const selectedCategory = ref("");
 
+const handleUpdateProduct = (id: string) => {
+  // productStore.handleGetProductById(id);
+  isModalUpdateProduct.value = true;
+};
+const handleCloseModalUpdateProduct = () => {
+  isModalUpdateProduct.value = false;
+};
+const selectedCategory = ref<string>("");
+const handleDeleteProduct = async (id: string, name: string) => {
+  const isConfirmed = window.confirm(
+    `Bạn có chắc chắn muốn cập nhật danh mục ${name} không?`
+  );
+  if (!isConfirmed) return; // Nếu người dùng nhấn Cancel thì dừng tại đây
+  await productStore.handleDeleteProduct(id);
+};
 // Xử lý sự kiện gửi form
 const { handleSubmit } = useForm({
   validationSchema: schema,
 });
+const isModalUpdateProduct = ref(false);
 const authStore = useAuthStore();
 const alertStore = useAlertStore();
+const commonStore = useCommonStore();
 const productStore = useProductStore();
 const submitForm = handleSubmit(async (values) => {
   const product: IAddProductBody = {
@@ -181,33 +208,6 @@ const submitForm = handleSubmit(async (values) => {
   };
   await productStore.handleAddProduct(product);
 });
-
-// Khai báo trạng thái
-const editingCategory = ref<{ id: string; name: string } | null>(null);
-
-// Hàm cập nhật giá trị input khi chỉnh sửa
-const handleInputChange = (event: Event, id: string) => {
-  const target = event.target as HTMLInputElement;
-  editingCategory.value = { id, name: target.value };
-};
-
-// Hàm xử lý chỉnh sửa danh mục
-const handleEditCategory = async (id: string) => {
-  if (editingCategory.value && editingCategory.value.id === id) {
-    try {
-      await categoryStore.handleUpdateCategory(id, editingCategory.value.name);
-    } catch (error: any) {
-      alertStore.handleLoadingPage(false);
-      if (error.response) {
-        const errorData: IErrorSystem = error.response._data;
-        alertStore.handleLoadingPage(false);
-        alertStore.handleOpenErrorToast(errorData.title);
-      }
-    }
-  } else {
-    alertStore.handleOpenErrorToast("Không có gì thay đổi!");
-  }
-};
 </script>
     
     

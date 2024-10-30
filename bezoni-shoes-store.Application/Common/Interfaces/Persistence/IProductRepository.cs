@@ -1,12 +1,11 @@
-﻿
-using bezoni_shoes_store.Application.ProductCQRS.Common;
+﻿using bezoni_shoes_store.Application.AdminCQRS.Common;
 using bezoni_shoes_store.Domain.Entities;
 
 namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
 {
     public interface IProductRepository
     {
-        Task AddProduct(Product product);
+        Task<AddProductResult> AddProduct(Product product);
         Task<Product> FindProductByID(string id);
         Task<Product> FindProductByName(string name);
 
@@ -17,8 +16,10 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
 
         Task<List<Product>> GetProductsByDesciptionTextSearch(string search);
 
-        Task<List<AggregateGroupCategoryDetailProductResult>> AggregateGroupCategoryDetailProduct();
+        //Task<List<AggregateGroupCategoryDetailProductResult>> AggregateGroupCategoryDetailProduct();
 
+        Task<List<GetAllProductResult>> GetAllProductWithCategoryName();
 
+        Task DeleteProduct(string id);
     }
 }

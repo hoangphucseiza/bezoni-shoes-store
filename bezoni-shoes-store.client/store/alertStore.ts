@@ -11,8 +11,31 @@ export const useAlertStore = defineStore("AlertStore", () => {
     message: "",
   });
   const isLoadingPage = ref(false);
+  const ModalWarning = reactive({
+    isShow: false,
+    message: "",
+    next: false,
+  });
 
   //Actions
+  const handleOpenModalWarning = (message: string) => {
+    ModalWarning.isShow = true;
+    ModalWarning.message = message;
+  };
+  const handleOkModalWarning = () => {
+    ModalWarning.isShow = false;
+    ModalWarning.message = "";
+    ModalWarning.next = true;
+  };
+
+  //Create Promise for handleOkModalWarning
+
+  const handleCloseModalWarning = () => {
+    ModalWarning.isShow = false;
+    ModalWarning.message = "";
+    ModalWarning.next = false;
+  };
+
   const handleOpenSucessToast = (message: string) => {
     ErrorToastInfo.value.isShow = false;
     ErrorToastInfo.value.message = "";
@@ -42,10 +65,14 @@ export const useAlertStore = defineStore("AlertStore", () => {
     SuccesToastInfo,
     ErrorToastInfo,
     isLoadingPage,
+    ModalWarning,
+    handleCloseModalWarning,
     handleOpenSucessToast,
+    handleOkModalWarning,
     handleOpenErrorToast,
     handleLoadingPage,
     handleCloseSucessToast,
     handleCloseErrorToast,
+    handleOpenModalWarning,
   };
 });
