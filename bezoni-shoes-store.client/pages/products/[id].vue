@@ -105,7 +105,11 @@
     <div class="text-[20px] flex flex-col items-center">
       <div class="text-[30px] font-bold">Mô tả sản phẩm</div>
       <div class="" id="productDescription"></div>
-        <img src="https://bezoni.vn/wp-content/uploads/2024/ProductDescription/Service.webp" alt="product-image" class="object-contain" />
+      <img
+        src="https://bezoni.vn/wp-content/uploads/2024/ProductDescription/Service.webp"
+        alt="product-image"
+        class="object-contain"
+      />
     </div>
   </div>
 </template>

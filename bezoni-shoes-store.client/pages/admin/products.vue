@@ -55,8 +55,6 @@
     <ModalAddCategory
       :IsModalAddCategory="IsModalAddCategory"
       :handleCloseModalAddCategory="handleCloseModalAddCategory"
-      :listCategory="listCategory"
-      class=" "
     />
   </div>
 </template>
@@ -64,10 +62,12 @@
 <script setup lang="ts">
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 import type { IErrorSystem } from "~/interface/ErrorResponse/IErrorSystem";
-import type { IGetAllCategoryResponse } from "~/interface/Response/IGetAllCategoryResponse";
+import type { ICategoryResponse } from "~/interface/Response/ICategoryResponse";
 import { useAlertStore } from "~/store/alertStore";
 import { useAuthStore } from "~/store/authStore";
+import { useCategoryStore } from "~/store/categoryStore";
 
+const categoryStore = useCategoryStore();
 definePageMeta({
   layout: "admin",
 });
@@ -79,28 +79,14 @@ const handleCloseModalAddCategory = () => {
 };
 const authStore = useAuthStore();
 const alertStore = useAlertStore();
-const acceessToken = authStore.getAccesToken();
-const listCategory = ref<IGetAllCategoryResponse[]>([]);
-const getAllCategory = async () => {
-  try {
-    const categories = (await callApi(
-      "Admin/GetAllCategory",
-      HttpMethods.GET,
-      null,
-      acceessToken
-    )) as IGetAllCategoryResponse[];
-    listCategory.value = categories;
-  } catch (error: any) {
-    console.log(error);
-  }
-};
-watchEffect(() => {
-  getAllCategory();
-});
 
-onMounted(() => {
-  getAllCategory();
+// Bind `listCategory` to the `categories` state in the store
+const listCategory = computed(() => categoryStore.categories);
+
+onMounted(async () => {
+  await categoryStore.getAllCategory();
 });
+// after mounted
 </script>
 
 <style scoped></style>

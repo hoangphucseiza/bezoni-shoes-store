@@ -2,6 +2,7 @@
 using bezoni_shoes_store.Application.AdminCQRS.Commands.DeleteCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllCategory;
+using bezoni_shoes_store.Application.AdminCQRS.Queries.GetCategoryByName;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetRoleByAccessToken;
 using bezoni_shoes_store.Contracts.Category;
 using bezoni_shoes_store.Domain.Entities;
@@ -68,6 +69,15 @@ namespace bezoni_shoes_store.Server.Controllers
         {
             var command = new DeleteCategoryCommand(id);
             var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("GetCategoryByName")]
+        public async Task<IActionResult> GetCategoryByName([FromQuery] string name)
+        {
+            var query = new GetCategoryByNameQuery(name);
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
     }

@@ -3,144 +3,23 @@
   "WorkspaceRootPath": "D:\\BIGIN\\bezoni-shoes-store\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\queries\\getallcategory\\getallcategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\queries\\getallcategory\\getallcategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\queries\\getallcategory\\getallcategoryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\queries\\getallcategory\\getallcategoryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\queries\\getallcategory\\getallcategoryquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\queries\\getallcategory\\getallcategoryquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\updatecategory\\updatecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\updatecategory\\updatecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\updatecategory\\updatecategoryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\updatecategory\\updatecategoryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\updatecategory\\updatecategorycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\updatecategory\\updatecategorycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\deletecategory\\deletecategoryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\deletecategory\\deletecategoryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\deletecategory\\deletecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\deletecategory\\deletecategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\deletecategory\\deletecategorycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\deletecategory\\deletecategorycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\authentication\\queries\\getuserfromtoken\\getuserfromtokenhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\authentication\\queries\\getuserfromtoken\\getuserfromtokenhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\queries\\getcategorybyname\\getcategorybynamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\queries\\getcategorybyname\\getcategorybynamehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.server\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|solutionrelative:bezoni-shoes-store.server\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7B3EBBF-DE7E-40FE-A630-7FC2E98813DE}|bezoni-shoes-store.Infrastucture\\bezoni-shoes-store.Infrastucture.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.infrastucture\\persistence\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7B3EBBF-DE7E-40FE-A630-7FC2E98813DE}|bezoni-shoes-store.Infrastucture\\bezoni-shoes-store.Infrastucture.csproj|solutionrelative:bezoni-shoes-store.infrastucture\\persistence\\categoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\queries\\getcategorybyname\\getcategorybynamequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\queries\\getcategorybyname\\getcategorybynamequery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\common\\interfaces\\persistence\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\common\\interfaces\\persistence\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\queries\\getcategorybyname\\getcategorybynamevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\queries\\getcategorybyname\\getcategorybynamevalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\common\\errors\\admin\\categorynotfound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\common\\errors\\admin\\categorynotfound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\common\\errors\\admin\\categoryexist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\common\\errors\\admin\\categoryexist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\addcategory\\addcategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\addcategory\\addcategoryhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\addcategory\\addcategoryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\addcategory\\addcategoryvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|solutionrelative:bezoni-shoes-store.domain\\entities\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.server\\common\\mapping\\adminmappingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|solutionrelative:bezoni-shoes-store.server\\common\\mapping\\adminmappingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.server\\common\\mapping\\authenticationmappingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|solutionrelative:bezoni-shoes-store.server\\common\\mapping\\authenticationmappingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\authentication\\queries\\getuserfromtoken\\getuserfromtokenvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\authentication\\queries\\getuserfromtoken\\getuserfromtokenvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\authentication\\queries\\getuserfromtoken\\getuserfromtokenquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\authentication\\queries\\getuserfromtoken\\getuserfromtokenquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.server\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|solutionrelative:bezoni-shoes-store.server\\controllers\\authenticationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\common\\addcategoryresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\common\\addcategoryresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\common\\errors\\authentication\\invalidpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\common\\errors\\authentication\\invalidpassword.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\admincqrs\\commands\\addcategory\\addcategorycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\admincqrs\\commands\\addcategory\\addcategorycommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.application\\authentication\\common\\authenticationresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{030A54C3-816D-417D-8706-F43E61A3B602}|bezoni-shoes-store.Application\\bezoni-shoes-store.Application.csproj|solutionrelative:bezoni-shoes-store.application\\authentication\\common\\authenticationresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.server\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|solutionrelative:bezoni-shoes-store.server\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A17664D8-9749-4AC7-B3A9-F89673C3F0F1}|bezoni-shoes-store.Contracts\\bezoni-shoes-store.Contracts.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.contracts\\category\\addcategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A17664D8-9749-4AC7-B3A9-F89673C3F0F1}|bezoni-shoes-store.Contracts\\bezoni-shoes-store.Contracts.csproj|solutionrelative:bezoni-shoes-store.contracts\\category\\addcategoryrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99BB6B4C-3E9C-4B2F-8EDF-2E9CA4863AB4}|bezoni-shoes-store.Server\\bezoni-shoes-store.Server.csproj|solutionrelative:bezoni-shoes-store.server\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|solutionrelative:bezoni-shoes-store.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|solutionrelative:bezoni-shoes-store.domain\\entities\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.domain\\entities\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|solutionrelative:bezoni-shoes-store.domain\\entities\\orderdetail.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.domain\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|solutionrelative:bezoni-shoes-store.domain\\entities\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|d:\\bigin\\bezoni-shoes-store\\bezoni-shoes-store.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{664A3D63-3521-44ED-8209-A8294236D98B}|bezoni-shoes-store.Domain\\bezoni-shoes-store.Domain.csproj|solutionrelative:bezoni-shoes-store.domain\\entities\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -150,482 +29,69 @@
       "DocumentGroups": [
         {
           "DockedHeight": 143,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DeleteCategoryHandler.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryHandler.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryHandler.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryHandler.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryHandler.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAuwBMAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "GetCategoryByNameHandler.cs",
+              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameHandler.cs",
+              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameHandler.cs",
+              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameHandler.cs",
+              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T11:04:00.417Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "DeleteCategoryValidator.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryValidator.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryValidator.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryValidator.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T11:03:18.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DeleteCategoryCommand.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryCommand.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryCommand.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryCommand.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteCategory\\DeleteCategoryCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T11:01:26.073Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "CategoryNotFound.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Common\\Errors\\Admin\\CategoryNotFound.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Common\\Errors\\Admin\\CategoryNotFound.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Common\\Errors\\Admin\\CategoryNotFound.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Errors\\Admin\\CategoryNotFound.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T10:32:03.973Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UpdateCategoryHandler.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryHandler.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryHandler.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryHandler.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryHandler.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAuwB0AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T10:28:26.214Z",
+              "WhenOpened": "2024-10-30T07:38:42.45Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "UpdateCategoryValidator.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryValidator.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryValidator.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryValidator.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T10:26:43.156Z",
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAG4IAAAAAAAAAAAmwH8IAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-10-30T07:38:05.85Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UpdateCategoryCommand.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryCommand.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryCommand.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryCommand.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateCategory\\UpdateCategoryCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "GetCategoryByNameValidator.cs",
+              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameValidator.cs",
+              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameValidator.cs",
+              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameValidator.cs",
+              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameValidator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T10:23:23.416Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AuthenticationMappingConfig.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Common\\Mapping\\AuthenticationMappingConfig.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Server\\Common\\Mapping\\AuthenticationMappingConfig.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Common\\Mapping\\AuthenticationMappingConfig.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Server\\Common\\Mapping\\AuthenticationMappingConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:22:04.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "AdminMappingConfig.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Common\\Mapping\\AdminMappingConfig.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Server\\Common\\Mapping\\AdminMappingConfig.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Common\\Mapping\\AdminMappingConfig.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Server\\Common\\Mapping\\AdminMappingConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:22:02.607Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "GetAllCategoryHandler.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryHandler.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryHandler.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryHandler.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:19:25.334Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetAllCategoryValidator.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryValidator.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryValidator.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryValidator.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:16:47.716Z",
+              "WhenOpened": "2024-10-30T07:36:59.97Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GetAllCategoryQuery.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryQuery.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryQuery.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryQuery.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllCategory\\GetAllCategoryQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Title": "GetCategoryByNameQuery.cs",
+              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameQuery.cs",
+              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameQuery.cs",
+              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameQuery.cs",
+              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetCategoryByName\\GetCategoryByNameQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T08:15:44.541Z",
+              "WhenOpened": "2024-10-30T07:33:55.116Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "InvalidPassword.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Common\\Errors\\Authentication\\InvalidPassword.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Common\\Errors\\Authentication\\InvalidPassword.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Common\\Errors\\Authentication\\InvalidPassword.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Errors\\Authentication\\InvalidPassword.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:25:14.829Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "CategoryExist.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Common\\Errors\\Admin\\CategoryExist.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Common\\Errors\\Admin\\CategoryExist.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Common\\Errors\\Admin\\CategoryExist.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Errors\\Admin\\CategoryExist.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:25:11.814Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "CategoryRepository.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Infrastucture\\Persistence\\CategoryRepository.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Infrastucture\\Persistence\\CategoryRepository.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Infrastucture\\Persistence\\CategoryRepository.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Infrastucture\\Persistence\\CategoryRepository.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAkwCUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:20:32.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ICategoryRepository.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Common\\Interfaces\\Persistence\\ICategoryRepository.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Common\\Interfaces\\Persistence\\ICategoryRepository.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Common\\Interfaces\\Persistence\\ICategoryRepository.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Interfaces\\Persistence\\ICategoryRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:20:07.169Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "AddCategoryHandler.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryHandler.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryHandler.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryHandler.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryHandler.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABgAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:16:53.495Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AddCategoryValidator.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryValidator.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryValidator.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryValidator.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:16:06.188Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "AuthenticationResult.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Common\\AuthenticationResult.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Authentication\\Common\\AuthenticationResult.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Common\\AuthenticationResult.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Common\\AuthenticationResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:14:57.418Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "AddCategoryResult.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Common\\AddCategoryResult.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Common\\AddCategoryResult.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Common\\AddCategoryResult.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Common\\AddCategoryResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:10:17.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "AddCategoryRequest.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Contracts\\Category\\AddCategoryRequest.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Contracts\\Category\\AddCategoryRequest.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Contracts\\Category\\AddCategoryRequest.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Contracts\\Category\\AddCategoryRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:07:14.884Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "CategoryController.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Controllers\\CategoryController.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Server\\Controllers\\CategoryController.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Controllers\\CategoryController.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Server\\Controllers\\CategoryController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T07:00:39.731Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Domain\\Entities\\User.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\User.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T06:44:45.324Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Category.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\Category.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Domain\\Entities\\Category.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\Category.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\Category.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAQAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T06:44:42.298Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "Order.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\Order.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Domain\\Entities\\Order.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\Order.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\Order.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T06:44:40.798Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "OrderDetail.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\OrderDetail.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Domain\\Entities\\OrderDetail.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\OrderDetail.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\OrderDetail.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T06:44:39.187Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "Role.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\Role.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Domain\\Entities\\Role.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\Role.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\Role.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T06:44:36.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "Product.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\Product.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Domain\\Entities\\Product.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Domain\\Entities\\Product.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\Product.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T06:44:32.848Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Program.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Server\\Program.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Program.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Server\\Program.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAwwDIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T06:38:35.93Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "AddCategoryCommand.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryCommand.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryCommand.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryCommand.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddCategory\\AddCategoryCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T06:35:43.365Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "AdminController.cs",
               "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Controllers\\AdminController.cs",
               "RelativeDocumentMoniker": "bezoni-shoes-store.Server\\Controllers\\AdminController.cs",
               "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Controllers\\AdminController.cs",
               "RelativeToolTip": "bezoni-shoes-store.Server\\Controllers\\AdminController.cs",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAwwEcAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAYwEwAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T04:02:48.989Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "22806ac0-1ea8-4b56-b175-93f18cc4a21f",
-        "Display": 0,
-        "X": 128,
-        "Y": 171,
-        "Width": 1553,
-        "Height": 783,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 3,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "AuthenticationController.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Controllers\\AuthenticationController.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Server\\Controllers\\AuthenticationController.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Server\\Controllers\\AuthenticationController.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Server\\Controllers\\AuthenticationController.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAYwDYAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T04:02:52.756Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "GetUserFromTokenQuery.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenQuery.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenQuery.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenQuery.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenQuery.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T04:10:19.194Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "GetUserFromTokenValidator.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenValidator.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenValidator.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenValidator.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenValidator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T04:10:26.208Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "GetUserFromTokenHandler.cs",
-              "DocumentMoniker": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenHandler.cs",
-              "RelativeDocumentMoniker": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenHandler.cs",
-              "ToolTip": "D:\\BIGIN\\bezoni-shoes-store\\bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenHandler.cs",
-              "RelativeToolTip": "bezoni-shoes-store.Application\\Authentication\\Queries\\GetUserFromToken\\GetUserFromTokenHandler.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-29T04:10:31.315Z",
+              "WhenOpened": "2024-10-30T07:31:29.305Z",
               "EditorCaption": ""
             }
           ]

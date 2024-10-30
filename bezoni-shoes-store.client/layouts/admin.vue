@@ -78,6 +78,10 @@ const authStore = useAuthStore();
 const checkRole = async () => {
   alertStore.handleLoadingPage(true);
   const accessToken = localStorage.getItem("accessToken");
+  if (!accessToken) {
+    router.push("/");
+    alertStore.handleLoadingPage(false);
+  }
   try {
     if (accessToken) {
       const role = (await callApi(
@@ -97,6 +101,7 @@ const checkRole = async () => {
   } catch (error: any) {
     console.log(error);
     alertStore.handleLoadingPage(false);
+    router.push("/");
   }
 };
 const checkNavigation = () => {

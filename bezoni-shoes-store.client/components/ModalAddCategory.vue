@@ -32,7 +32,7 @@
           Thêm danh mục
         </div>
         <!-- Danh sách Category -->
-        <div class="flex flex-col gap-2">
+        <div v-if="listCategory" class="flex flex-col gap-2">
           <div class="font-semibold text-[20px]">Danh sách danh mục:</div>
           <div class="flex flex-col gap-2 border p-3 rounded-xl">
             <div
@@ -55,7 +55,12 @@
                 <Icon
                   name="material-symbols:delete"
                   class="text-[#f36123df] text-[30px] cursor-pointer"
-                  @click="handleDeleteCategory(category.id, category.name)"
+                  @click="
+                    categoryStore.handleDeleteCategory(
+                      category.id,
+                      category.name
+                    )
+                  "
                 />
                 <Icon
                   name="material-symbols:edit"
@@ -65,6 +70,9 @@
               </div>
             </div>
           </div>
+        </div>
+        <div v-else class="text-[20px] font-semibold">
+          Không có danh mục nào
         </div>
       </div>
     </div>
@@ -83,17 +91,21 @@ import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 import { useAuthStore } from "~/store/authStore";
 import type { IErrorSystem } from "~/interface/ErrorResponse/IErrorSystem";
 import { useAlertStore } from "~/store/alertStore";
-import type { IGetAllCategoryResponse } from "~/interface/Response/IGetAllCategoryResponse";
+import type { ICategoryResponse } from "~/interface/Response/ICategoryResponse";
 import type { IUpdateCategoryBody } from "~/interface/RequestBody/IUpdateCategoryBody";
+import { useCategoryStore } from "~/store/categoryStore";
 
 // Định nghĩa các props của component
-const { IsModalAddCategory, handleCloseModalAddCategory, listCategory } =
-  defineProps<{
-    IsModalAddCategory: boolean;
-    handleCloseModalAddCategory: () => void;
-    listCategory: IGetAllCategoryResponse[];
-  }>();
+const { IsModalAddCategory, handleCloseModalAddCategory } = defineProps<{
+  IsModalAddCategory: boolean;
+  handleCloseModalAddCategory: () => void;
+}>();
 
+const listCategory = computed(() => categoryStore.categories);
+onMounted(async () => {
+  await categoryStore.getAllCategory();
+});
+const categoryStore = useCategoryStore();
 // Schema xác thực
 const schema = object({
   categoryName: string().required("Tên danh mục không được bỏ trống"),
@@ -105,29 +117,9 @@ const { handleSubmit } = useForm({
 });
 const authStore = useAuthStore();
 const alertStore = useAlertStore();
+
 const submitForm = handleSubmit(async (values) => {
-  const body: IAddCategoryBody = {
-    name: values.categoryName,
-  };
-  try {
-    alertStore.handleLoadingPage(true);
-    const accessToken = authStore.user.token;
-    const res: any = await callApi(
-      "Admin/AddCategory",
-      HttpMethods.POST,
-      body,
-      accessToken
-    );
-    alertStore.handleLoadingPage(false);
-    const message: string = res.message;
-    alertStore.handleOpenSucessToast(message);
-  } catch (error: any) {
-    if (error.response) {
-      const errorData: IErrorSystem = error.response._data;
-      alertStore.handleLoadingPage(false);
-      alertStore.handleOpenErrorToast(errorData.title);
-    }
-  }
+  await categoryStore.handleAddCategory(values);
 });
 
 // Khai báo trạng thái
@@ -139,50 +131,11 @@ const handleInputChange = (event: Event, id: string) => {
   editingCategory.value = { id, name: target.value };
 };
 
-//Hàm xử lý xóa danh mục
-const handleDeleteCategory = async (id: string, name: string) => {
-  const isConfirmed = window.confirm(
-    `Bạn có chắc chắn muốn xóa danh mục ${name} không?`
-  );
-  if (!isConfirmed) return; // Nếu người dùng nhấn Cancel thì dừng tại đây
-  try {
-    alertStore.handleLoadingPage(true);
-    const accessToken = authStore.getAccesToken();
-    await callApi(
-      `Admin/DeleteCategory?id=${id}`,
-      HttpMethods.DELETE,
-      null,
-      accessToken
-    );
-    alertStore.handleLoadingPage(false);
-    alertStore.handleOpenSucessToast("Danh mục đã được xóa!");
-  } catch (error: any) {
-    if (error.response) {
-      const errorData: IErrorSystem = error.response._data;
-      alertStore.handleLoadingPage(false);
-      alertStore.handleOpenErrorToast(errorData.title);
-    }
-  }
-};
-
 // Hàm xử lý chỉnh sửa danh mục
 const handleEditCategory = async (id: string) => {
   if (editingCategory.value && editingCategory.value.id === id) {
     try {
-      alertStore.handleLoadingPage(true);
-      const accessToken = authStore.user.token;
-      const body: IUpdateCategoryBody = {
-        id: id,
-        name: editingCategory.value.name,
-      };
-      await callApi(
-        `Admin/UpdateCategory/`,
-        HttpMethods.PUT,
-        body,
-        accessToken
-      );
-      alertStore.handleLoadingPage(false);
-      alertStore.handleOpenSucessToast("Danh mục đã được cập nhật!");
+      await categoryStore.handleUpdateCategory(id, editingCategory.value.name);
     } catch (error: any) {
       alertStore.handleLoadingPage(false);
       if (error.response) {
@@ -192,7 +145,7 @@ const handleEditCategory = async (id: string) => {
       }
     }
   } else {
-    console.log("Không có gì thay đổi");
+    alertStore.handleOpenErrorToast("Không có gì thay đổi!");
   }
 };
 </script>
