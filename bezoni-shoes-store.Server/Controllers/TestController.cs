@@ -39,11 +39,11 @@ namespace bezoni_shoes_store.Server.Controllers
         [Route("AddProduct")]
         public async Task<IActionResult> AddProduct()
         {
-            var product = new Product {
+            var product = new Product
+            {
                 Name = "Test Product",
                 Description = "Test Description",
                 Price = 100,
-                Image = "Test Image",
             };
             await _productRepository.AddProduct(product);
             return Ok();

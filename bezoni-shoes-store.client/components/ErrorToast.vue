@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex justify-between items-center fixed top-0 right-0 bg-[#fee3e3] p-5 text-black rounded-md min-h-[70px] min-w-[400px] mt-[10px] border-[#f5422b] border-b-4"
-    v-if="alertStore.ErrorToastInfo.isShow"
+    v-if="IsErrorToast"
   >
     <div class="flex gap-4 justify-between items-center">
       <Icon
@@ -22,6 +22,14 @@
 <script setup lang="ts">
 import { useAlertStore } from "../store/alertStore";
 const alertStore = useAlertStore();
+
+// computed properties
+const IsErrorToast = computed(() => alertStore.ErrorToastInfo.isShow);
+onMounted(() => {
+  setTimeout(() => {
+    alertStore.handleCloseErrorToast();
+  }, 3000);
+});
 </script>
 
 <style scoped></style>

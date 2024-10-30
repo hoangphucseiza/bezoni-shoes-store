@@ -9,9 +9,6 @@
         <div class="font-semibold">Danh mục</div>
         <select class="border border-gray-300 rounded-md p-2">
           <option value="0">Tất cả</option>
-          <!-- <option value="giay">Giày</option>
-          <option value="vi">Ví</option>
-          <option value="nit">Nịt</option> -->
           <option
             v-for="(category, index) in listCategory"
             :key="index"
@@ -40,7 +37,8 @@
         </div>
         <div
           class="flex items-center gap-2 bg-[#F36123] text-white text-[15px] font-bold rounded-md p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
-        >
+          @click="IsModalAddProduct = true"
+          >
           <div>Thêm sản phẩm</div>
         </div>
         <div
@@ -56,6 +54,7 @@
       :IsModalAddCategory="IsModalAddCategory"
       :handleCloseModalAddCategory="handleCloseModalAddCategory"
     />
+    <ModalAddProduct :IsModalAddProduct="IsModalAddProduct" :handleCloseModalAddProduct="handleCloseModalAddProduct" />
   </div>
 </template>
 
@@ -73,9 +72,13 @@ definePageMeta({
 });
 
 const IsModalAddCategory = ref(false);
+const IsModalAddProduct = ref(false);
 
 const handleCloseModalAddCategory = () => {
   IsModalAddCategory.value = false;
+};
+const handleCloseModalAddProduct = () => {
+  IsModalAddProduct.value = false;
 };
 const authStore = useAuthStore();
 const alertStore = useAlertStore();

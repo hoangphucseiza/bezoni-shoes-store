@@ -1,7 +1,7 @@
 <template>
   <div
     class="flex justify-between items-center fixed top-0 right-0 bg-[#b6eacd] p-5 text-black rounded-md min-h-[70px] min-w-[400px] mt-[10px] border-[#0ca95c] border-b-4"
-    v-if="alertStore.SuccesToastInfo.isShow"
+    v-if="IsSuccessToast"
   >
     <div class="flex gap-4 justify-between items-center">
       <Icon
@@ -22,6 +22,15 @@
 <script setup>
 import { useAlertStore } from "~/store/alertStore";
 const alertStore = useAlertStore();
+
+// computed properties
+const IsSuccessToast = computed(() => alertStore.SuccesToastInfo.isShow);
+// On mounted
+onMounted(() => {
+  setTimeout(() => {
+    alertStore.handleCloseSucessToast();
+  }, 3000);
+});
 </script>
 
 <style scoped></style>

@@ -59,7 +59,7 @@
           </div>
         </div>
       </div>
-      <div class="p-5"><slot /></div>
+      <div class="p-5 "><slot /></div>
     </div>
     <LoadingPage />
   </div>

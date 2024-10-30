@@ -2,11 +2,6 @@
 using bezoni_shoes_store.Application.ProductCQRS.Common;
 using bezoni_shoes_store.Domain.Entities;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Application.ProductCQRS.Command.AddProduct
 {
@@ -24,14 +19,13 @@ namespace bezoni_shoes_store.Application.ProductCQRS.Command.AddProduct
         {
             var product = new Product
             {
-               Name = request.Name,
+                Name = request.Name,
                 Description = request.Description,
                 Price = request.Price,
-                Image = request.Image,
                 CategoryID = request.CategoryID
             };
 
-             await _productRepository.AddProduct(product);
+            await _productRepository.AddProduct(product);
 
             var KqProduct = await _productRepository.FindProductByName(request.Name);
 

@@ -1,4 +1,5 @@
 ﻿using bezoni_shoes_store.Application.AdminCQRS.Commands.AddCategory;
+using bezoni_shoes_store.Application.AdminCQRS.Commands.AddProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.DeleteCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllCategory;
@@ -34,6 +35,7 @@ namespace bezoni_shoes_store.Server.Controllers
             var result = await _mediator.Send(query);
             return Ok(result);
         }
+        // Category
         [HttpPost]
         [Route("AddCategory")]
         [Authorize(Roles = "Admin")]
@@ -78,6 +80,16 @@ namespace bezoni_shoes_store.Server.Controllers
         {
             var query = new GetCategoryByNameQuery(name);
             var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        // Product
+        [HttpPost]
+        [Route("AddProduct")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> AddProduct([FromBody] Product product)
+        {
+            var command = new AddProductCommand(product);
+            var result = await _mediator.Send(command);
             return Ok(result);
         }
     }

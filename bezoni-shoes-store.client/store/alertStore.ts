@@ -14,7 +14,8 @@ export const useAlertStore = defineStore("AlertStore", () => {
 
   //Actions
   const handleOpenSucessToast = (message: string) => {
-    handleCloseErrorToast();
+    ErrorToastInfo.value.isShow = false;
+    ErrorToastInfo.value.message = "";
     SuccesToastInfo.value.isShow = true;
     SuccesToastInfo.value.message = message;
   };
@@ -24,6 +25,8 @@ export const useAlertStore = defineStore("AlertStore", () => {
     SuccesToastInfo.value.message = "";
   };
   const handleOpenErrorToast = (message: string) => {
+    SuccesToastInfo.value.isShow = false;
+    SuccesToastInfo.value.message = "";
     ErrorToastInfo.value.isShow = true;
     ErrorToastInfo.value.message = message;
   };

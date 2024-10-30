@@ -1,17 +1,10 @@
-﻿using bezoni_shoes_store.Application.Common.Interfaces.Cache;
-using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
+﻿using bezoni_shoes_store.Application.Common.Interfaces.Persistence;
 using bezoni_shoes_store.Application.ProductCQRS.Common;
 using bezoni_shoes_store.Domain.Entities;
 using bezoni_shoes_store.Infrastucture.MongoDB;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using Serilog;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace bezoni_shoes_store.Infrastucture.Persistence
 {
@@ -30,8 +23,8 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
         public async Task AddProduct(Product product)
         {
 
-             await _productCollection.InsertOneAsync(product);
-           
+            await _productCollection.InsertOneAsync(product);
+
         }
 
         public async Task<Product> FindProductByID(string id)
@@ -43,8 +36,8 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
 
         public async Task<Product> FindProductByName(string name)
         {
-            var product = await _productCollection.Find(p => p.Name == name).FirstOrDefaultAsync();
-            return product; 
+            var product = await _productCollection.Find(p => p.Name.ToLower().Trim() == name.ToLower().Trim()).FirstOrDefaultAsync();
+            return product;
         }
 
         public async Task<List<Product>> GetAllProducts()
