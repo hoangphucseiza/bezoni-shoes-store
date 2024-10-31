@@ -44,6 +44,7 @@ namespace bezoni_shoes_store.Infrastucture
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IItemRepository, ItemRepository>();
 
             // Add services cache
             services.AddScoped<ICacheService, CacheService>();
@@ -58,7 +59,7 @@ namespace bezoni_shoes_store.Infrastucture
            ConfigurationManager configuration)
         {
             var JwtSettings = new JwtSettings();
-            var mongoDbSettings = new MongoDBSettings();  
+            var mongoDbSettings = new MongoDBSettings();
 
             // Add configuration JWT by section
             configuration.Bind(JwtSettings.SectionName, JwtSettings);
@@ -74,44 +75,44 @@ namespace bezoni_shoes_store.Infrastucture
             services.AddSingleton<IJWTTokenGenerator, JWTTokenGenerator>();
 
             // Cấu hình MongoDBIdentity
-                var mongoDbIdentityConfig = new MongoDbIdentityConfiguration
+            var mongoDbIdentityConfig = new MongoDbIdentityConfiguration
+            {
+                MongoDbSettings = new MongoDbSettings
                 {
-                    MongoDbSettings = new MongoDbSettings
-                    {
-                        ConnectionString = mongoDbSettings.ConnectionString,
-                        DatabaseName = mongoDbSettings.DatabaseName,
-                    },
-                    IdentityOptionsAction = options =>
-                    {
-                        options.Password.RequiredLength = 6;
-                        options.Password.RequireLowercase = false;
-                        options.Password.RequireUppercase = false;
-                        options.Password.RequireNonAlphanumeric = false;
-                        options.Password.RequireDigit = false;
-                        options.User.RequireUniqueEmail = true;
-                    }
-                };
-                services.ConfigureMongoDbIdentity<User, Role, Guid>(mongoDbIdentityConfig)
-                    .AddUserManager<UserManager<User>>()
-                    .AddSignInManager<SignInManager<User>>()
-                    .AddRoleManager<RoleManager<Role>>()
-                    .AddDefaultTokenProviders();
+                    ConnectionString = mongoDbSettings.ConnectionString,
+                    DatabaseName = mongoDbSettings.DatabaseName,
+                },
+                IdentityOptionsAction = options =>
+                {
+                    options.Password.RequiredLength = 6;
+                    options.Password.RequireLowercase = false;
+                    options.Password.RequireUppercase = false;
+                    options.Password.RequireNonAlphanumeric = false;
+                    options.Password.RequireDigit = false;
+                    options.User.RequireUniqueEmail = true;
+                }
+            };
+            services.ConfigureMongoDbIdentity<User, Role, Guid>(mongoDbIdentityConfig)
+                .AddUserManager<UserManager<User>>()
+                .AddSignInManager<SignInManager<User>>()
+                .AddRoleManager<RoleManager<Role>>()
+                .AddDefaultTokenProviders();
 
-                // Authentication
-                services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
-                    .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = true,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        ValidIssuer = JwtSettings.Issuer,
-                        ValidAudience = JwtSettings.Audience,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtSettings.Secret))
-                    });
+            // Authentication
+            services.AddAuthentication(defaultScheme: JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = JwtSettings.Issuer,
+                    ValidAudience = JwtSettings.Audience,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JwtSettings.Secret))
+                });
 
 
-         
+
 
             return services;
         }

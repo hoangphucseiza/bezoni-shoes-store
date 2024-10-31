@@ -13,4 +13,7 @@
 definePageMeta({
   layout: "admin",
 });
+onMounted(() => {
+  window.location.href = "/admin/products";
+});
 </script>

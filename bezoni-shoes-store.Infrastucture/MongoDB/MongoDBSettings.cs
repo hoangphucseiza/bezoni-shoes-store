@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace bezoni_shoes_store.Infrastucture.MongoDB
+﻿namespace bezoni_shoes_store.Infrastucture.MongoDB
 {
     public class MongoDBSettings
     {
@@ -22,6 +16,8 @@ namespace bezoni_shoes_store.Infrastucture.MongoDB
         public string? RoleCollectionName { get; set; }
 
         public string? CategoryCollectionName { get; set; }
+
+        public string? ItemCollectionName { get; set; }
 
 
     }

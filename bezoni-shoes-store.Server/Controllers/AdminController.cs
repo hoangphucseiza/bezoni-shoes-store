@@ -1,12 +1,17 @@
 ﻿using bezoni_shoes_store.Application.AdminCQRS.Commands.AddCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.AddProduct;
+using bezoni_shoes_store.Application.AdminCQRS.Commands.CreateItem;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.DeleteCategory;
+using bezoni_shoes_store.Application.AdminCQRS.Commands.DeleteItem;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.DeleteProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateCategory;
+using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateItem;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllCategory;
+using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllItem;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetCategoryByName;
+using bezoni_shoes_store.Application.AdminCQRS.Queries.GetItemByID;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetProductByID;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetRoleByAccessToken;
 using bezoni_shoes_store.Contracts.Category;
@@ -127,6 +132,52 @@ namespace bezoni_shoes_store.Server.Controllers
         public async Task<IActionResult> UpdateProduct([FromBody] Product product)
         {
             var command = new UpdateProductCommand(product);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        //Item
+        [HttpPost]
+        [Route("CreateItem")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> CreateItem([FromBody] Item item)
+        {
+            var command = new CreateItemCommand(item);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetAllItem")]
+        public async Task<IActionResult> GetAllItem()
+        {
+            var query = new GetAllItemQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        [HttpDelete]
+        [Route("DeleteItem")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> DeleteItem([FromQuery] string id)
+        {
+            var command = new DeleteItemCommand(id);
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("GetItemByID")]
+        public async Task<IActionResult> GetItemByID([FromQuery] string id)
+        {
+            var query = new GetItemByIDQuery(id);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        [HttpPut]
+        [Route("UpdateItem")]
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> UpdateItem([FromBody] Item item)
+        {
+            var command = new UpdateItemCommand(item);
             var result = await _mediator.Send(command);
             return Ok(result);
         }

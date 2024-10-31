@@ -250,6 +250,11 @@ const handleDeleteProduct = async (id: string, name: string) => {
 
 // Handle form submission
 const submitForm = handleSubmit(async (values) => {
+  if (!selectedCategory.value) {
+    alertStore.handleOpenErrorToast("Vui lòng chọn danh mục sản phẩm");
+    return;
+  }
+
   const product: IAddProductBody = {
     name: values.productName,
     price: values.price,
@@ -258,5 +263,6 @@ const submitForm = handleSubmit(async (values) => {
     categoryID: selectedCategory.value,
   };
   await productStore.handleAddProduct(product);
+  
 });
 </script>
