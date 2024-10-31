@@ -281,8 +281,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateItem\\UpdateItemHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T19:23:03.18Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T19:23:03.18Z"
             },
             {
               "$type": "Document",
@@ -294,8 +293,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetItemByID\\GetItemByIDQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:49:10.358Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:49:10.358Z"
             },
             {
               "$type": "Document",
@@ -307,8 +305,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Interfaces\\Persistence\\IItemRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T08:44:33.667Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T08:44:33.667Z"
             },
             {
               "$type": "Document",
@@ -320,8 +317,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Infrastucture\\Persistence\\ItemRepository.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAqwDcAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T08:43:46.839Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T08:43:46.839Z"
             },
             {
               "$type": "Document",
@@ -333,8 +329,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\CreateItem\\CreateItemHandler.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAowAkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:59:03.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T15:59:03.285Z"
             },
             {
               "$type": "Document",
@@ -359,8 +354,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateItem\\UpdateItemCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T19:20:42.105Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T19:20:42.105Z"
             },
             {
               "$type": "Document",
@@ -372,8 +366,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Common\\ItemResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T17:16:36.51Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T17:16:36.51Z"
             },
             {
               "$type": "Document",
@@ -385,8 +378,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\UpdateItem\\UpdateItemValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T19:21:55.842Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T19:21:55.842Z"
             },
             {
               "$type": "Document",
@@ -398,8 +390,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetItemByID\\GetItemByIDValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:49:56.976Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:49:56.976Z"
             },
             {
               "$type": "Document",
@@ -411,8 +402,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\CreateItem\\CreateItemValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:52:47.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T15:52:47.699Z"
             },
             {
               "$type": "Document",
@@ -424,8 +414,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetItemByID\\GetItemByIDHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:50:29.102Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:50:29.102Z"
             },
             {
               "$type": "Document",
@@ -437,8 +426,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Infrastucture\\Authentication\\JWTTokenGenerator.cs",
               "ViewState": "AgIAABkAAAAAAAAAAADwvykAAABZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:52:23.002Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:52:23.002Z"
             },
             {
               "$type": "Document",
@@ -450,8 +438,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Common\\AddCategoryResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T10:42:11.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T10:42:11.716Z"
             },
             {
               "$type": "Document",
@@ -463,8 +450,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Common\\AddProductResult.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAIAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T21:55:57.238Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T21:55:57.238Z"
             },
             {
               "$type": "Document",
@@ -476,8 +462,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Infrastucture\\Persistence\\ProductRepository.cs",
               "ViewState": "AgIAABUAAAAAAAAAAAAEwC0AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T08:22:58.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T08:22:58.729Z"
             },
             {
               "$type": "Document",
@@ -487,8 +472,7 @@
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAG4IAAAAAAAAAAAhwH8IAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-10-30T07:38:05.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T07:38:05.85Z"
             },
             {
               "$type": "Document",
@@ -500,8 +484,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteItem\\DeleteItemCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:11:37.15Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:11:37.15Z"
             },
             {
               "$type": "Document",
@@ -513,8 +496,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteItem\\DeleteItemValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:12:22.073Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:12:22.073Z"
             },
             {
               "$type": "Document",
@@ -526,8 +508,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\DeleteItem\\DeleteItemHandler.cs",
               "ViewState": "AgIAAAIAAAAAAAAAAAAcwAcAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T18:12:46.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T18:12:46.603Z"
             },
             {
               "$type": "Document",
@@ -539,8 +520,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllProduct\\GetAllProductHandler.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAEwBgAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T20:56:24.468Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T20:56:24.468Z"
             },
             {
               "$type": "Document",
@@ -552,8 +532,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllItem\\GetAllItemHandler.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAwwCkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T17:32:46.328Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T17:32:46.328Z"
             },
             {
               "$type": "Document",
@@ -565,8 +544,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\Product.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T08:19:49.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T08:19:49.57Z"
             },
             {
               "$type": "Document",
@@ -578,8 +556,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllItem\\GetAllItemQuery.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAUAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T17:29:33.479Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T17:29:33.479Z"
             },
             {
               "$type": "Document",
@@ -591,8 +568,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Queries\\GetAllItem\\GetAllItemValidator.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T17:31:45.135Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T17:31:45.135Z"
             },
             {
               "$type": "Document",
@@ -604,8 +580,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\CreateItem\\CreateItemCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:52:05.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T15:52:05.979Z"
             },
             {
               "$type": "Document",
@@ -617,8 +592,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Interfaces\\Persistence\\IProductRepository.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwBcAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T21:13:34.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T21:13:34.405Z"
             },
             {
               "$type": "Document",
@@ -630,8 +604,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Errors\\Admin\\ProductIsAlreadyExist.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T09:59:48.006Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T09:59:48.006Z"
             },
             {
               "$type": "Document",
@@ -643,8 +616,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\Item.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwBAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T08:39:05.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T08:39:05.081Z"
             },
             {
               "$type": "Document",
@@ -656,8 +628,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Interfaces\\Persistence\\ICategoryRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T08:47:15.262Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T08:47:15.262Z"
             },
             {
               "$type": "Document",
@@ -669,8 +640,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\Common\\Errors\\Admin\\ItemExist.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T16:04:39.17Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T16:04:39.17Z"
             },
             {
               "$type": "Document",
@@ -682,8 +652,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T07:06:08.415Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T07:06:08.415Z"
             },
             {
               "$type": "Document",
@@ -695,8 +664,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Domain\\Entities\\Order.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-31T15:14:57.872Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-31T15:14:57.872Z"
             },
             {
               "$type": "Document",
@@ -732,8 +700,7 @@
               "RelativeToolTip": "bezoni-shoes-store.Application\\AdminCQRS\\Commands\\AddProduct\\AddProductCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-30T08:49:26.362Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-30T08:49:26.362Z"
             },
             {
               "$type": "Document",

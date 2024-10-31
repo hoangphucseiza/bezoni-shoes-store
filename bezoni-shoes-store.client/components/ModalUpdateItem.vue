@@ -15,15 +15,14 @@
           />
         </div>
       </div>
-      <div :validation-schema="schema" class="flex flex-col gap-5">
+      <div class="flex flex-col gap-5">
         <div class="flex flex-col gap-2">
           <label class="text-[20px] font-semibold">Tên Item:</label>
-          <Field
-            name="name"
+          <input
             type="text"
             class="border border-gray-300 rounded-md p-2 w-full"
+            v-model="name"
           />
-          <ErrorMessage name="name" class="text-red-500" />
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[20px] font-semibold">Ảnh Item:</label>
@@ -45,21 +44,19 @@
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[20px] font-semibold">Màu sắc Item:</label>
-          <Field
-            name="color"
+          <input
             type="text"
             class="border border-gray-300 rounded-md p-2 w-full"
+            v-model="color"
           />
-          <ErrorMessage name="color" class="text-red-500" />
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[20px] font-semibold">Size:</label>
-          <Field
-            name="size"
+          <input
             type="text"
             class="border border-gray-300 rounded-md p-2 w-full"
+            v-model="size"
           />
-          <ErrorMessage name="size" class="text-red-500" />
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[20px] font-semibold">Loại:</label>
@@ -71,12 +68,11 @@
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[20px] font-semibold">Số lượng:</label>
-          <Field
-            name="quantity"
+          <input
             type="number"
             class="border border-gray-300 rounded-md p-2 w-full"
+            v-model="quantity"
           />
-          <ErrorMessage name="quantity" class="text-red-500" />
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[20px] font-semibold"
@@ -99,7 +95,7 @@
         </div>
         <div
           class="flex justify-center items-center bg-[#F36123] text-white text-[20px] font-bold rounded-xl p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
-          @click="submitForm"
+          @click="handleUpdate"
         >
           Chỉnh sửa Item
         </div>
@@ -133,30 +129,58 @@ const props = defineProps<{
 const alertStore = useAlertStore();
 const productStore = useProductStore();
 
+const handleUpdate = async () => {
+  if (!imgUrl.value || imgUrl.value === "") {
+    alertStore.handleOpenErrorToast("Vui lòng chọn ảnh trước khi thêm.");
+    return;
+  }
+  if (!selectedProduct.value || selectedProduct.value === "") {
+    alertStore.handleOpenErrorToast("Vui lòng chọn sản phẩm trước khi thêm.");
+    return;
+  }
+  if (!name.value || name.value === "") {
+    alertStore.handleOpenErrorToast(
+      "Vui lòng nhập tên sản phẩm trước khi thêm."
+    );
+    return;
+  }
+  if (!color.value || color.value === "") {
+    alertStore.handleOpenErrorToast("Vui lòng nhập màu sắc trước khi thêm.");
+    return;
+  }
+  if (!size.value || size.value === "") {
+    alertStore.handleOpenErrorToast("Vui lòng nhập size trước khi thêm.");
+    return;
+  }
+  if (!quantity.value || quantity.value === 0) {
+    alertStore.handleOpenErrorToast("Vui lòng nhập số lượng trước khi thêm.");
+    return;
+  }
+  const updateItemBody: IUpdateItemBody = {
+    id: itemStore.updateItem?.id || "",
+    name: name.value,
+    color: color.value,
+    size: size.value,
+    quantity: quantity.value,
+    type: typeOfItem.value,
+    productID: selectedProduct.value,
+    image: imgUrl.value,
+  };
+  await itemStore.handleUpdateItem(updateItemBody);
+};
+
 // Computed properties
 const listProduct = computed(() => productStore.products);
 
-watchEffect(async () => {
-  await productStore.handleGetProducts();
-});
-
-// Validation schema
-const schema = reactive({
-  name: string().required("Tên Item không được để trống"),
-  color: string().required("Màu sắc Item không được để trống"),
-  size: string().required("Size không được để trống"),
-  quantity: number()
-    .required("Số lượng không được để trống")
-    .min(0, "Số lượng phải lớn hơn hoặc bằng 0"),
-});
 const selectedProduct = ref<string>("");
 const imgUrl = ref<string>("");
 const typeOfItem = ref<string>("");
+const name = ref<string>("");
+const color = ref<string>("");
+const size = ref<string>("");
+const quantity = ref<number>(0);
 
 // Methods
-const { handleSubmit } = useForm({
-  validationSchema: schema,
-});
 
 // Handle file upload
 const handleFileUpload = async (e: Event) => {
@@ -213,29 +237,7 @@ const handleFileUpload = async (e: Event) => {
 };
 const itemStore = useItemStore();
 // Handle form submission
-const submitForm = handleSubmit(async (values) => {
-  if (!imgUrl.value || imgUrl.value === "") {
-    alertStore.handleOpenErrorToast("Vui lòng chọn ảnh trước khi thêm.");
-    return;
-  }
-  if (!selectedProduct.value || selectedProduct.value === "") {
-    alertStore.handleOpenErrorToast("Vui lòng chọn sản phẩm trước khi thêm.");
-    return;
-  }
 
-  const updateItemBody: IUpdateItemBody = {
-    id: itemStore.updateItem?.id || "",
-    name: values.name,
-    color: values.color,
-    size: values.size,
-    quantity: values.quantity,
-    type: typeOfItem.value,
-    productID: selectedProduct.value,
-    image: imgUrl.value,
-  };
-  await itemStore.handleUpdateItem(updateItemBody);
-});
-const { setFieldValue } = useForm();
 const updateItem = computed(() => itemStore.updateItem);
 const handleUpdateItemToForm = () => {
   if (updateItem.value) {
@@ -243,16 +245,15 @@ const handleUpdateItemToForm = () => {
     imgUrl.value = updateItem.value.image;
     typeOfItem.value = updateItem.value.type;
     selectedProduct.value = updateItem.value.productID;
-
-    // Use VeeValidate's `setFieldValue` to update the form fields
-    setFieldValue("name", updateItem.value.name);
-    setFieldValue("color", updateItem.value.color);
-    setFieldValue("size", updateItem.value.size);
-    setFieldValue("quantity", updateItem.value.quantity);
+    name.value = updateItem.value.name;
+    color.value = updateItem.value.color;
+    size.value = updateItem.value.size;
+    quantity.value = updateItem.value.quantity;
   }
 };
-watchEffect(() => {
+watchEffect(async () => {
   handleUpdateItemToForm();
+  await productStore.handleGetProducts();
 });
 </script>
     
