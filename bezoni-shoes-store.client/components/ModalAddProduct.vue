@@ -60,6 +60,7 @@
             class="border border-gray-300 rounded-md p-2"
             v-model="selectedCategory"
           >
+            <option value="" disabled selected>Chọn danh mục</option>
             <option
               v-for="(category, index) in listCategory"
               :key="index"
@@ -78,7 +79,18 @@
         </div>
         <!-- Danh sách Product -->
         <div class="flex flex-col gap-2">
-          <div class="font-semibold text-[20px]">Danh sách sản phẩm:</div>
+          <div class="flex items-center gap-5">
+            <div class="font-semibold text-[20px]">Danh sách sản phẩm:</div>
+            <!-- Search -->
+            <div class="flex flex-row gap-2">
+              <input
+                type="text"
+                class="border border-gray-300 rounded-md p-2 w-full"
+                placeholder="Tìm kiếm sản phẩm"
+                v-model="search"
+              />
+            </div>
+          </div>
           <div
             class="flex flex-col gap-2 border p-3 rounded-xl overflow-y-scroll max-h-[200px]"
           >
@@ -93,7 +105,7 @@
               <div class="w-[200px] font-semibold">Chức năng</div>
             </div>
             <div
-              v-for="(product, index) in listProduct"
+              v-for="(product, index) in filteredProducts"
               :key="index"
               class="flex flex-row gap-2"
             >
@@ -148,6 +160,14 @@ import type { IAddProductBody } from "~/interface/RequestBody/IAddProductBody";
 import { useProductStore } from "~/store/productStore";
 import { useCommonStore } from "~/store/commonStore";
 
+const search = ref<string>("");
+// When user change the search input, we will filter the list of products
+const filteredProducts = computed(() => {
+  return listProduct.value.filter((product) =>
+    product.name.toLowerCase().includes(search.value.toLowerCase())
+  );
+});
+
 // Định nghĩa các props của component
 const props = defineProps<{
   IsModalAddProduct: boolean;
@@ -173,10 +193,9 @@ const schema = reactive({
     .max(100, "Voucher sản phẩm phải nhỏ hơn 100"),
   description: string().required("Mô tả sản phẩm không được bỏ trống"),
 });
-
 const handleUpdateProduct = (id: string) => {
-  // productStore.handleGetProductById(id);
   isModalUpdateProduct.value = true;
+  productStore.handleSetProductUpdate(id);
 };
 const handleCloseModalUpdateProduct = () => {
   isModalUpdateProduct.value = false;

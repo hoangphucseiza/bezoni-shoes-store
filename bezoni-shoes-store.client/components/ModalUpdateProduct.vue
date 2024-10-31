@@ -23,111 +23,97 @@
       >
       <!-- Modal panel -->
       <div
-        class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-headline"
+        class="flex flex-col fixed inset-0 my-8 mx-auto w-full max-h-fit max-w-3xl bg-white rounded-xl p-5 border gap-5"
       >
-        <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-          <div class="sm:flex sm:items-start">
-            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-              <h3
-                class="text-lg leading-6 font-medium text-gray-900"
-                id="modal-headline"
+        <div>
+          <h2 class="text-[20px] font-semibold text-center border-b pb-2">
+            Chỉnh sửa sản phẩm
+          </h2>
+        </div>
+        <div class="flex flex-col gap-5">
+          <!-- Product Name -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[20px] font-semibold text-start"
+              >Tên sản phẩm:</label
+            >
+            <input
+              type="text"
+              class="border border-gray-300 rounded-md p-2 w-full"
+              placeholder="Tên sản phẩm"
+              v-model="productUpdate.name"
+            />
+          </div>
+
+          <!-- Price -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[20px] font-semibold text-start"
+              >Giá sản phẩm:</label
+            >
+            <input
+              type="number"
+              class="border border-gray-300 rounded-md p-2 w-full"
+              placeholder="Giá sản phẩm"
+              v-model="productUpdate.price"
+            />
+          </div>
+
+          <!-- Voucher -->
+          <div class="flex flex-col gap-2 text-start">
+            <label class="text-[20px] font-semibold"
+              >Voucher sản phẩm (%):</label
+            >
+            <input
+              type="number"
+              class="border border-gray-300 rounded-md p-2 w-full"
+              placeholder="Voucher sản phẩm"
+              v-model="productUpdate.voucher"
+            />
+          </div>
+
+          <!-- Description -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[20px] font-semibold text-start">Mô tả:</label>
+            <input
+              type="text"
+              class="border border-gray-300 rounded-md p-2 w-full"
+              placeholder="Mô tả"
+              v-model="productUpdate.description"
+            />
+          </div>
+
+          <!-- Category -->
+          <div class="flex flex-col gap-2">
+            <label class="text-[20px] font-semibold text-start"
+              >Sản phẩm thuộc danh mục nào:</label
+            >
+            <select
+              class="border border-gray-300 rounded-md p-2"
+              v-model="productUpdate.categoryID"
+            >
+              <option value="" disabled>Chọn danh mục</option>
+              <option
+                v-for="category in categoryStore.categories"
+                :key="category.id"
+                :value="category.id"
               >
-                Update Product
-              </h3>
-              <div class="mt-2">
-                <form action="#" method="POST">
-                  <div class="grid grid-cols-1 gap-6">
-                    <div>
-                      <label
-                        for="name"
-                        class="block text-sm font-medium text-gray-700"
-                        >Name</label
-                      >
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        for="price"
-                        class="block text-sm font-medium text-gray-700"
-                        >Price</label
-                      >
-                      <input
-                        type="text"
-                        name="price"
-                        id="price"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        for="voucher"
-                        class="block text-sm font-medium text-gray-700"
-                        >Voucher</label
-                      >
-                      <input
-                        type="text"
-                        name="voucher"
-                        id="voucher"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        for="description"
-                        class="block text-sm font-medium text-gray-700"
-                        >Description</label
-                      >
-                      <input
-                        type="text"
-                        name="description"
-                        id="description"
-                        class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        for="category"
-                        class="block text-sm font-medium text-gray-700"
-                        >Category</label
-                      >
-                      <select
-                        id="category"
-                        name="category"
-                        autocomplete="category"
-                        class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                      >
-                        <option>Category 1</option>
-                        <option>Category 2</option>
-                        <option>Category 3</option>
-                      </select>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
+                {{ category.name }}
+              </option>
+            </select>
           </div>
         </div>
-        <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+        <div class="flex justify-center items-center gap-10 py-3 mt-5">
           <button
-            type="button"
-            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:ml-3 sm:w-auto sm:text-sm"
-          >
-            Update
-          </button>
-          <button
-            type="button"
-            class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
             @click="handleCloseModalUpdateProduct"
+            class="bg-[#000000df] text-white font-semibold py-2 px-4 rounded-md"
           >
-            Cancel
+            Đóng
+          </button>
+          <!-- Button Update -->
+          <button
+            class="bg-[#f36123df] text-white font-semibold py-2 px-4 rounded-md"
+            @click="handleUpdateProduct"
+          >
+            Cập nhật
           </button>
         </div>
       </div>
@@ -135,12 +121,28 @@
   </div>
 </template>
 
-<script setup lang="ts">
+  <script setup lang="ts">
+import { number, string } from "yup";
+import type { IProductUpdate } from "~/interface/RequestBody/IProductUpdate";
+import { useCategoryStore } from "~/store/categoryStore";
+import { useProductStore } from "~/store/productStore";
+
 const props = defineProps<{
   isModalUpdateProduct: boolean;
-  handleCloseModalUpdateProduct: () => void;
+  handleCloseModalUpdateProduct: () => void;	
 }>();
-</script>
 
-<style scoped>
+const handleUpdateProduct = () => {
+  console.log(productUpdate.value);
+};
+
+const productStore = useProductStore();
+const categoryStore = useCategoryStore();
+
+const productUpdate = computed(
+  () => productStore.productUpdate
+) as Ref<IProductUpdate>;
+</script> 
+
+  <style scoped>
 </style>

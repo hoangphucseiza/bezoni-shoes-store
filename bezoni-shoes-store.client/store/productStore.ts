@@ -6,19 +6,36 @@ import { useAlertStore } from "./alertStore";
 import { useAuthStore } from "./authStore";
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 import type { IErrorSystem } from "~/interface/ErrorResponse/IErrorSystem";
+import type { IProductUpdate } from "~/interface/RequestBody/IProductUpdate";
 
 export const useProductStore = defineStore("productStore", () => {
   // Initial state
   const products = ref<IProduct[]>([]);
-  const productUpdate = ref<IProduct | null>(null);
-
+  const productUpdate = ref<IProductUpdate>();
   const alertStore = useAlertStore();
   const authStore = useAuthStore();
 
   // Actions
 
-  const handleSetProductUpdate = (product: IProduct) => {
-    productUpdate.value = product;
+  const handleSetProductUpdate = async (id: string) => {
+    try {
+      alertStore.handleLoadingPage(true);
+      const accessToken = authStore.user.token;
+      const product = (await callApi(
+        `Admin/GetProductById?id=${id}`,
+        HttpMethods.GET,
+        null,
+        accessToken
+      )) as IProductUpdate;
+      productUpdate.value = product;
+      alertStore.handleLoadingPage(false);
+    } catch (error: any) {
+      if (error.response) {
+        const errorData: IErrorSystem = error.response._data;
+        alertStore.handleLoadingPage(false);
+        alertStore.handleOpenErrorToast(errorData.title);
+      }
+    }
   };
   const handleAddProduct = async (product: IAddProductBody) => {
     try {

@@ -6,6 +6,7 @@ using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetCategoryByName;
+using bezoni_shoes_store.Application.AdminCQRS.Queries.GetProductByID;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetRoleByAccessToken;
 using bezoni_shoes_store.Contracts.Category;
 using bezoni_shoes_store.Domain.Entities;
@@ -109,6 +110,14 @@ namespace bezoni_shoes_store.Server.Controllers
         {
             var command = new DeleteProductCommand(id);
             var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetProductByID")]
+        public async Task<IActionResult> GetProductByID([FromQuery] string id)
+        {
+            var query = new GetProductByIDQuery(id);
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
     }
