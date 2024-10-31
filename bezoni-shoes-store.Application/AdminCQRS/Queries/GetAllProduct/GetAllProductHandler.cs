@@ -17,15 +17,15 @@ namespace bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllProduct
         }
         public async Task<List<GetAllProductResult>> Handle(GetAllProductQuery request, CancellationToken cancellationToken)
         {
-            var cacheProducts = _cacheService.GetData<List<GetAllProductResult>>("products");
+            //var cacheProducts = _cacheService.GetData<List<GetAllProductResult>>("products");
 
-            if (cacheProducts != null && cacheProducts.Count() > 0)
-            {
-                return cacheProducts;
-            }
+            //if (cacheProducts != null && cacheProducts.Count() > 0)
+            //{
+            //    return cacheProducts;
+            //}
             var products = await _productRepository.GetAllProductWithCategoryName();
-            var expriryTime = DateTime.Now.AddMinutes(2);
-            _cacheService.SetData<List<GetAllProductResult>>("products", products, expriryTime);
+            //var expriryTime = DateTime.Now.AddMinutes(2);
+            //_cacheService.SetData<List<GetAllProductResult>>("products", products, expriryTime);
             return products;
 
         }

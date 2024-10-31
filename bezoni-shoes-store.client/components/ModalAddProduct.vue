@@ -82,14 +82,14 @@
           <div class="flex items-center gap-5">
             <div class="font-semibold text-[20px]">Danh sách sản phẩm:</div>
             <!-- Search -->
-            <div class="flex flex-row gap-2">
+            <!-- <div class="flex flex-row gap-2">
               <input
                 type="text"
                 class="border border-gray-300 rounded-md p-2 w-full"
                 placeholder="Tìm kiếm sản phẩm"
                 v-model="search"
               />
-            </div>
+            </div> -->
           </div>
           <div
             class="flex flex-col gap-2 border p-3 rounded-xl overflow-y-scroll max-h-[200px]"
@@ -104,33 +104,43 @@
               <div class="w-[200px] font-semibold">Danh mục</div>
               <div class="w-[200px] font-semibold">Chức năng</div>
             </div>
-            <div
-              v-for="(product, index) in filteredProducts"
-              :key="index"
-              class="flex flex-row gap-2"
-            >
-              <div class="w-[100px]">{{ index + 1 }}</div>
-              <div class="w-[200px]">{{ product.name }}</div>
-              <div class="w-[100px]">
-                {{ commonStore.formatPrice(product.price) }}đ
-              </div>
-              <div class="w-[100px]">{{ product.voucher }}</div>
-              <div class="w-[200px]">{{ product.description }}</div>
-              <div class="w-[200px]">{{ product.categoryName }}</div>
-              <div class="w-[200px] flex gap-4">
-                <div
-                  class="text-white bg-[#F36123] p-1 rounded-md cursor-pointer"
-                  @click="handleUpdateProduct(product.id)"
-                >
-                  Sửa
+            <div class="flex flex-col gap-2" v-if="listProduct">
+              <div
+                v-for="(product, index) in listProduct"
+                :key="index"
+                class="flex flex-row gap-2"
+              >
+                <div class="w-[100px]">{{ index + 1 }}</div>
+                <div class="w-[200px]">{{ product.name }}</div>
+                <div class="w-[100px]">
+                  {{ commonStore.formatPrice(product.price) }}đ
                 </div>
-                <div
-                  class="text-white bg-[#F36123] p-1 rounded-md cursor-pointer"
-                  @click="handleDeleteProduct(product.id, product.name)"
-                >
-                  Xóa
+                <div class="w-[100px]">{{ product.voucher }}</div>
+                <div class="w-[200px]">{{ product.description }}</div>
+                <div class="w-[200px]">{{ product.categoryName }}</div>
+                <div class="w-[200px] flex gap-4">
+                  <div
+                    class="text-white bg-[#F36123] p-1 rounded-md cursor-pointer"
+                    @click="handleUpdateProduct(product.id)"
+                  >
+                    Sửa
+                  </div>
+                  <div
+                    class="text-white bg-[#F36123] p-1 rounded-md cursor-pointer"
+                    @click="handleDeleteProduct(product.id, product.name)"
+                  >
+                    Xóa
+                  </div>
                 </div>
               </div>
+            </div>
+
+            <!-- ICon Loading -->
+            <div v-else class="flex justify-center">
+              <Icon
+                name="line-md:loading-loop"
+                class="text-[#f36123df] text-[30px] cursor-pointer"
+              />
             </div>
           </div>
         </div>
@@ -146,42 +156,64 @@
     />
   </div>
 </template>
-    
-    <script setup lang="ts">
-import { defineProps } from "vue";
+<script setup lang="ts">
+import { defineProps, ref, computed, onMounted, watch, reactive } from "vue";
 import { Form, Field, ErrorMessage, useForm } from "vee-validate";
-import { string, object, number } from "yup";
+import { string, number } from "yup";
 import { useAuthStore } from "~/store/authStore";
-import type { IErrorSystem } from "~/interface/ErrorResponse/IErrorSystem";
 import { useAlertStore } from "~/store/alertStore";
-
 import { useCategoryStore } from "~/store/categoryStore";
-import type { IAddProductBody } from "~/interface/RequestBody/IAddProductBody";
 import { useProductStore } from "~/store/productStore";
 import { useCommonStore } from "~/store/commonStore";
-
-const search = ref<string>("");
-// When user change the search input, we will filter the list of products
-const filteredProducts = computed(() => {
-  return listProduct.value.filter((product) =>
-    product.name.toLowerCase().includes(search.value.toLowerCase())
-  );
-});
+import type { IAddProductBody } from "~/interface/RequestBody/IAddProductBody";
 
 // Định nghĩa các props của component
 const props = defineProps<{
   IsModalAddProduct: boolean;
   handleCloseModalAddProduct: () => void;
 }>();
+
+// Store
+const authStore = useAuthStore();
+const alertStore = useAlertStore();
 const categoryStore = useCategoryStore();
-const adminStore = useAuthStore();
+const productStore = useProductStore();
+const commonStore = useCommonStore();
+
+// State
+// const search = ref<string>("");
+// const filteredProducts = ref<any[]>([]);
+const selectedCategory = ref<string>("");
+const isModalUpdateProduct = ref(false);
+
+// Computed properties
 const listCategory = computed(() => categoryStore.categories);
 const listProduct = computed(() => productStore.products);
-onMounted(async () => {
+
+// Watchers
+// watch(
+//   () => listProduct.value,
+//   (newProducts) => {
+//     filteredProducts.value = newProducts.filter((product) =>
+//       product.name.toLowerCase().includes(search.value.toLowerCase())
+//     );
+//   },
+//   { immediate: true }
+// );
+
+// watch(search, (newSearch) => {
+//   filteredProducts.value = listProduct.value.filter((product) =>
+//     product.name.toLowerCase().includes(newSearch.toLowerCase())
+//   );
+// });
+
+// Lifecycle hooks
+watchEffect(async () => {
   await productStore.handleGetProducts();
   await categoryStore.getAllCategory();
 });
 
+// Validation schema
 const schema = reactive({
   productName: string().required("Tên sản phẩm không được bỏ trống"),
   price: number()
@@ -193,30 +225,30 @@ const schema = reactive({
     .max(100, "Voucher sản phẩm phải nhỏ hơn 100"),
   description: string().required("Mô tả sản phẩm không được bỏ trống"),
 });
+
+// Methods
+const { handleSubmit } = useForm({
+  validationSchema: schema,
+});
+
 const handleUpdateProduct = (id: string) => {
   isModalUpdateProduct.value = true;
   productStore.handleSetProductUpdate(id);
 };
+
 const handleCloseModalUpdateProduct = () => {
   isModalUpdateProduct.value = false;
 };
-const selectedCategory = ref<string>("");
+
 const handleDeleteProduct = async (id: string, name: string) => {
   const isConfirmed = window.confirm(
-    `Bạn có chắc chắn muốn cập nhật danh mục ${name} không?`
+    `Bạn có chắc chắn muốn xóa sản phẩm ${name} không?`
   );
   if (!isConfirmed) return; // Nếu người dùng nhấn Cancel thì dừng tại đây
   await productStore.handleDeleteProduct(id);
 };
-// Xử lý sự kiện gửi form
-const { handleSubmit } = useForm({
-  validationSchema: schema,
-});
-const isModalUpdateProduct = ref(false);
-const authStore = useAuthStore();
-const alertStore = useAlertStore();
-const commonStore = useCommonStore();
-const productStore = useProductStore();
+
+// Handle form submission
 const submitForm = handleSubmit(async (values) => {
   const product: IAddProductBody = {
     name: values.productName,
@@ -228,5 +260,3 @@ const submitForm = handleSubmit(async (values) => {
   await productStore.handleAddProduct(product);
 });
 </script>
-    
-    

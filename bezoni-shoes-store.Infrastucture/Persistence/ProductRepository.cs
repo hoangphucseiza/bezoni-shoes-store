@@ -109,6 +109,7 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
 
         public async Task<List<GetAllProductResult>> GetAllProductWithCategoryName()
         {
+            // Cách 1
             var result = new List<GetAllProductResult>();
 
 
@@ -127,12 +128,45 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
                 });
             }
             return result;
+
+            // Cách 2 với Aggregate
+
+            //var pipeline = new[]
+            //    {
+            //    new BsonDocument("$lookup", new BsonDocument
+            //    {
+            //        { "from", "category" }, // Tên collection cho danh mục
+            //        { "localField", "CategoryID" }, // Trường từ collection sản phẩm
+            //        { "foreignField", "_id" }, // Trường từ collection danh mục
+            //        { "as", "CategoryInfo" } // Tên trường đầu ra mảng
+            //    }),
+            //    new BsonDocument("$unwind", new BsonDocument("path", "$CategoryInfo")), // Làm phẳng mảng
+            //    new BsonDocument("$project", new BsonDocument
+            //    {
+            //        { "Id", "$_id" }, // Giữ lại Id sản phẩm
+            //        { "Name", "$Name" },
+            //        { "Description", "$Description" },
+            //        { "Price", "$Price" },
+            //        { "Voucher", "$Voucher" },
+            //        { "CategoryName", "$CategoryInfo.Name" } // Truy cập tên danh mục từ thông tin danh mục đã nối
+            //    })
+            //};
+
+            ////var result = await _productCollection.Aggregate<GetAllProductResult>(pipeline).ToListAsync();
+            //var result = await _productCollection.Aggregate<GetAllProductResult>(pipeline).ToListAsync();
+            //return result;
+            // End cách 2
         }
 
         public async Task DeleteProduct(string id)
         {
             await _productCollection.DeleteOneAsync(p => p.Id == id);
 
+        }
+
+        public async Task UpdateProduct(Product product)
+        {
+            await _productCollection.ReplaceOneAsync(p => p.Id == product.Id, product);
         }
     }
 }

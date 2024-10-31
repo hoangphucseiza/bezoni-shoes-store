@@ -92,10 +92,35 @@ export const useProductStore = defineStore("productStore", () => {
       }
     }
   };
+  const handleUpdateProduct = async (product: IProductUpdate) => {
+    try {
+      alertStore.handleLoadingPage(true);
+      const accessToken = authStore.user.token;
+      const updatedProduct = (await callApi(
+        "Admin/UpdateProduct",
+        HttpMethods.PUT,
+        product,
+        accessToken
+      )) as IProduct;
+      alertStore.handleLoadingPage(false);
+      console.log(updatedProduct);
+      const index = products.value.findIndex((p) => p.id === updatedProduct.id);
+      products.value[index] = updatedProduct;
+      alertStore.handleOpenSucessToast("Cập Nhật Sản Phẩm Thành Công");
+    } catch (error: any) {
+      if (error.response) {
+        const errorData: IErrorSystem = error.response._data;
+        alertStore.handleLoadingPage(false);
+        alertStore.handleOpenErrorToast(errorData.title);
+      }
+    }
+  };
+ 
   return {
     products,
     productUpdate,
     handleSetProductUpdate,
+    handleUpdateProduct,
     handleAddProduct,
     handleGetProducts,
     handleDeleteProduct,

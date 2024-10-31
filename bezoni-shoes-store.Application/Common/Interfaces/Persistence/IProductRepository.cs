@@ -21,5 +21,6 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
         Task<List<GetAllProductResult>> GetAllProductWithCategoryName();
 
         Task DeleteProduct(string id);
+        Task UpdateProduct(Product product);
     }
 }
