@@ -45,6 +45,8 @@ namespace bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllItem
                 result.Add(itemResult);
             }
             return result;
+
+
         }
     }
 }

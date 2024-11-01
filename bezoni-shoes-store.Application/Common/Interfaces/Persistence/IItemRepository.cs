@@ -13,5 +13,7 @@ namespace bezoni_shoes_store.Application.Common.Interfaces.Persistence
         Task<Item> GetItemByID(string itemID);
         Task<Item> UpdateItem(Item item);
 
+        Task<List<Item>> GetItemsByProductID(string productID);
+
     }
 }

@@ -7,6 +7,8 @@ import { useAlertStore } from "./alertStore";
 import { useAuthStore } from "./authStore";
 import type { IErrorSystem } from "~/interface/ErrorResponse/IErrorSystem";
 import type { IUpdateCategoryBody } from "~/interface/RequestBody/IUpdateCategoryBody";
+import { useProductStore } from "./productStore";
+import { useItemStore } from "./itemStore";
 
 export const useCategoryStore = defineStore("categoryStore", () => {
   // Initial state
@@ -79,6 +81,8 @@ export const useCategoryStore = defineStore("categoryStore", () => {
     }
     return category;
   };
+  const productStore = useProductStore();
+  const itemStore = useItemStore();
   // Delete category
   const handleDeleteCategory = async (id: string, name: string) => {
     const isConfirmed = window.confirm(
@@ -96,9 +100,28 @@ export const useCategoryStore = defineStore("categoryStore", () => {
       );
       alertStore.handleLoadingPage(false);
       alertStore.handleOpenSucessToast("Danh mục đã được xóa!");
+
+      const categoryName = categories.value.find(
+        (category) => category.id === id
+      )?.name;
       categories.value = categories.value.filter(
         (category) => category.id !== id
       );
+      var productDeletes = productStore.products.filter(
+        (product) => product.categoryName === categoryName
+      );
+
+      // Delete product
+      productStore.products = productStore.products.filter(
+        (product) => product.categoryName !== categoryName
+      );
+
+      // Delete item in productDeletes
+      for (let i = 0; i < productDeletes.length; i++) {
+        itemStore.items = itemStore.items.filter(
+          (item) => item.productName !== productDeletes[i].name
+        );
+      }
     } catch (error: any) {
       if (error.response) {
         const errorData: IErrorSystem = error.response._data;

@@ -55,5 +55,11 @@ namespace bezoni_shoes_store.Infrastucture.Persistence
             var result = await GetItemByID(item.Id);
             return result;
         }
+
+        public async Task<List<Item>> GetItemsByProductID(string productID)
+        {
+            var items = await _itemCollection.Find(c => c.ProductID == productID).ToListAsync();
+            return items;
+        }
     }
 }

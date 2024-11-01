@@ -67,7 +67,32 @@ export const useItemStore = defineStore("itemStore", () => {
       alertStore.handleLoadingPage(true);
       const accessToken = authStore.user.token;
       const item = (await callApi(
-        "Admin/GetAllItem",
+        `Admin/GetAllItemsPagination?pageSize=1&selectedCategory=0`,
+        HttpMethods.GET,
+        null,
+        accessToken
+      )) as IItemResponse[];
+      items.value = item;
+      alertStore.handleLoadingPage(false);
+    } catch (error: any) {
+      if (error.response) {
+        const errorData: IErrorSystem = error.response._data;
+        alertStore.handleLoadingPage(false);
+        alertStore.handleOpenErrorToast(errorData.title);
+      }
+    }
+  };
+
+  const handleSearchItem = async (
+    pageSize: number,
+    selectedCategory: string,
+    searchItem: string
+  ) => {
+    try {
+      alertStore.handleLoadingPage(true);
+      const accessToken = authStore.user.token;
+      const item = (await callApi(
+        `Admin/GetAllItemsPagination?pageSize=${pageSize}&selectedCategory=${selectedCategory}&searchItem=${searchItem}`,
         HttpMethods.GET,
         null,
         accessToken
@@ -134,6 +159,7 @@ export const useItemStore = defineStore("itemStore", () => {
   return {
     items,
     updateItem,
+    handleSearchItem,
     handleCreateItem,
     handleGetAllItem,
     handleDeleteItem,

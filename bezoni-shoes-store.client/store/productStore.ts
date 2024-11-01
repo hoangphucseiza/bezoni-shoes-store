@@ -7,6 +7,7 @@ import { useAuthStore } from "./authStore";
 import { callApi, HttpMethods } from "~/ApiConfig/fetchData";
 import type { IErrorSystem } from "~/interface/ErrorResponse/IErrorSystem";
 import type { IProductUpdate } from "~/interface/RequestBody/IProductUpdate";
+import { useItemStore } from "./itemStore";
 
 export const useProductStore = defineStore("productStore", () => {
   // Initial state
@@ -71,6 +72,8 @@ export const useProductStore = defineStore("productStore", () => {
       console.log(error);
     }
   };
+
+  const itemStore = useItemStore();
   const handleDeleteProduct = async (id: string) => {
     try {
       alertStore.handleLoadingPage(true);
@@ -82,7 +85,13 @@ export const useProductStore = defineStore("productStore", () => {
         accessToken
       );
       alertStore.handleLoadingPage(false);
+      const productDelete = products.value.find((product) => product.id === id);
       products.value = products.value.filter((product) => product.id !== id);
+
+      // Update item
+      itemStore.items = itemStore.items.filter(
+        (item) => item.productName !== productDelete?.name
+      );
       alertStore.handleOpenSucessToast("Xóa Sản Phẩm Thành Công");
     } catch (error: any) {
       if (error.response) {

@@ -9,6 +9,7 @@ using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateItem;
 using bezoni_shoes_store.Application.AdminCQRS.Commands.UpdateProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllCategory;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllItem;
+using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllItemPagination;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetAllProduct;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetCategoryByName;
 using bezoni_shoes_store.Application.AdminCQRS.Queries.GetItemByID;
@@ -179,6 +180,15 @@ namespace bezoni_shoes_store.Server.Controllers
         {
             var command = new UpdateItemCommand(item);
             var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("GetAllItemsPagination")]
+        public async Task<IActionResult> GetAllItemsPagination([FromQuery] int pageSize, [FromQuery] string? selectedCategory, [FromQuery] string searchItem = "")
+        {
+            var query = new GetAllItemPaginationQuery(pageSize, selectedCategory, searchItem);
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
     }

@@ -7,7 +7,10 @@
     >
       <div class="flex items-center gap-3">
         <div class="font-semibold">Danh mục</div>
-        <select class="border border-gray-300 rounded-md p-2">
+        <select
+          class="border border-gray-300 rounded-md p-2"
+          v-model="selectedCategory"
+        >
           <option value="0">Tất cả</option>
           <option
             v-for="(category, index) in listCategory"
@@ -21,10 +24,12 @@
           type="text"
           placeholder="Tìm kiếm sản phẩm Item"
           class="border min-w-[300px] border-gray-300 rounded-md p-2"
+          v-model="searchItem"
         />
         <!-- Button Tìm kiếm -->
         <div
           class="flex items-center gap-2 bg-[#F36123] text-white text-[15px] font-bold rounded-md p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
+          @click="handleSearchItem"
         >
           <div>Tìm kiếm</div>
         </div>
@@ -122,22 +127,22 @@
         </tbody>
       </table>
 
-      <!-- Phân trang -->
-      <div class="flex justify-center gap-5 mt-5">
+      <!-- pagination -->
+      <div class="flex justify-center items-center gap-5 mt-5">
         <div
-          class="bg-[#F36123] text-white text-[15px] font-bold rounded-md p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
+          class="flex items-center gap-2 bg-[#F36123] text-white text-[15px] font-bold rounded-md p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
+          @click="handlePreviousPage"
         >
           <div>Trang trước</div>
         </div>
         <div
-          class="bg-[#F36123] text-white text-[15px] font-bold rounded-md p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
+          class="flex items-center gap-2 bg-[#F36123] text-white text-[15px] font-bold rounded-md p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
         >
-          <div>1</div>
+          <div>{{ pagination }}</div>
         </div>
-
-        <!-- More page -->
         <div
-          class="bg-[#F36123] text-white text-[15px] font-bold rounded-md p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
+          class="flex items-center gap-2 bg-[#F36123] text-white text-[15px] font-bold rounded-md p-2 cursor-pointer hover:bg-[#f36123df] hover:shadow-xl"
+          @click="handleNextPage"
         >
           <div>Trang sau</div>
         </div>
@@ -212,6 +217,35 @@ const handleDeleteItem = async (id: string) => {
   const isConfirm = window.confirm("Bạn có chắc chắn muốn xóa item này không?");
   if (!isConfirm) return;
   await itemStore.handleDeleteItem(id);
+};
+
+const selectedCategory = ref("0");
+const searchItem = ref("");
+const pagination = ref(1);
+
+const handleNextPage = async () => {
+  pagination.value += 1;
+  await itemStore.handleSearchItem(
+    pagination.value,
+    selectedCategory.value,
+    searchItem.value
+  );
+};
+const handlePreviousPage = async () => {
+  if (pagination.value === 1) return;
+  pagination.value -= 1;
+  await itemStore.handleSearchItem(
+    pagination.value,
+    selectedCategory.value,
+    searchItem.value
+  );
+};
+const handleSearchItem = async () => {
+  await itemStore.handleSearchItem(
+    pagination.value,
+    selectedCategory.value,
+    searchItem.value
+  );
 };
 
 onMounted(async () => {
